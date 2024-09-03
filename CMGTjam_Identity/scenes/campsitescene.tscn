@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0nqoio58wjnn"]
+[gd_scene load_steps=19 format=3 uid="uid://d0nqoio58wjnn"]
 
 [ext_resource type="Texture2D" uid="uid://clv04yohgmy0d" path="res://sprites/Tiles_Field.png" id="1_wcp8f"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_od65o"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://fx1ybp4wwhxr" path="res://sprites/Spar_tree.png" id="7_66d7p"]
 [ext_resource type="Texture2D" uid="uid://byoiiu0c4i3o5" path="res://sprites/Tent.png" id="8_q0f7y"]
 [ext_resource type="Texture2D" uid="uid://ccdbvayyvebwa" path="res://sprites/TentBack.png" id="9_lpa3y"]
+[ext_resource type="Texture2D" uid="uid://cxuymy7vfom5l" path="res://sprites/Grounditems-1.png" id="10_melc3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hak4h"]
 texture = ExtResource("1_wcp8f")
@@ -66,15 +67,20 @@ sources/0 = SubResource("TileSetAtlasSource_cfkfq")
 position = Vector2(9, 4)
 
 [node name="Interactable" parent="." instance=ExtResource("6_a58hu")]
-position = Vector2(270, 49)
+z_index = 1
+position = Vector2(302, 95)
 objectname = "Your cellphone"
 interacttext1 = "*1 Message from Mika*"
 interacttext2 = "Yo Eddie."
 interacttext3 = "Come to the cabin."
 interacttext4 = "the whole gang is here"
 interacttext5 = "we found something cool"
-interacttext6 = "you better hurry bitchboy."
+interacttext6 = "you better hurry loser"
 int_maxlines = 6
+metadata/_edit_group_ = true
+
+[node name="Grounditems-1" type="Sprite2D" parent="Interactable"]
+texture = ExtResource("10_melc3")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -128,16 +134,16 @@ position = Vector2(63, 258)
 texture = ExtResource("9_lpa3y")
 
 [node name="player" parent="ySORT" instance=ExtResource("2_od65o")]
-y_sort_enabled = true
 position = Vector2(127, 106)
 
 [node name="TileMap2" type="TileMap" parent="ySORT"]
+visible = false
 modulate = Color(1, 1, 1, 0.117647)
 tile_set = SubResource("TileSet_vlx05")
 format = 2
 layer_0/tile_data = PackedInt32Array(65536, 0, 0, 1, 0, 0, 65538, 0, 0, -65534, 0, 0, -65536, 0, 0, 3, 0, 0, -65532, 0, 0, 65540, 0, 0, 131073, 0, 0, 131075, 0, 0)
 
-[node name="TileMap3" type="TileMap" parent="ySORT"]
+[node name="Woodtiles" type="TileMap" parent="ySORT"]
 tile_set = SubResource("TileSet_qpg0k")
 format = 2
 layer_0/tile_data = PackedInt32Array(1376298, 0, 0, 1376299, 0, 0, 1376300, 0, 0, 1376301, 0, 0, 1376302, 0, 0, 1376303, 0, 0, 1376304, 0, 0, 1376305, 0, 0, 1376306, 0, 0, 1376307, 0, 0, 1376308, 0, 0, 1376309, 0, 0, 1376310, 0, 0, 1376311, 0, 0, 1376312, 0, 0, 1376313, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1441836, 0, 0, 1441837, 0, 0, 1441838, 0, 0, 1441839, 0, 0, 1441840, 0, 0, 1441841, 0, 0, 1441842, 0, 0, 1441843, 0, 0, 1441844, 0, 0, 1441845, 0, 0, 1441846, 0, 0, 1441847, 0, 0, 1441848, 0, 0, 1441849, 0, 0, 1441833, 65536, 0, 1376297, 65536, 0, 1376314, 65536, 0, 1441850, 65536, 0, 1310761, 131072, 0, 1310778, 131072, 0)
@@ -149,4 +155,4 @@ texture_filter = 1
 tile_set = SubResource("TileSet_o7l37")
 format = 2
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(9, 0, 0, 11, 0, 0, 13, 0, 0, -65524, 0, 0, -65526, 0, 0, -65522, 0, 0, 15, 0, 0, 17, 0, 0, -65520, 0, 0, 19, 0, 0, -65518, 0, 0, -65516, 0, 0, -131052, 0, 0, -196588, 0, 0, -262124, 0, 0, -327660, 0, 0, -393196, 0, 0, -393194, 0, 0, -393192, 0, 0, -393190, 0, 0, -393188, 0, 0, -65528, 0, 0, -65530, 0, 0, -65532, 0, 0, -65534, 0, 0, -65536, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 327679, 0, 0, 262143, 0, 0, 393215, 0, 0, 327689, 0, 0, 524287, 0, 0, 458751, 0, 0, 589823, 0, 0, 589824, 0, 0, 524288, 0, 0, 589825, 0, 0, 589826, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589832, 0, 0, 524297, 0, 0, 589833, 0, 0, 458761, 0, 0, 393225, 0, 0, -65535, 0, 0, 0, 0, 0, 655363, 0, 0, 655367, 0, 0, 655362, 0, 0, 393227, 0, 0, 327692, 0, 0, 327694, 0, 0, 393232, 0, 0, 327697, 0, 0, 393234, 0, 0, 524306, 0, 0, 458770, 0, 0, 589843, 0, 0, 655379, 0, 0, 655377, 0, 0, 655375, 0, 0, 589840, 0, 0, 524303, 0, 0, 458768, 0, 0, 458766, 0, 0, 524300, 0, 0, 589837, 0, 0, 655371, 0, 0, 458764, 0, 0, 393229, 0, 0, 655373, 0, 0, 589834, 0, 0, 524299, 0, 0, 458762, 0, 0, 393231, 0, 0, 524302, 0, 0, 524305, 0, 0, 262155, 0, 0, 196622, 0, 0, 262161, 0, 0, 196620, 0, 0, 262163, 0, 0, 262159, 0, 0, 262157, 0, 0, 196624, 0, 0, 196626, 0, 0, 196618, 0, 0, 327690, 0, 0)
+layer_0/tile_data = PackedInt32Array(9, 0, 0, 11, 0, 0, 13, 0, 0, -65524, 0, 0, -65526, 0, 0, -65522, 0, 0, 15, 0, 0, 17, 0, 0, -65520, 0, 0, 19, 0, 0, -65518, 0, 0, -65516, 0, 0, -131052, 0, 0, -196588, 0, 0, -262124, 0, 0, -327660, 0, 0, -393196, 0, 0, -393194, 0, 0, -393192, 0, 0, -393190, 0, 0, -393188, 0, 0, -65528, 0, 0, -65530, 0, 0, -65532, 0, 0, -65534, 0, 0, -65536, 0, 0, 131071, 0, 0, 196607, 0, 0, 327679, 0, 0, 262143, 0, 0, 393215, 0, 0, 524287, 0, 0, 458751, 0, 0, 589823, 0, 0, 589824, 0, 0, 524288, 0, 0, 589825, 0, 0, 589826, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589832, 0, 0, 524297, 0, 0, 393225, 0, 0, 655363, 0, 0, 655367, 0, 0, 655362, 0, 0, 393227, 0, 0, 327694, 0, 0, 458770, 0, 0, 655379, 0, 0, 655377, 0, 0, 655375, 0, 0, 589840, 0, 0, 458768, 0, 0, 655371, 0, 0, 458764, 0, 0, 655373, 0, 0, 589834, 0, 0, 524299, 0, 0, 458762, 0, 0, 393231, 0, 0, 524305, 0, 0, 196622, 0, 0, 262161, 0, 0, 196620, 0, 0, 262163, 0, 0, 262159, 0, 0, 262157, 0, 0, 196624, 0, 0, 196626, 0, 0, 196618, 0, 0, 0, 0, 0, 3, 0, 0, 393235, 0, 0, 458772, 0, 0, 524307, 0, 0, -393186, 0, 0, -393184, 0, 0, -393182, 0, 0, -393180, 0, 0, -393178, 0, 0, -327641, 0, 0, -262106, 0, 0, -196569, 0, 0, -131033, 0, 0, -65496, 0, 0, 39, 0, 0, 65576, 0, 0, 131111, 0, 0, 196647, 0, 0, 262182, 0, 0, 327719, 0, 0, 262184, 0, 0, 327717, 0, 0, 262180, 0, 0, 327715, 0, 0, 327713, 0, 0, 327711, 0, 0, 393246, 0, 0, 327709, 0, 0, 262178, 0, 0, 262176, 0, 0, 262174, 0, 0, 196645, 0, 0, 458781, 0, 0, 524318, 0, 0, 524316, 0, 0, 327688, 0, 0, 327690, 0, 0, 524303, 0, 0, 524301, 0, 0, 327696, 0, 0, 327698, 0, 0, 327700, 0, 0, 393233, 0, 0, 589836, 0, 0, 589838, 0, 0, 589843, 0, 0)

@@ -21,26 +21,26 @@ var loadedline9 = ""
 func _process(delta):
 	if charsvis < 200 && global_dialogue_on == true:
 		charsvis += 0.5
-	$Textbox/Text.visible_characters = charsvis
-	$Textbox/Linenr.set_text(str(maxlines))
+	$UI/Textbox/Text.visible_characters = charsvis
+	$UI/Textbox/Linenr.set_text(str(maxlines))
 	if Input.is_action_just_pressed("interact") && global_dialogue_on == true:
 		nextLine()
 
 func setDialougueOn():
 	global_dialogue_on = true
-	$Textbox.visible = true
+	$UI/Textbox.visible = true
 
 func setDialougueOff():
 	$Timers/DisableDialogueTimer.start()
-	$Textbox.visible = false
+	$UI/Textbox.visible = false
 	linenr = 0
-	$Textbox/Text.visible_characters = 0
+	$UI/Textbox/Text.visible_characters = 0
 
 func setPersonSpeaking(p_s):
 	personspeaking = p_s
-	$Textbox/Name.set_text(str(personspeaking))
+	$UI/Textbox/Name.set_text(str(personspeaking))
 	if personspeaking == "Your cellphone":
-		$Textbox/CharPortraits.frame = 2
+		$UI/Textbox/CharPortraits.frame = 2
 
 func loadLines(ll1,ll2,ll3,ll4,ll5,ll6,ll7,ll8,ll9):
 	loadedline1 = ll1
@@ -57,23 +57,23 @@ func loadLines(ll1,ll2,ll3,ll4,ll5,ll6,ll7,ll8,ll9):
 func nextLine():
 	linenr += 1
 	if linenr == 1:
-		$Textbox/Text.set_text(str(loadedline1))
+		$UI/Textbox/Text.set_text(str(loadedline1))
 	if linenr == 2:
-		$Textbox/Text.set_text(str(loadedline2))
+		$UI/Textbox/Text.set_text(str(loadedline2))
 	if linenr == 3:
-		$Textbox/Text.set_text(str(loadedline3))
+		$UI/Textbox/Text.set_text(str(loadedline3))
 	if linenr == 4:
-		$Textbox/Text.set_text(str(loadedline4))
+		$UI/Textbox/Text.set_text(str(loadedline4))
 	if linenr == 5:
-		$Textbox/Text.set_text(str(loadedline5))
+		$UI/Textbox/Text.set_text(str(loadedline5))
 	if linenr == 6:
-		$Textbox/Text.set_text(str(loadedline6))
+		$UI/Textbox/Text.set_text(str(loadedline6))
 	if linenr == 7:
-		$Textbox/Text.set_text(str(loadedline7))
+		$UI/Textbox/Text.set_text(str(loadedline7))
 	if linenr == 8:
-		$Textbox/Text.set_text(str(loadedline8))
+		$UI/Textbox/Text.set_text(str(loadedline8))
 	if linenr == 9:
-		$Textbox/Text.set_text(str(loadedline9))
+		$UI/Textbox/Text.set_text(str(loadedline9))
 	
 	if linenr > maxlines:
 		setDialougueOff()

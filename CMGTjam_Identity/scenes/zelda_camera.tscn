@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv6fyq1dd2d22"]
+[gd_scene load_steps=6 format=3 uid="uid://bv6fyq1dd2d22"]
 
 [ext_resource type="Script" path="res://scripts/zelda_camera.gd" id="1_ccya8"]
+[ext_resource type="Texture2D" uid="uid://c4dl4wyskplk8" path="res://sprites/raindrop.png" id="2_0khsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qb64g"]
 size = Vector2(320, 180)
+
+[sub_resource type="Gradient" id="Gradient_xma7s"]
+offsets = PackedFloat32Array(0, 0.2, 0.813333, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_41cn8"]
+colors = PackedColorArray(0.460161, 0.602337, 0.666319, 1, 1, 1, 1, 1)
 
 [node name="ZeldaCamera" type="Camera2D"]
 anchor_mode = 0
@@ -15,3 +23,19 @@ script = ExtResource("1_ccya8")
 [node name="box" type="CollisionShape2D" parent="Cam_area"]
 position = Vector2(160, 90)
 shape = SubResource("RectangleShape2D_qb64g")
+
+[node name="Rain" type="CPUParticles2D" parent="."]
+z_index = 20
+position = Vector2(200, 60)
+amount = 40
+texture = ExtResource("2_0khsb")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 90)
+particle_flag_align_y = true
+direction = Vector2(-1, 1)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 500.0
+color_ramp = SubResource("Gradient_xma7s")
+color_initial_ramp = SubResource("Gradient_41cn8")

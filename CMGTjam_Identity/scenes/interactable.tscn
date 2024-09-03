@@ -4,11 +4,14 @@
 [ext_resource type="Script" path="res://scripts/interactable.gd" id="1_yfyjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0idfm"]
+size = Vector2(12, 12)
 
 [node name="Interactable" type="StaticBody2D" groups=["interactable"]]
+texture_filter = 1
 script = ExtResource("1_yfyjg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_d2ivo")
