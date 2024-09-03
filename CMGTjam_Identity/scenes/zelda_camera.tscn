@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv6fyq1dd2d22"]
+
+[ext_resource type="Script" path="res://scripts/zelda_camera.gd" id="1_ccya8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qb64g"]
+size = Vector2(320, 180)
+
+[node name="ZeldaCamera" type="Camera2D"]
+anchor_mode = 0
+position_smoothing_enabled = true
+script = ExtResource("1_ccya8")
+
+[node name="Cam_area" type="Area2D" parent="."]
+
+[node name="box" type="CollisionShape2D" parent="Cam_area"]
+position = Vector2(160, 90)
+shape = SubResource("RectangleShape2D_qb64g")

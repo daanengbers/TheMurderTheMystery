@@ -1,0 +1,162 @@
+[gd_scene load_steps=13 format=3 uid="uid://dset14xwga0y6"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_5n74w"]
+[ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="3_hm71m"]
+[ext_resource type="Texture2D" uid="uid://dvchs0q5vb1yi" path="res://sprites/Char_Eddie.png" id="4_iw11s"]
+
+[sub_resource type="Animation" id="Animation_xxlnn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_32b7v"]
+resource_name = "idle_d"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5jr4v"]
+resource_name = "idle_s"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_88yjw"]
+resource_name = "walk_d"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 0, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_x3m7f"]
+resource_name = "walk_s"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 3, 5, 3]
+}
+
+[sub_resource type="Animation" id="Animation_eqpqb"]
+resource_name = "walk_u"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 8, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlrk0"]
+_data = {
+"RESET": SubResource("Animation_xxlnn"),
+"idle_d": SubResource("Animation_32b7v"),
+"idle_s": SubResource("Animation_5jr4v"),
+"walk_d": SubResource("Animation_88yjw"),
+"walk_s": SubResource("Animation_x3m7f"),
+"walk_u": SubResource("Animation_eqpqb")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bjuv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_amhb7"]
+radius = 11.0
+
+[node name="player" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_5n74w")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.509804)
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 5)
+texture = ExtResource("3_hm71m")
+
+[node name="Char" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("4_iw11s")
+hframes = 3
+vframes = 3
+
+[node name="Anim" type="AnimationPlayer" parent="Char"]
+libraries = {
+"": SubResource("AnimationLibrary_rlrk0")
+}
+
+[node name="Interactbox" type="Area2D" parent="."]
+
+[node name="box" type="CollisionShape2D" parent="Interactbox"]
+position = Vector2(27, 0)
+shape = SubResource("RectangleShape2D_2bjuv")
+disabled = true
+
+[node name="Collisionbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_amhb7")
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="InteractboxTimer" type="Timer" parent="Timers"]
+wait_time = 0.05
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_top = -37.0
+offset_right = 40.0
+offset_bottom = -14.0
+text = "1"
+
+[connection signal="body_entered" from="Interactbox" to="." method="_on_interactbox_body_entered"]
+[connection signal="timeout" from="Timers/InteractboxTimer" to="." method="_on_interactbox_timer_timeout"]

@@ -1,0 +1,143 @@
+[gd_scene load_steps=12 format=3 uid="uid://dxth427bfrdlh"]
+
+[ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_7l4sl"]
+[ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_dpgwm"]
+[ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="2_70bfv"]
+[ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="3_we6tw"]
+[ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="4_pcncl"]
+[ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="6_x2pkk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
+texture = ExtResource("3_we6tw")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_i03bi"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4f1dm")
+
+[sub_resource type="Animation" id="Animation_7n6v1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_87juh"]
+resource_name = "thunder"
+length = 8.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 6.05, 6.1, 6.15, 6.2, 6.25, 6.3, 6.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2883"]
+_data = {
+"RESET": SubResource("Animation_7n6v1"),
+"thunder": SubResource("Animation_87juh")
+}
+
+[node name="Mainscene" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_dpgwm")
+
+[node name="player" parent="." instance=ExtResource("1_7l4sl")]
+position = Vector2(78, 92)
+
+[node name="Interactable" parent="." instance=ExtResource("2_70bfv")]
+position = Vector2(168, 73)
+int_maxlines = 1
+
+[node name="Interactable2" parent="." instance=ExtResource("2_70bfv")]
+position = Vector2(166, 126)
+objectname = "Tree"
+int_maxlines = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+texture_filter = 1
+tile_set = SubResource("TileSet_i03bi")
+format = 2
+layer_0/tile_data = PackedInt32Array(589832, 327680, 0, 589833, 327680, 0, 589828, 327680, 0, 589829, 327680, 0, 589830, 327680, 0, 589831, 327680, 0, 589834, 327680, 0, 589835, 327680, 536870912, 589836, 327680, 536870912, 589837, 327680, 536870912, 589838, 327680, 536870912, 589839, 327680, 0, 524303, 327680, 536870912, 524302, 327680, 536870912, 524301, 327680, 536870912, 524300, 327680, 536870912, 524299, 327680, 536870912, 524298, 327680, 0, 524297, 327680, 536870912, 524296, 327680, 0, 524295, 327680, 0, 524294, 327680, 0, 524293, 327680, 536870912, 524292, 327680, 536870912, 458756, 327680, 0, 458757, 327680, 0, 458758, 327680, 536870912, 458759, 327680, 536870912, 458760, 327680, 536870912, 458761, 327680, 536870912, 458762, 327680, 536870912, 458763, 327680, 536870912, 458764, 327680, 0, 458765, 327680, 536870912, 458766, 327680, 536870912, 458767, 327680, 536870912, 393231, 327680, 0, 393230, 327680, 0, 393229, 327680, 536870912, 393228, 327680, 536870912, 393227, 327680, 536870912, 393226, 327680, 536870912, 393225, 327680, 536870912, 393224, 327680, 0, 393223, 327680, 0, 393222, 327680, 0, 393221, 327680, 536870912, 393220, 327680, 536870912, 327684, 327680, 0, 327685, 327680, 0, 327686, 327680, 0, 327687, 327680, 0, 327688, 327680, 0, 327689, 327680, 536870912, 327690, 327680, 536870912, 327691, 327680, 536870912, 327692, 327680, 536870912, 327693, 327680, 536870912, 327694, 327680, 536870912, 327695, 327680, 536870912, 262159, 327680, 536870912, 262158, 327680, 536870912, 262157, 327680, 536870912, 262156, 327680, 536870912, 262155, 327680, 536870912, 262154, 327680, 536870912, 262153, 327680, 536870912, 262152, 327680, 536870912, 262151, 327680, 0, 262150, 327680, 536870912, 262149, 327680, 0, 262148, 327680, 536870912, 262146, 327680, 536870912, 327682, 327680, 0, 393218, 327680, 536870912, 458754, 327680, 536870912, 524290, 327680, 0, 589826, 327680, 536870912, 262145, 65536, 0, 327681, 65536, 0, 393217, 65536, 0, 458753, 65536, 0, 524289, 262144, 0, 589825, 262144, 0, 655361, 196608, 0, 262161, 327680, 536870912, 327697, 327680, 536870912, 393233, 327680, 0, 458769, 327680, 536870912, 524305, 327680, 536870912, 589841, 327680, 536870912, 262162, 65536, 0, 327698, 65536, 0, 393234, 65536, 0, 458770, 65536, 0, 524306, 262144, 0, 589842, 262144, 0, 655378, 196608, 0, 262147, 327680, 536870912, 327683, 327680, 536870912, 393219, 327680, 536870912, 458755, 327680, 536870912, 524291, 327680, 536870912, 589827, 327680, 536870912, 262160, 327680, 536870912, 327696, 327680, 536870912, 393232, 327680, 536870912, 458768, 327680, 536870912, 524304, 327680, 536870912, 589840, 327680, 536870912, 65537, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, 65538, 0, 268435456, 131074, 0, 268435456, 196610, 0, 0, 65539, 0, 268435456, 131075, 0, 268435456, 196611, 0, 268435456, 65540, 0, 0, 131076, 0, 0, 196612, 0, 268435456, 65541, 0, 268435456, 131077, 0, 0, 196613, 0, 268435456, 65542, 0, 268435456, 131078, 0, 268435456, 196614, 0, 268435456, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 65544, 0, 268435456, 131080, 0, 268435456, 196616, 0, 268435456, 65545, 0, 0, 131081, 0, 0, 196617, 0, 268435456, 65546, 0, 268435456, 131082, 0, 268435456, 196618, 0, 268435456, 65547, 0, 268435456, 131083, 0, 268435456, 196619, 0, 268435456, 65548, 0, 0, 131084, 0, 268435456, 196620, 0, 0, 65549, 0, 268435456, 131085, 0, 0, 196621, 0, 268435456, 65550, 0, 268435456, 131086, 0, 268435456, 196622, 0, 0, 65551, 0, 0, 131087, 0, 268435456, 196623, 0, 268435456, 65552, 0, 0, 131088, 0, 268435456, 196624, 0, 268435456, 65553, 0, 268435456, 131089, 0, 268435456, 196625, 0, 0, 65554, 65536, 0, 131090, 65536, 0, 196626, 65536, 0, 1, 131072, 0, 18, 131072, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0)
+
+[node name="BG" type="ColorRect" parent="."]
+z_index = -5
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.0980392, 0.113725, 0.184314, 1)
+
+[node name="Window" type="Sprite2D" parent="."]
+position = Vector2(120, 39)
+texture = ExtResource("4_pcncl")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window"]
+libraries = {
+"": SubResource("AnimationLibrary_b2883")
+}
+
+[node name="Window2" type="Sprite2D" parent="."]
+position = Vector2(211, 39)
+texture = ExtResource("4_pcncl")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window2"]
+libraries = {
+"": SubResource("AnimationLibrary_b2883")
+}
+
+[node name="Window3" type="Sprite2D" parent="."]
+position = Vector2(251, 39)
+texture = ExtResource("4_pcncl")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window3"]
+libraries = {
+"": SubResource("AnimationLibrary_b2883")
+}
+
+[node name="CabinDoor" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(56, 42)
+texture = ExtResource("6_x2pkk")
