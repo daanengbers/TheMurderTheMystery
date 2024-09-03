@@ -24,6 +24,7 @@ func _process(delta):
 	$UI/Textbox/Text.visible_characters = charsvis
 	$UI/Textbox/Linenr.set_text(str(maxlines))
 	if Input.is_action_just_pressed("interact") && global_dialogue_on == true:
+		charsvis = 0
 		nextLine()
 
 func setDialougueOn():
@@ -35,12 +36,19 @@ func setDialougueOff():
 	$UI/Textbox.visible = false
 	linenr = 0
 	$UI/Textbox/Text.visible_characters = 0
+	$UI/Textbox/Text.modulate = Color(1,1,1)
 
 func setPersonSpeaking(p_s):
 	personspeaking = p_s
 	$UI/Textbox/Name.set_text(str(personspeaking))
 	if personspeaking == "Your cellphone":
 		$UI/Textbox/CharPortraits.frame = 2
+	elif personspeaking == "Sleeping Teacher":
+		$UI/Textbox/CharPortraits.frame = 3
+	elif personspeaking == "Letter":
+		$UI/Textbox/CharPortraits.frame = 4
+	else:
+		$UI/Textbox/CharPortraits.frame = 0
 
 func loadLines(ll1,ll2,ll3,ll4,ll5,ll6,ll7,ll8,ll9):
 	loadedline1 = ll1
@@ -55,6 +63,7 @@ func loadLines(ll1,ll2,ll3,ll4,ll5,ll6,ll7,ll8,ll9):
 	
 
 func nextLine():
+	charsvis = 1
 	linenr += 1
 	if linenr == 1:
 		$UI/Textbox/Text.set_text(str(loadedline1))
@@ -77,7 +86,7 @@ func nextLine():
 	
 	if linenr > maxlines:
 		setDialougueOff()
-	charsvis = 0
+	
 
 
 func _on_disable_dialogue_timer_timeout():
