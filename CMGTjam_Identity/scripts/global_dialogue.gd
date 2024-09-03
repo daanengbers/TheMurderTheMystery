@@ -39,6 +39,8 @@ func setDialougueOff():
 func setPersonSpeaking(p_s):
 	personspeaking = p_s
 	$Textbox/Name.set_text(str(personspeaking))
+	if personspeaking == "Your cellphone":
+		$Textbox/CharPortraits.frame = 2
 
 func loadLines(ll1,ll2,ll3,ll4,ll5,ll6,ll7,ll8,ll9):
 	loadedline1 = ll1

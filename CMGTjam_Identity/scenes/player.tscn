@@ -114,6 +114,7 @@ radius = 11.0
 
 [node name="player" type="CharacterBody2D"]
 z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_5n74w")
 
 [node name="Shadow" type="Sprite2D" parent="."]
