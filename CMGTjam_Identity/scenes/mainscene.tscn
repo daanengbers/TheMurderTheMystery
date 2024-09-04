@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dxth427bfrdlh"]
+[gd_scene load_steps=13 format=3 uid="uid://dxth427bfrdlh"]
 
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_7l4sl"]
 [ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_dpgwm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="3_we6tw"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="4_pcncl"]
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="6_x2pkk"]
+[ext_resource type="Texture2D" uid="uid://1pjrhrbkuh8q" path="res://sprites/Ritual.png" id="7_wt16y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
 texture = ExtResource("3_we6tw")
@@ -141,3 +142,7 @@ libraries = {
 z_index = -1
 position = Vector2(56, 42)
 texture = ExtResource("6_x2pkk")
+
+[node name="Ritual" type="Sprite2D" parent="."]
+position = Vector2(210, 109)
+texture = ExtResource("7_wt16y")
