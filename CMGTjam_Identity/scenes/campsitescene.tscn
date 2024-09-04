@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d0nqoio58wjnn"]
+[gd_scene load_steps=40 format=3 uid="uid://d0nqoio58wjnn"]
 
 [ext_resource type="Script" path="res://scripts/campsitescene.gd" id="1_kp6vi"]
 [ext_resource type="Texture2D" uid="uid://clv04yohgmy0d" path="res://sprites/Tiles_Field.png" id="1_wcp8f"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="16_6g3ru"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="17_yvshn"]
 [ext_resource type="Texture2D" uid="uid://dfuba3cl7cu71" path="res://sprites/SignsMainBuilding.png" id="18_qbvah"]
+[ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="20_8nxqd"]
 [ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="20_55qyq"]
 
 [sub_resource type="Animation" id="Animation_c43im"]
@@ -173,6 +174,8 @@ size = Vector2(32, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgomv"]
 size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwpa6"]
 
 [node name="Campsitescene" type="Node2D"]
 texture_filter = 1
@@ -518,4 +521,15 @@ texture = ExtResource("18_qbvah")
 position = Vector2(891, 54)
 texture = ExtResource("20_55qyq")
 
+[node name="LoadAnotherScene" type="Area2D" parent="."]
+position = Vector2(276, 267)
+scale = Vector2(2.56, 2.88)
+script = ExtResource("20_8nxqd")
+SceneToLoad = "res://scenes/mainscene.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene"]
+position = Vector2(167.188, 29.8611)
+shape = SubResource("RectangleShape2D_cwpa6")
+
 [connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]
+[connection signal="body_entered" from="LoadAnotherScene" to="LoadAnotherScene" method="_on_body_entered"]

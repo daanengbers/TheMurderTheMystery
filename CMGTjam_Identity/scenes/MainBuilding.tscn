@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3cfxr30hvmj5"]
+[gd_scene load_steps=21 format=3 uid="uid://d3cfxr30hvmj5"]
 
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_gjcyf"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="3_5gbls"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="4_iokfe"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="5_kwkby"]
 [ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="7_fdx3t"]
+[ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="8_gfi04"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="9_n1jov"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
@@ -127,6 +128,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3pi6"]
 size = Vector2(28, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41djs"]
+size = Vector2(20, 11.1111)
 
 [node name="Mainscene" type="Node2D"]
 texture_filter = 1
@@ -293,3 +297,16 @@ position = Vector2(151, 144)
 rotation = -1.5708
 scale = Vector2(1, 1.33)
 texture = ExtResource("9_n1jov")
+
+[node name="LoadAnotherScene" type="Area2D" parent="."]
+position = Vector2(-177, -46)
+scale = Vector2(2.56, 2.88)
+script = ExtResource("8_gfi04")
+SceneToLoad = "res://scenes/Dinner.tscn"
+BoolToCheck = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_41djs")
+
+[connection signal="body_entered" from="LoadAnotherScene" to="LoadAnotherScene" method="_on_body_entered"]

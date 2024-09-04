@@ -19,6 +19,7 @@ position_smoothing_enabled = true
 script = ExtResource("1_ccya8")
 
 [node name="Cam_area" type="Area2D" parent="."]
+visible = false
 
 [node name="box" type="CollisionShape2D" parent="Cam_area"]
 position = Vector2(160, 90)

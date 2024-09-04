@@ -1,0 +1,298 @@
+[gd_scene load_steps=21 format=3 uid="uid://fb5wearqil10"]
+
+[ext_resource type="Texture2D" uid="uid://b0br2k8h2m7u" path="res://sprites/Table.png" id="1_ct6nh"]
+[ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_okrwi"]
+[ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="2_rydra"]
+[ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_ctutd"]
+[ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="4_suvt4"]
+[ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="5_pt5vq"]
+[ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="6_gjevm"]
+[ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="7_6qmqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kyub"]
+size = Vector2(84, 26)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
+texture = ExtResource("2_rydra")
+texture_region_size = Vector2i(320, 180)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wqrhw"]
+tile_size = Vector2i(320, 180)
+sources/0 = SubResource("TileSetAtlasSource_osf81")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
+texture = ExtResource("4_suvt4")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/z_index = 2
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_i03bi"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4f1dm")
+
+[sub_resource type="Animation" id="Animation_7n6v1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_87juh"]
+resource_name = "thunder"
+length = 8.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6, 6.05, 6.1, 6.15, 6.2, 6.25, 6.3, 6.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b2883"]
+_data = {
+"RESET": SubResource("Animation_7n6v1"),
+"thunder": SubResource("Animation_87juh")
+}
+
+[sub_resource type="Animation" id="Animation_c43im"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3d6au"]
+resource_name = "thunder"
+length = 9.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7, 7.05, 7.15, 7.2, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 0.705882, 0), Color(1, 1, 1, 1), Color(1, 1, 0.470588, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqqjb"]
+_data = {
+"RESET": SubResource("Animation_c43im"),
+"thunder": SubResource("Animation_3d6au")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3pi6"]
+size = Vector2(28, 8)
+
+[node name="Mainscene" type="Node2D"]
+texture_filter = 1
+
+[node name="ySORT" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Table" type="Sprite2D" parent="ySORT"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(99, 145)
+texture = ExtResource("1_ct6nh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ySORT/Table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ySORT/Table/StaticBody2D"]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_3kyub")
+
+[node name="Table2" type="Sprite2D" parent="ySORT"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(195, 145)
+texture = ExtResource("1_ct6nh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ySORT/Table2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ySORT/Table2/StaticBody2D"]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_3kyub")
+
+[node name="Table3" type="Sprite2D" parent="ySORT"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(99, 73)
+texture = ExtResource("1_ct6nh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ySORT/Table3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ySORT/Table3/StaticBody2D"]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_3kyub")
+
+[node name="Table4" type="Sprite2D" parent="ySORT"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(195, 73)
+texture = ExtResource("1_ct6nh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ySORT/Table4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ySORT/Table4/StaticBody2D"]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_3kyub")
+
+[node name="player" parent="ySORT" instance=ExtResource("1_okrwi")]
+position = Vector2(264, 84)
+
+[node name="TileMap2" type="TileMap" parent="ySORT"]
+visible = false
+modulate = Color(1, 1, 1, 0.117647)
+tile_set = SubResource("TileSet_wqrhw")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 0, 0, 1, 0, 0, 65538, 0, 0, -65534, 0, 0, -65536, 0, 0, 3, 0, 0, -65532, 0, 0, 65540, 0, 0, 131073, 0, 0, 131075, 0, 0, -131069, 0, 0, -131071, 0, 0, -196608, 0, 0, -196606, 0, 0, -196604, 0, 0, -262143, 0, 0, -262141, 0, 0, -65537, 0, 0, -131067, 0, 0, 65535, 0, 0)
+
+[node name="Interactable" parent="." instance=ExtResource("3_ctutd")]
+position = Vector2(168, 193)
+int_maxlines = 1
+
+[node name="Interactable2" parent="." instance=ExtResource("3_ctutd")]
+position = Vector2(134, 198)
+objectname = "Tree"
+int_maxlines = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+texture_filter = 1
+tile_set = SubResource("TileSet_i03bi")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 524288, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 720896, 65536, 0, 1, 262144, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 327680, 0, 327681, 327680, 0, 393217, 327680, 0, 458753, 327680, 0, 524289, 327680, 0, 589825, 327680, 0, 655361, 327680, 0, 720897, 0, 0, 2, 262144, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 327680, 0, 327682, 327680, 0, 393218, 327680, 0, 458754, 327680, 0, 524290, 327680, 0, 589826, 327680, 0, 655362, 327680, 0, 720898, 0, 0, 3, 262144, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 327680, 0, 327683, 327680, 0, 393219, 327680, 0, 458755, 327680, 0, 524291, 327680, 0, 589827, 327680, 0, 655363, 327680, 0, 720899, 0, 0, 4, 262144, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 327680, 0, 327684, 327680, 0, 393220, 327680, 0, 458756, 327680, 0, 524292, 327680, 0, 589828, 327680, 0, 655364, 327680, 0, 720900, 0, 0, 5, 262144, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 327680, 0, 327685, 327680, 0, 393221, 327680, 0, 458757, 327680, 0, 524293, 327680, 0, 589829, 327680, 0, 655365, 327680, 0, 720901, 0, 0, 6, 262144, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 327680, 0, 327686, 327680, 0, 393222, 327680, 0, 458758, 327680, 0, 524294, 327680, 0, 589830, 327680, 0, 655366, 327680, 0, 720902, 0, 0, 7, 262144, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 327680, 0, 327687, 327680, 0, 393223, 327680, 0, 458759, 327680, 0, 524295, 327680, 0, 589831, 327680, 0, 655367, 327680, 0, 720903, 0, 0, 8, 262144, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 327680, 0, 327688, 327680, 0, 393224, 327680, 0, 458760, 327680, 0, 524296, 327680, 0, 589832, 327680, 0, 655368, 327680, 0, 720904, 0, 0, 9, 262144, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 327680, 0, 327689, 327680, 0, 393225, 327680, 0, 458761, 327680, 0, 524297, 327680, 0, 589833, 327680, 0, 655369, 327680, 0, 720905, 0, 0, 10, 262144, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 327680, 0, 327690, 327680, 0, 393226, 327680, 0, 458762, 327680, 0, 524298, 327680, 0, 589834, 327680, 0, 655370, 327680, 0, 720906, 0, 0, 11, 262144, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 327680, 0, 327691, 327680, 0, 393227, 327680, 0, 458763, 327680, 0, 524299, 327680, 0, 589835, 327680, 0, 655371, 327680, 0, 720907, 0, 0, 12, 262144, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 327680, 0, 327692, 327680, 0, 393228, 327680, 0, 458764, 327680, 0, 524300, 327680, 0, 589836, 327680, 0, 655372, 327680, 0, 720908, 0, 0, 13, 262144, 0, 65549, 0, 0, 131085, 0, 0, 196621, 0, 0, 262157, 327680, 0, 327693, 327680, 0, 393229, 327680, 0, 458765, 327680, 0, 524301, 327680, 0, 589837, 327680, 0, 655373, 327680, 0, 720909, 0, 0, 14, 262144, 0, 65550, 0, 0, 131086, 0, 0, 196622, 0, 0, 262158, 327680, 0, 327694, 327680, 0, 393230, 327680, 0, 458766, 327680, 0, 524302, 327680, 0, 589838, 327680, 0, 655374, 327680, 0, 720910, 0, 0, 15, 262144, 0, 65551, 0, 0, 131087, 0, 0, 196623, 0, 0, 262159, 327680, 0, 327695, 327680, 0, 393231, 327680, 0, 458767, 327680, 0, 524303, 327680, 0, 589839, 327680, 0, 655375, 327680, 0, 720911, 0, 0, 16, 262144, 0, 65552, 0, 0, 131088, 0, 0, 196624, 0, 0, 262160, 327680, 0, 327696, 327680, 0, 393232, 327680, 0, 458768, 327680, 0, 524304, 327680, 0, 589840, 327680, 0, 655376, 327680, 0, 720912, 0, 0, 17, 262144, 0, 65553, 0, 0, 131089, 0, 0, 196625, 0, 0, 262161, 327680, 0, 327697, 327680, 0, 393233, 327680, 0, 458769, 327680, 0, 524305, 327680, 0, 589841, 327680, 0, 655377, 327680, 0, 720913, 0, 0, 18, 65536, 0, 65554, 65536, 0, 131090, 65536, 0, 196626, 65536, 0, 262162, 65536, 0, 327698, 65536, 0, 393234, 65536, 0, 458770, 65536, 0, 524306, 65536, 0, 589842, 65536, 0, 655378, 65536, 0, 720914, 65536, 0, 786450, 65536, 0, 851986, 65536, 0, 917522, 65536, 0, 983058, 65536, 0, 1048594, 262144, 0, 1114130, 262144, 0, 1179666, 196608, 0, 19, 65536, 0, 65555, 65536, 0, 131091, 65536, 0, 196627, 65536, 0, 262163, 65536, 0, 327699, 65536, 0, 393235, 65536, 0, 458771, 65536, 0, 524307, 65536, 0, 589843, 65536, 0, 655379, 65536, 0, 720915, 65536, 0, 786451, 65536, 0, 851987, 65536, 0, 917523, 65536, 0, 983059, 65536, 0, 1048595, 65536, 0, 1114131, 0, 0, 20, 65536, 0, 65556, 65536, 0, 131092, 65536, 0, 196628, 65536, 0, 262164, 65536, 0, 327700, 65536, 0, 393236, 65536, 0, 458772, 65536, 0, 524308, 65536, 0, 589844, 65536, 0, 655380, 65536, 0, 720916, 65536, 0, 786452, 65536, 0, 851988, 65536, 0, 917524, 65536, 0, 983060, 65536, 0, 1048596, 65536, 0, 1114132, 0, 0, 21, 65536, 0, 65557, 65536, 0, 131093, 65536, 0, 196629, 65536, 0, 262165, 65536, 0, 327701, 65536, 0, 393237, 65536, 0, 458773, 65536, 0, 524309, 65536, 0, 589845, 65536, 0, 655381, 65536, 0, 720917, 65536, 0, 786453, 65536, 0, 851989, 65536, 0, 917525, 65536, 0, 983061, 65536, 0, 1048597, 65536, 0, 1114133, 0, 0, 22, 65536, 0, 65558, 65536, 0, 131094, 65536, 0, 196630, 65536, 0, 262166, 65536, 0, 327702, 65536, 0, 393238, 65536, 0, 458774, 65536, 0, 524310, 65536, 0, 589846, 65536, 0, 655382, 65536, 0, 720918, 65536, 0, 786454, 65536, 0, 851990, 65536, 0, 917526, 65536, 0, 983062, 65536, 0, 1048598, 65536, 0, 1114134, 0, 0, -65536, 131072, 0, -65535, 131072, 0, -65534, 131072, 0, -65533, 131072, 0, -65532, 131072, 0, -65531, 131072, 0, -65530, 131072, 0, -65529, 131072, 0, -65528, 131072, 0, -65527, 131072, 0, -65526, 131072, 0, -65525, 131072, 0, -65524, 131072, 0, -65523, 131072, 0, -65522, 131072, 0, -65521, 131072, 0, -65520, 131072, 0, -65519, 131072, 0, -65518, 131072, 0, -65517, 131072, 0, -65516, 131072, 0, -65515, 131072, 0, -65514, 131072, 0, 786432, 262144, 0)
+
+[node name="BG" type="ColorRect" parent="."]
+z_index = -5
+offset_left = -415.0
+offset_top = -255.0
+offset_right = 677.0
+offset_bottom = 280.0
+color = Color(0.0980392, 0.113725, 0.184314, 1)
+
+[node name="Window4" type="Sprite2D" parent="."]
+position = Vector2(75, 40)
+texture = ExtResource("5_pt5vq")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window4"]
+root_node = NodePath("../../Window4")
+libraries = {
+"": SubResource("AnimationLibrary_b2883")
+}
+
+[node name="Window3" type="Sprite2D" parent="."]
+position = Vector2(218, 39)
+texture = ExtResource("5_pt5vq")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window3"]
+libraries = {
+"": SubResource("AnimationLibrary_b2883")
+}
+
+[node name="ZeldaCamera" parent="." instance=ExtResource("6_gjevm")]
+
+[node name="Control" type="Control" parent="ZeldaCamera"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="ZeldaCamera/Control"]
+z_index = 40
+layout_mode = 0
+offset_left = -371.0
+offset_top = -212.0
+offset_right = 637.0
+offset_bottom = 381.0
+scale = Vector2(0.995949, 1.02842)
+color = Color(0, 0.0352941, 0.0352941, 0.392157)
+
+[node name="LightningVisual" type="ColorRect" parent="ZeldaCamera/Control"]
+z_index = 40
+layout_mode = 0
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 351.0
+offset_bottom = 197.0
+color = Color(1, 1, 1, 0)
+
+[node name="Anim" type="AnimationPlayer" parent="ZeldaCamera/Control/LightningVisual"]
+libraries = {
+"": SubResource("AnimationLibrary_gqqjb")
+}
+
+[node name="NextsceneArea" type="Area2D" parent="."]
+position = Vector2(704, 328)
+
+[node name="Box" type="CollisionShape2D" parent="NextsceneArea"]
+position = Vector2(-684, -216)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_b3pi6")
+
+[node name="Shininglight2" type="Sprite2D" parent="."]
+z_index = 20
+position = Vector2(32, 112)
+scale = Vector2(1, 1.33)
+texture = ExtResource("7_6qmqq")
+
+[node name="Shininglight3" type="Sprite2D" parent="."]
+z_index = 20
+position = Vector2(272, 82)
+rotation = -3.14159
+scale = Vector2(1, 1.33)
+texture = ExtResource("7_6qmqq")

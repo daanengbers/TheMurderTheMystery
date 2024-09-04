@@ -1,0 +1,203 @@
+[gd_scene load_steps=18 format=3 uid="uid://bk8jp4ytqhl5l"]
+
+[ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_eywi3"]
+[ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="2_8mk8j"]
+[ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_316dm"]
+[ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="4_o0xxp"]
+[ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="5_ctmg5"]
+[ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="6_uwmvl"]
+[ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="7_po3e8"]
+[ext_resource type="Texture2D" uid="uid://dx41xroshmx4n" path="res://Toilet.png" id="8_c2x8g"]
+[ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="9_fljmb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
+texture = ExtResource("2_8mk8j")
+texture_region_size = Vector2i(320, 180)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wqrhw"]
+tile_size = Vector2i(320, 180)
+sources/0 = SubResource("TileSetAtlasSource_osf81")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
+texture = ExtResource("4_o0xxp")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/z_index = 2
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/z_index = 30
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_i03bi"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4f1dm")
+
+[sub_resource type="Animation" id="Animation_c43im"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3d6au"]
+resource_name = "thunder"
+length = 9.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 7, 7.05, 7.15, 7.2, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 0.705882, 0), Color(1, 1, 1, 1), Color(1, 1, 0.470588, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqqjb"]
+_data = {
+"RESET": SubResource("Animation_c43im"),
+"thunder": SubResource("Animation_3d6au")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3pi6"]
+size = Vector2(28, 8)
+
+[node name="Mainscene" type="Node2D"]
+texture_filter = 1
+
+[node name="ySORT" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="player" parent="ySORT" instance=ExtResource("1_eywi3")]
+position = Vector2(-163, 99)
+
+[node name="TileMap2" type="TileMap" parent="ySORT"]
+visible = false
+modulate = Color(1, 1, 1, 0.117647)
+tile_set = SubResource("TileSet_wqrhw")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 0, 0, 1, 0, 0, 65538, 0, 0, -65534, 0, 0, -65536, 0, 0, 3, 0, 0, -65532, 0, 0, 65540, 0, 0, 131073, 0, 0, 131075, 0, 0, -131069, 0, 0, -131071, 0, 0, -196608, 0, 0, -196606, 0, 0, -196604, 0, 0, -262143, 0, 0, -262141, 0, 0, -65537, 0, 0, -131067, 0, 0, 65535, 0, 0)
+
+[node name="Interactable" parent="." instance=ExtResource("3_316dm")]
+position = Vector2(168, 193)
+int_maxlines = 1
+
+[node name="Interactable2" parent="." instance=ExtResource("3_316dm")]
+position = Vector2(134, 198)
+objectname = "Tree"
+int_maxlines = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+texture_filter = 1
+tile_set = SubResource("TileSet_i03bi")
+format = 2
+layer_0/tile_data = PackedInt32Array(65525, 262144, 0, 131061, 0, 0, 196597, 0, 0, 262133, 0, 0, 327669, 327680, 0, 393205, 327680, 0, 458741, 327680, 0, 65526, 262144, 0, 131062, 0, 0, 196598, 0, 0, 262134, 0, 0, 327670, 327680, 0, 393206, 327680, 0, 458742, 327680, 0, 65527, 262144, 0, 131063, 0, 0, 196599, 0, 0, 262135, 0, 0, 327671, 327680, 0, 393207, 327680, 0, 458743, 327680, 0, 65528, 65536, 0, 131064, 65536, 0, 196600, 65536, 0, 262136, 65536, 0, 327672, 65536, 0, 393208, 65536, 0, 458744, 65536, 0, 65529, 65536, 0, 131065, 65536, 0, 196601, 65536, 0, 262137, 65536, 0, 327673, 65536, 0, 393209, 65536, 0, 458745, 65536, 0, 65530, 65536, 0, 131066, 65536, 0, 196602, 65536, 0, 262138, 65536, 0, 327674, 65536, 0, 393210, 65536, 0, 458746, 65536, 0, 65531, 65536, 0, 131067, 65536, 0, 196603, 65536, 0, 262139, 65536, 0, 327675, 65536, 0, 393211, 65536, 0, 458747, 65536, 0, 65532, 65536, 0, 131068, 65536, 0, 196604, 65536, 0, 262140, 65536, 0, 327676, 65536, 0, 393212, 65536, 0, 458748, 65536, 0, 65533, 65536, 0, 131069, 65536, 0, 196605, 65536, 0, 262141, 65536, 0, 327677, 65536, 0, 393213, 65536, 0, 458749, 65536, 0, 65518, 65536, 0, 131054, 65536, 0, 196590, 65536, 0, 262126, 65536, 0, 327662, 65536, 0, 393198, 65536, 0, 458734, 65536, 0, 524270, 65536, 0, 589806, 65536, 0, 655342, 65536, 0, 720878, 65536, 0, 65519, 65536, 0, 131055, 65536, 0, 196591, 65536, 0, 262127, 65536, 0, 327663, 65536, 0, 393199, 65536, 0, 458735, 65536, 0, 524271, 65536, 0, 589807, 65536, 0, 655343, 65536, 0, 720879, 65536, 0, 65520, 65536, 0, 131056, 65536, 0, 196592, 65536, 0, 262128, 65536, 0, 327664, 65536, 0, 393200, 65536, 0, 458736, 65536, 0, 524272, 65536, 0, 589808, 65536, 0, 655344, 65536, 0, 720880, 65536, 0, 65521, 65536, 0, 131057, 65536, 0, 196593, 65536, 0, 262129, 65536, 0, 327665, 65536, 0, 393201, 65536, 0, 458737, 65536, 0, 524273, 65536, 0, 589809, 65536, 0, 655345, 65536, 0, 720881, 65536, 0, 65522, 65536, 0, 131058, 65536, 0, 196594, 65536, 0, 262130, 65536, 0, 327666, 65536, 0, 393202, 65536, 0, 458738, 65536, 0, 524274, 65536, 0, 589810, 65536, 0, 655346, 65536, 0, 720882, 65536, 0, 65523, 65536, 0, 131059, 65536, 0, 196595, 65536, 0, 262131, 65536, 0, 327667, 65536, 0, 393203, 65536, 0, 458739, 65536, 0, 524275, 65536, 0, 589811, 65536, 0, 655347, 65536, 0, 720883, 65536, 0, 65524, 262144, 0, 131060, 0, 0, 196596, 0, 0, 262132, 0, 0, 327668, 327680, 0, 393204, 327680, 0, 458740, 327680, 0, 524276, 327680, 0, 589812, 65536, 0, 655348, 65536, 0, 720884, 65536, 0, 524277, 327680, 0, 589813, 65536, 0, 655349, 65536, 0, 720885, 65536, 0, 524278, 327680, 0, 589814, 65536, 0, 655350, 65536, 0, 720886, 65536, 0, 524279, 327680, 0, 589815, 65536, 0, 655351, 65536, 0, 720887, 65536, 0, 524280, 65536, 0, 589816, 65536, 0, 655352, 65536, 0, 720888, 65536, 0, 524281, 65536, 0, 589817, 65536, 0, 655353, 65536, 0, 720889, 65536, 0, 524282, 65536, 0, 589818, 65536, 0, 655354, 65536, 0, 720890, 65536, 0, 524283, 65536, 0, 589819, 65536, 0, 655355, 65536, 0, 720891, 65536, 0, 524284, 65536, 0, 589820, 65536, 0, 655356, 65536, 0, 720892, 65536, 0, 524285, 65536, 0, 589821, 65536, 0, 655357, 65536, 0, 720893, 65536, 0, -18, 131072, 0, -17, 131072, 0, -16, 131072, 0, -15, 131072, 0, -14, 131072, 0, -13, 131072, 0, -12, 131072, 0, -11, 131072, 0, -10, 131072, 0, -9, 131072, 0, -8, 131072, 0, -7, 131072, 0, -6, 131072, 0, -5, 131072, 0, -4, 131072, 0, -3, 131072, 0, 720877, 65536, 0, 655341, 65536, 0, 589805, 65536, 0, 589804, 65536, 0, 524268, 65536, 0, 458732, 65536, 0, 393197, 65536, 0, 327661, 65536, 0, 262125, 65536, 0, 262124, 65536, 0, 196588, 65536, 0, 65515, 65536, 0, 131051, 65536, 0, 196587, 65536, 0, 262123, 65536, 0, 327659, 65536, 0, 393195, 65536, 0, 458731, 65536, 0, 524267, 65536, 0, 589803, 65536, 0, 655339, 65536, 0, 720875, 65536, 0, 65516, 65536, 0, 131052, 65536, 0, 327660, 65536, 0, 393196, 65536, 0, 655340, 65536, 0, 720876, 65536, 0, 65517, 65536, 0, 131053, 65536, 0, 196589, 65536, 0, 458733, 65536, 0, 524269, 65536, 0, 65534, 65536, 0, 131070, 65536, 0, 196606, 65536, 0, 262142, 65536, 0, 327678, 65536, 0, 393214, 65536, 0, 458750, 65536, 0, 524286, 65536, 0, 589822, 65536, 0, 655358, 65536, 0, 720894, 65536, 0, 65535, 65536, 0, 131071, 65536, 0, 196607, 65536, 0, 262143, 65536, 0, 327679, 65536, 0, 393215, 65536, 0, 458751, 65536, 0, 524287, 65536, 0, 589823, 65536, 0, 655359, 65536, 0, 720895, 65536, 0, 0, 65536, 0, 65536, 65536, 0, 131072, 65536, 0, 196608, 65536, 0, 262144, 65536, 0, 327680, 65536, 0, 393216, 65536, 0, 458752, 65536, 0, 524288, 65536, 0, 589824, 65536, 0, 655360, 65536, 0, 1, 65536, 0, 65537, 65536, 0, 131073, 65536, 0, 196609, 65536, 0, 262145, 65536, 0, 327681, 65536, 0, 393217, 65536, 0, 458753, 65536, 0, 524289, 65536, 0, 589825, 65536, 0, 655361, 65536, 0, 2, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 65536, 0, 327682, 65536, 0, 393218, 65536, 0, 458754, 65536, 0, 524290, 65536, 0, 589826, 65536, 0, 655362, 65536, 0, -21, 131072, 0, -20, 131072, 0, -19, 131072, 0, -2, 131072, 0, -1, 131072, 0, -65536, 131072, 0, -65535, 131072, 0, -65534, 131072, 0, 65514, 65536, 0, 131050, 65536, 0, 196586, 65536, 0, 262122, 65536, 0, 327658, 65536, 0, 393194, 65536, 0, 458730, 65536, 0, 524266, 65536, 0, 589802, 65536, 0, 655338, 65536, 0, 720874, 65536, 0, -22, 131072, 0, 786410, 262144, 0, 786411, 262144, 0, 786412, 262144, 0, 786413, 262144, 0, 786414, 262144, 0, 786415, 262144, 0, 786416, 262144, 0, 786417, 262144, 0, 786418, 262144, 0, 786419, 262144, 0, 786420, 262144, 0, 786421, 262144, 0, 786422, 262144, 0, 786423, 262144, 0, 786424, 262144, 0, 786425, 262144, 0, 786426, 262144, 0, 786427, 262144, 0, 786428, 262144, 0, 786429, 262144, 0, 786430, 262144, 0, 786431, 262144, 0, 720896, 262144, 0, 720897, 262144, 0, 720898, 262144, 0)
+
+[node name="TileMap2" type="TileMap" parent="."]
+z_index = -1
+texture_filter = 1
+tile_set = SubResource("TileSet_i03bi")
+format = 2
+layer_0/tile_data = PackedInt32Array(524276, 131072, 0, 524277, 131072, 0, 524278, 131072, 0, 524279, 131072, 0)
+
+[node name="BG" type="ColorRect" parent="."]
+z_index = -5
+offset_left = -415.0
+offset_top = -255.0
+offset_right = 677.0
+offset_bottom = 280.0
+color = Color(0.0980392, 0.113725, 0.184314, 1)
+
+[node name="ZeldaCamera" parent="." instance=ExtResource("5_ctmg5")]
+
+[node name="Control" type="Control" parent="ZeldaCamera"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="ZeldaCamera/Control"]
+z_index = 40
+layout_mode = 0
+offset_left = -371.0
+offset_top = -212.0
+offset_right = 637.0
+offset_bottom = 381.0
+scale = Vector2(0.995949, 1.02842)
+color = Color(0, 0.0352941, 0.0352941, 0.392157)
+
+[node name="LightningVisual" type="ColorRect" parent="ZeldaCamera/Control"]
+z_index = 40
+layout_mode = 0
+offset_left = -50.0
+offset_top = -25.0
+offset_right = 351.0
+offset_bottom = 197.0
+color = Color(1, 1, 1, 0)
+
+[node name="Anim" type="AnimationPlayer" parent="ZeldaCamera/Control/LightningVisual"]
+libraries = {
+"": SubResource("AnimationLibrary_gqqjb")
+}
+
+[node name="NextsceneArea" type="Area2D" parent="."]
+position = Vector2(704, 328)
+
+[node name="Box" type="CollisionShape2D" parent="NextsceneArea"]
+position = Vector2(-684, -216)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_b3pi6")
+
+[node name="Shininglight2" type="Sprite2D" parent="."]
+z_index = 20
+position = Vector2(-162, 112)
+rotation = -1.5708
+scale = Vector2(1, 1.33)
+texture = ExtResource("6_uwmvl")
+
+[node name="CabinDoor2" type="Sprite2D" parent="."]
+position = Vector2(-48, 90)
+texture = ExtResource("7_po3e8")
+
+[node name="Toilet" type="Sprite2D" parent="."]
+position = Vector2(-161, 61)
+texture = ExtResource("8_c2x8g")
+
+[node name="CabinWindow" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-161, 35)
+texture = ExtResource("9_fljmb")
+hframes = 2
+vframes = 2

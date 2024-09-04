@@ -1,5 +1,6 @@
 extends Node
 
+var AlwaysTrueBool = true
 var MainBuildingInvestigated = false
 
 # Called when the node enters the scene tree for the first time.
