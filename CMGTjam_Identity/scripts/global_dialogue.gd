@@ -21,6 +21,8 @@ var loadedline7 = "line7"
 var loadedline8 = "line8"
 var loadedline9 = "line9"
 
+var ClockAnimOn = false
+
 @export var nextscene = PackedScene
 
 
@@ -70,11 +72,99 @@ func pentagramSceneDialogue():
 	if charlinenr == 2:
 		setPersonSpeaking("Raisa")
 		maxlines = 3
-		loadLines("","What's wrong Eddie, you scared?","Come on! we can't pass up this possibility!","A group of teens blabla","f","f","f","f","f",)
+		loadLines("","What's wrong Eddie, you scared?","Come on! we can't pass up this possibility!","A group of teens on a summercamp alone at night messing with the occult, someone better call Jason vorhees.","","f","f","f","f",)
 	if charlinenr == 3:
 		setPersonSpeaking("Alynne")
 		maxlines = 2
-		loadLines("","That's not funny!...","...you knock on wood right this instant before something really happens!","","","","","","",)
+		loadLines("","That's not funny!","You knock on wood right this instant before something really happens!","","","","","","",)
+	if charlinenr == 4:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("","Why I thought you didn't believe in all that.","","","","","","","",)
+	if charlinenr == 5:
+		setPersonSpeaking("Alynne")
+		maxlines = 1
+		loadLines("","No but it couldn't hurt now could it...","","","","","","","",)
+	if charlinenr == 6:
+		setPersonSpeaking("Micah")
+		maxlines = 1
+		loadLines("","Are you two done arguining?","","","","","","","",)
+	if charlinenr == 7:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("","Someone sure is in a hurry...","","","","","","","",)
+	if charlinenr == 8:
+		setPersonSpeaking("Micah")
+		maxlines = 2
+		loadLines("","I just want this dumb thing to be over.","I should have never showed you that stupid book in the first place","","","","","","",)
+	if charlinenr == 9:
+		setPersonSpeaking("Raisa")
+		maxlines = 3
+		loadLines("","Ah don't be like that now Micah","Every summer camp needs a test of courage and you just happened to give me the perfect one.","And who knows, maybe its actually real.","","","","","")
+	if charlinenr == 10:
+		setPersonSpeaking("Alynne")
+		maxlines = 1
+		loadLines("","Stop that Raisa, I'm telling you you are jinxing us all!","","","","","","","")
+	if charlinenr == 11:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("","So what do we do excactly?","","","","","","","")
+	if charlinenr == 12:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("","Why would you look at that Alynne, she does speak","","","","","","","")
+	if charlinenr == 13:
+		setPersonSpeaking("Alynne")
+		maxlines = 3
+		loadLines("","Dont tease her Raisa!","According to this book we sit around this beatifull circle I drew at excactly midnight during a thunder storm.","And then we should be transported to another world.","","","","","")
+	if charlinenr == 14:
+		setPersonSpeaking("Jaime")
+		maxlines = 1
+		loadLines("","As if! I'm too old for this shit, I'm heading back to my tent. See you later.","","","","","","","")
+	if charlinenr == 15:
+		setPersonSpeaking("YOU")
+		maxlines = 1
+		loadLines("","Ha! Someone is really scared!","","","","","","","")
+	if charlinenr == 16:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("","Come on Jaime please stay, at least till midnight.","","","","","","","")
+	if charlinenr == 17:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("","Besides, the book says we need 6 people for the ritual so theres no way we can let you go. Sorry not sorry","","","","","","","")
+	if charlinenr == 18:
+		setPersonSpeaking("Jaime")
+		maxlines = 1
+		loadLines("","Wathever","","","","","","","")
+	if charlinenr == 19:
+		setPersonSpeaking("Clock")
+		ClockAnimOn = true
+		maxlines = 1
+		loadLines("","Ding Dong!","","","","","","","")
+	if charlinenr == 20:
+		setPersonSpeaking("Jaime")
+		ClockAnimOn = true
+		maxlines = 1
+		loadLines("","See, nothing happened! Now can I leave this dump","","","","","","","")
+	if charlinenr == 21:
+		setPersonSpeaking("Ritual Circle")
+		maxlines = 1
+		loadLines("","Wooosh!","","","","","","","")
+	if charlinenr == 22:
+		setPersonSpeaking("???")
+		maxlines = 7
+		loadLines("","Welcome to the Show!!","Oh my! What an aspicous group of souls we have here.","I'm sure you know the rules already since you drew the circle yourself.","But let me explain them again just to be safe.","6 of you will enter through this portal to my world were your souls will be laid bare for all to see.","Only 4 of you will be alowed out, the other 2 I will keep.","oh, and if you aren't out by daybreak I guess I can keep all of your puny souls. Hahahaha!","")
+	if charlinenr == 23:
+		setPersonSpeaking("Jaime")
+		maxlines = 1
+		loadLines("","Wait what! No wait please we didn't know what we were doing!","","","","","","","")
+	if charlinenr == 24:
+		setPersonSpeaking("???")
+		maxlines = 1
+		loadLines("","No way to undo whats done! Good luck darlings!","","","","","","","")
+	if charlinenr == 24:
+		setPersonSpeaking("???")
 
 func setDialougueOn():
 	global_dialogue_on = true
@@ -179,7 +269,7 @@ func setPersonSpeaking(p_s):
 		$UI/Textbox/CharPortraits.frame = 6
 	elif personspeaking == "Alex":
 		$UI/Textbox/CharPortraits.frame = 7
-	elif personspeaking == "Jamie":
+	elif personspeaking == "Jaime":
 		$UI/Textbox/CharPortraits.frame = 8
 	elif personspeaking == "Raisa":
 		$UI/Textbox/CharPortraits.frame = 9

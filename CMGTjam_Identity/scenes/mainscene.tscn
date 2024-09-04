@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxth427bfrdlh"]
+[gd_scene load_steps=23 format=3 uid="uid://dxth427bfrdlh"]
 
 [ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_dpgwm"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="3_we6tw"]
@@ -7,11 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c4xl6yrgp18ur" path="res://sprites/othercharacters-1.png" id="8_i5563"]
 [ext_resource type="Texture2D" uid="uid://cnd5185xs87wg" path="res://sprites/othercharacters-5.png" id="9_2kqqu"]
 [ext_resource type="Texture2D" uid="uid://btwdx6ixotlu1" path="res://sprites/othercharacters-3.png" id="10_tr6ls"]
+[ext_resource type="Script" path="res://scenes/ClockAnim.gd" id="11_5tivt"]
 [ext_resource type="Texture2D" uid="uid://dlh4hefq0gpiw" path="res://sprites/othercharacters-2.png" id="11_wfhjk"]
 [ext_resource type="Texture2D" uid="uid://cm35q6gsthikl" path="res://sprites/othercharacters-4.png" id="12_86nuu"]
 [ext_resource type="Texture2D" uid="uid://dvchs0q5vb1yi" path="res://sprites/Char_Eddie.png" id="12_hppbi"]
 [ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="13_ep4nx"]
-[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
+[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
 [ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="13_m4e5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
@@ -80,6 +81,42 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_7n6v1"),
 "thunder": SubResource("Animation_87juh")
+}
+
+[sub_resource type="Animation" id="Animation_8kcap"]
+resource_name = "12_O_COCK"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_47qud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5lqb1"]
+_data = {
+"12_O_COCK": SubResource("Animation_8kcap"),
+"RESET": SubResource("Animation_47qud")
 }
 
 [node name="Mainscene" type="Node2D"]
@@ -162,6 +199,12 @@ flip_h = true
 position = Vector2(164, 40)
 texture = ExtResource("13_m4e5h")
 hframes = 2
+script = ExtResource("11_5tivt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ClockAnimSheet"]
+libraries = {
+"": SubResource("AnimationLibrary_5lqb1")
+}
 
 [node name="Newritualcircle-1" type="Sprite2D" parent="."]
 position = Vector2(163, 116)
