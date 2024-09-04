@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq8xqk1ffj7cg"]
+
+[ext_resource type="Texture2D" uid="uid://bd5a3sopbf2hf" path="res://sprites/Otherworldlymonster-5.png" id="1_8vma4"]
+
+[sub_resource type="Gradient" id="Gradient_11kpv"]
+offsets = PackedFloat32Array(0, 0.116883, 0.896104, 1)
+colors = PackedColorArray(1, 0, 0, 0.392157, 1, 0, 0, 0.0392157, 1, 0, 0, 0.0392157, 1, 0, 0, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a5q60"]
+gradient = SubResource("Gradient_11kpv")
+width = 180
+height = 320
+
+[sub_resource type="Curve" id="Curve_1qt7v"]
+_data = [Vector2(0, 0), 0.0, 4.89011, 0, 0, Vector2(0.494382, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.235, 0.0, 0, 0]
+point_count = 3
+
+[node name="Darkworldfilter" type="CanvasLayer"]
+
+[node name="Colors" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+rotation = -1.5708
+texture = SubResource("GradientTexture2D_a5q60")
+
+[node name="Particles1" type="CPUParticles2D" parent="."]
+position = Vector2(160, 4)
+lifetime = 6.0
+texture = ExtResource("1_8vma4")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+gravity = Vector2(0, 0)
+angle_max = 360.0
+scale_amount_min = 0.4
+scale_amount_max = 0.75
+scale_amount_curve = SubResource("Curve_1qt7v")
+color = Color(0.431373, 0, 0.00784314, 1)
+
+[node name="Particles2" type="CPUParticles2D" parent="."]
+position = Vector2(160, 176)
+lifetime = 6.0
+texture = ExtResource("1_8vma4")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 8)
+gravity = Vector2(0, 0)
+angle_max = 360.0
+scale_amount_min = 0.4
+scale_amount_max = 0.75
+scale_amount_curve = SubResource("Curve_1qt7v")
+color = Color(0.431373, 0, 0.00784314, 1)
