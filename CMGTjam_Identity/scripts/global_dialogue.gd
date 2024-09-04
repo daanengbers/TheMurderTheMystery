@@ -16,7 +16,12 @@ var loadedline7 = ""
 var loadedline8 = ""
 var loadedline9 = ""
 
+@export var nextscene = PackedScene
+
 #var text_in_box = ""
+
+func _ready():
+	$UI/Blackbox/AnimationPlayer.play("fadein")
 
 func _process(delta):
 	if charsvis < 200 && global_dialogue_on == true:
@@ -86,8 +91,16 @@ func nextLine():
 	
 	if linenr > maxlines:
 		setDialougueOff()
-	
 
+func fadeIn():
+	$UI/Blackbox/AnimationPlayer.play("fadein")
+
+func fadeOut():
+	$UI/Blackbox/AnimationPlayer.play("fadeout")
+	$Timers/Nextscene1Timer.start()
 
 func _on_disable_dialogue_timer_timeout():
 	global_dialogue_on = false
+
+func _on_nextscene_1_timer_timeout():
+	get_tree().change_scene_to_file("res://scenes/mainscene.tscn")

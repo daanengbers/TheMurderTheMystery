@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 60
+var SPEED = 260
 
 var rpress = false
 var lpress = false
@@ -15,21 +15,33 @@ func _physics_process(delta):
 		
 		# Movement
 		if Input.is_action_pressed("right") && lpress == false:
-			velocity.x = SPEED
+			if upress == false && dpress == false:
+				velocity.x = SPEED
+			else:
+				velocity.x = SPEED * 0.714
 			$Char.flip_h = false
 			$Char/Anim.play("walk_s")
 		elif Input.is_action_pressed("left") && rpress == false:
-			velocity.x = -SPEED
+			if upress == false && dpress == false:
+				velocity.x = -SPEED
+			else:
+				velocity.x = -SPEED * 0.714
 			$Char.flip_h = true
 			$Char/Anim.play("walk_s")
 		else:
 			velocity.x = 0
 		if Input.is_action_pressed("up") && dpress == false:
-			velocity.y = -SPEED
+			if rpress == false && lpress == false:
+				velocity.y = -SPEED
+			else:
+				velocity.y = -SPEED * 0.714
 			if rpress == false && lpress == false:
 				$Char/Anim.play("walk_u")
 		elif Input.is_action_pressed("down") && upress == false:
-			velocity.y = SPEED
+			if rpress == false && lpress == false:
+				velocity.y = SPEED
+			else:
+				velocity.y = SPEED * 0.714
 			if rpress == false && lpress == false:
 				$Char/Anim.play("walk_d")
 		else:

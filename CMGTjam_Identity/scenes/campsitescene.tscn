@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d0nqoio58wjnn"]
+[gd_scene load_steps=37 format=3 uid="uid://d0nqoio58wjnn"]
 
 [ext_resource type="Script" path="res://scripts/campsitescene.gd" id="1_kp6vi"]
 [ext_resource type="Texture2D" uid="uid://clv04yohgmy0d" path="res://sprites/Tiles_Field.png" id="1_wcp8f"]
@@ -175,6 +175,9 @@ colors = PackedColorArray(0.544974, 0.544974, 0.544974, 1, 0.80161, 0.639726, 0.
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7joe4"]
 size = Vector2(32, 22)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgomv"]
+size = Vector2(28, 8)
+
 [node name="Campsitescene" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_kp6vi")
@@ -189,7 +192,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="ZeldaCamera/Control"]
-z_index = 2
+z_index = 40
 layout_mode = 0
 offset_left = -371.0
 offset_top = -212.0
@@ -198,7 +201,7 @@ offset_bottom = 381.0
 color = Color(0, 0.0352941, 0.0352941, 0.392157)
 
 [node name="LightningVisual" type="ColorRect" parent="ZeldaCamera/Control"]
-z_index = 2
+z_index = 40
 layout_mode = 0
 offset_left = -50.0
 offset_top = -25.0
@@ -220,7 +223,7 @@ interacttext2 = "Yo Eddie."
 interacttext3 = "Come to the cabin."
 interacttext4 = "the whole gang is here"
 interacttext5 = "we found something cool"
-interacttext6 = "you better hurry loser"
+interacttext6 = "you better hurry up loser"
 int_maxlines = 6
 metadata/_edit_group_ = true
 
@@ -346,6 +349,7 @@ texture = ExtResource("14_fbobr")
 metadata/_edit_group_ = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Campfire-1"]
+z_index = 21
 position = Vector2(0, 1)
 lifetime = 2.0
 texture = ExtResource("15_mjuok")
@@ -403,3 +407,11 @@ position = Vector2(704, 320)
 rotation = -1.57079
 scale = Vector2(1, 1.33)
 texture = ExtResource("11_i4034")
+
+[node name="NextsceneArea" type="Area2D" parent="."]
+position = Vector2(704, 328)
+
+[node name="Box" type="CollisionShape2D" parent="NextsceneArea"]
+shape = SubResource("RectangleShape2D_hgomv")
+
+[connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]

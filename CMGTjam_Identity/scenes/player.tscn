@@ -112,7 +112,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_amhb7"]
 radius = 11.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_5n74w")
