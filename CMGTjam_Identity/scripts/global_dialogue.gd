@@ -1,10 +1,15 @@
 extends Node2D
 
 var global_dialogue_on = false
-var linenr = 0
+var linenr = 1
+var charlinenr = 1
 var maxlines = 1
 var charsvis = 0
 var personspeaking = ""
+@export var is_cutscene = true
+
+var cscene = 1
+var canpress = true
 
 var loadedline1 = ""
 var loadedline2 = "2"
@@ -22,23 +27,40 @@ var loadedline9 = ""
 
 func _ready():
 	$UI/Blackbox/AnimationPlayer.play("fadein")
+	if cscene == 1:
+	#if get_tree().current_scene.name == "mainscene":
+		setDialougueOn()
+		pentagramSceneDialogue()
 
 func _process(delta):
+	
+	
 	if charsvis < 200 && global_dialogue_on == true:
 		charsvis += 0.5
 	$UI/Textbox/Text.visible_characters = charsvis
 	$UI/Textbox/Linenr.set_text(str(maxlines))
-	if Input.is_action_just_pressed("interact") && global_dialogue_on == true:
+	if Input.is_action_just_pressed("interact") && global_dialogue_on == true && canpress == true:
+		canpress = false
 		charsvis = 0
 		nextLine()
+		$Timers/PressTimer.start()
+	
+	
 
 func setDialougueOn():
 	global_dialogue_on = true
 	$UI/Textbox.visible = true
 
 func setDialougueOff():
-	$Timers/DisableDialogueTimer.start()
-	$UI/Textbox.visible = false
+	if is_cutscene == false:
+		$Timers/DisableDialogueTimer.start()
+		$UI/Textbox.visible = false
+	else:
+		charlinenr += 1
+		if cscene == 1:
+			linenr = 1
+			pentagramSceneDialogue()
+	
 	linenr = 0
 	$UI/Textbox/Text.visible_characters = 0
 	$UI/Textbox/Text.modulate = Color(1,1,1)
@@ -90,7 +112,14 @@ func nextLine():
 		$UI/Textbox/Text.set_text(str(loadedline9))
 	
 	if linenr > maxlines:
-		setDialougueOff()
+		if is_cutscene == false:
+			setDialougueOff()
+		else:
+			if cscene == 1:
+				charlinenr += 1
+				linenr = 1
+				pentagramSceneDialogue()
+				
 
 func fadeIn():
 	$UI/Blackbox/AnimationPlayer.play("fadein")
@@ -104,3 +133,32 @@ func _on_disable_dialogue_timer_timeout():
 
 func _on_nextscene_1_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/mainscene.tscn")
+
+func pentagramSceneDialogue():
+	linenr = 1
+	if charlinenr == 1:
+		setPersonSpeaking("YOU")
+		maxlines = 1
+		loadLines("","Who's idea was this again?","","","","","","","",)
+	if charlinenr == 2:
+		setPersonSpeaking("Raisa")
+		maxlines = 3
+		loadLines("","What's wrong Eddie, you scared?","Come on! we can't pass up this possibility!","A group of teens blabla","f","f","f","f","f",)
+	if charlinenr == 3:
+		setPersonSpeaking("Alynne")
+		maxlines = 2
+		loadLines("","That's not funny!...","...you knock on wood right this instant before something really happens!","","","","","","",)
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+func _on_press_timer_timeout():
+	canpress = true

@@ -1,17 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://dxth427bfrdlh"]
+[gd_scene load_steps=18 format=3 uid="uid://dxth427bfrdlh"]
 
-[ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_7l4sl"]
 [ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_dpgwm"]
-[ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="2_70bfv"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="3_we6tw"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="4_pcncl"]
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="6_x2pkk"]
-[ext_resource type="Texture2D" uid="uid://1pjrhrbkuh8q" path="res://sprites/Ritual.png" id="7_wt16y"]
 [ext_resource type="Texture2D" uid="uid://c4xl6yrgp18ur" path="res://sprites/othercharacters-1.png" id="8_i5563"]
 [ext_resource type="Texture2D" uid="uid://cnd5185xs87wg" path="res://sprites/othercharacters-5.png" id="9_2kqqu"]
 [ext_resource type="Texture2D" uid="uid://btwdx6ixotlu1" path="res://sprites/othercharacters-3.png" id="10_tr6ls"]
 [ext_resource type="Texture2D" uid="uid://dlh4hefq0gpiw" path="res://sprites/othercharacters-2.png" id="11_wfhjk"]
 [ext_resource type="Texture2D" uid="uid://cm35q6gsthikl" path="res://sprites/othercharacters-4.png" id="12_86nuu"]
+[ext_resource type="Texture2D" uid="uid://dvchs0q5vb1yi" path="res://sprites/Char_Eddie.png" id="12_hppbi"]
+[ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="13_ep4nx"]
 [ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="13_m4e5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
@@ -86,18 +85,6 @@ _data = {
 texture_filter = 1
 script = ExtResource("1_dpgwm")
 
-[node name="player" parent="." instance=ExtResource("1_7l4sl")]
-position = Vector2(78, 92)
-
-[node name="Interactable" parent="." instance=ExtResource("2_70bfv")]
-position = Vector2(168, 73)
-int_maxlines = 1
-
-[node name="Interactable2" parent="." instance=ExtResource("2_70bfv")]
-position = Vector2(166, 126)
-objectname = "Tree"
-int_maxlines = 1
-
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
 texture_filter = 1
@@ -149,28 +136,24 @@ z_index = -1
 position = Vector2(56, 42)
 texture = ExtResource("6_x2pkk")
 
-[node name="Ritual" type="Sprite2D" parent="."]
-position = Vector2(210, 109)
-texture = ExtResource("7_wt16y")
-
 [node name="Othercharacters-1" type="Sprite2D" parent="."]
-position = Vector2(245, 98)
+position = Vector2(207, 98)
 texture = ExtResource("8_i5563")
 
 [node name="Othercharacters-5" type="Sprite2D" parent="."]
-position = Vector2(248, 122)
+position = Vector2(208, 128)
 texture = ExtResource("9_2kqqu")
 
 [node name="Othercharacters-3" type="Sprite2D" parent="."]
-position = Vector2(214, 81)
+position = Vector2(176, 81)
 texture = ExtResource("10_tr6ls")
 
 [node name="Othercharacters-2" type="Sprite2D" parent="."]
-position = Vector2(183, 81)
+position = Vector2(145, 81)
 texture = ExtResource("11_wfhjk")
 
 [node name="Othercharacters-4" type="Sprite2D" parent="."]
-position = Vector2(152, 117)
+position = Vector2(116, 131)
 texture = ExtResource("12_86nuu")
 flip_h = true
 
@@ -178,3 +161,14 @@ flip_h = true
 position = Vector2(164, 40)
 texture = ExtResource("13_m4e5h")
 hframes = 2
+
+[node name="Newritualcircle-1" type="Sprite2D" parent="."]
+position = Vector2(163, 116)
+texture = ExtResource("13_ep4nx")
+
+[node name="CharEddie" type="Sprite2D" parent="."]
+position = Vector2(116, 97)
+texture = ExtResource("12_hppbi")
+hframes = 3
+vframes = 3
+frame = 3
