@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dxth427bfrdlh"]
+[gd_scene load_steps=24 format=3 uid="uid://dxth427bfrdlh"]
 
 [ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_dpgwm"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="3_we6tw"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="13_ep4nx"]
 [ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
 [ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="13_m4e5h"]
+[ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="15_hrc1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
 texture = ExtResource("3_we6tw")
@@ -220,3 +221,39 @@ frame = 3
 [node name="Scenesetter" parent="." instance=ExtResource("13_gjd8a")]
 local_is_cutscene = true
 local_cutscenenr = 1
+
+[node name="WeenDaanShadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(148, 97)
+texture = ExtResource("15_hrc1e")
+
+[node name="WeenDaanShadow2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(178, 97)
+texture = ExtResource("15_hrc1e")
+
+[node name="WeenDaanShadow3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(200, 114)
+texture = ExtResource("15_hrc1e")
+
+[node name="WeenDaanShadow4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(210, 140)
+texture = ExtResource("15_hrc1e")
+
+[node name="WeenDaanShadow5" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(116, 141)
+texture = ExtResource("15_hrc1e")
+
+[node name="WeenDaanShadow6" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(124, 113)
+texture = ExtResource("15_hrc1e")
