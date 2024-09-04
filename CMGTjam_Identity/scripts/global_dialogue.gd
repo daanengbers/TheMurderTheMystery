@@ -175,7 +175,12 @@ func setPersonSpeaking(p_s):
 		$UI/Textbox/CharPortraits.frame = 5
 	elif personspeaking == "Alynne":
 		$UI/Textbox/CharPortraits.frame = 6
-	
+	elif personspeaking == "Alex":
+		$UI/Textbox/CharPortraits.frame = 7
+	elif personspeaking == "Jamie":
+		$UI/Textbox/CharPortraits.frame = 8
+	elif personspeaking == "Raisa":
+		$UI/Textbox/CharPortraits.frame = 9
 	
 	
 	else:
