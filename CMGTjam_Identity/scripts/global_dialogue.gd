@@ -23,6 +23,7 @@ var loadedline8 = "line8"
 var loadedline9 = "line9"
 
 var ClockAnimOn = false
+var ShadowSprites = false
 
 @export var nextscene = PackedScene
 
@@ -44,7 +45,6 @@ func initialize():
 		nextLine()
 
 func _process(delta):
-	print(charlinenr)
 	
 	if charsvis < 200 && global_dialogue_on == true:
 		charsvis += 0.5
@@ -58,6 +58,11 @@ func _process(delta):
 				charlinenr += 1
 				linenr = 1
 				pentagramSceneDialogue()
+				nextLine()
+			if cscene == 2:
+				charlinenr += 1
+				linenr = 1
+				TrappedInAnotherWorldSceneDialogue()
 				nextLine()
 			if is_cutscene == false:
 				setDialougueOff()
@@ -197,6 +202,7 @@ func TrappedInAnotherWorldSceneDialogue():
 	if charlinenr == 1:
 		setPersonSpeaking("?")
 		maxlines = 1
+		ShadowSprites = true
 		loadLines("","Where are we! what do we do! Oh my god were all going to die!","","","","","","","",)
 	if charlinenr == 2:
 		setPersonSpeaking("?")
@@ -208,64 +214,64 @@ func TrappedInAnotherWorldSceneDialogue():
 		loadLines("","What do you mean what are you, its us you dumbass... wait what... why do you all look like that!","","","","","","","",)
 	if charlinenr == 4:
 		setPersonSpeaking("?")
-		maxlines = 4
-		loadLines("","Wait everyone shut up for a seccond!","This is gonna get confusing very quickly.","Lets first all say our names before we continue.","And from then on when we speak we say our names first.","","","","",)
+		maxlines = 3
+		loadLines("","Wait everyone shut up for a seccond!","This is gonna get confusing very quickly.","Lets first all say our names before we continue.","","","","","",)
 	if charlinenr == 5:
 		setPersonSpeaking("Alynne")
 		maxlines = 1
-		loadLines("Alynne!","","","","","","","","",)
+		loadLines("","Alynne!","","","","","","","",)
 	if charlinenr == 6:
 		setPersonSpeaking("Micah")
 		maxlines = 1
-		loadLines("Micah!","","","","","","","","",)
+		loadLines("","Micah!","","","","","","","",)
 	if charlinenr == 7:
 		setPersonSpeaking("Alex")
 		maxlines = 1
-		loadLines("Alex!","","","","","","","","",)
+		loadLines("","Alex!","","","","","","","",)
 	if charlinenr == 8:
 		setPersonSpeaking("Jaime")
 		maxlines = 1
-		loadLines("Jaime!","","","","","","","","",)
+		loadLines("","Jaime!","","","","","","","",)
 	if charlinenr == 9:
 		setPersonSpeaking("YOU")
 		maxlines = 1
-		loadLines("Eddie!","","","","","","","","",)
+		loadLines("","Eddie!","","","","","","","",)
 	if charlinenr == 10:
 		setPersonSpeaking("Raisa")
 		maxlines = 1
-		loadLines("Raisa!","","","","","","","","",)
+		loadLines("","Raisa!","","","","","","","",)
 	if charlinenr == 11:
 		setPersonSpeaking("Raisa")
 		maxlines = 1
-		loadLines("Raisa, Now thats all cleared up lets all stay calm and think about our situation!","","","","","","","","",)
+		loadLines("","Now thats all cleared up lets all stay calm and think about our situation!","","","","","","","",)
 	if charlinenr == 12:
 		setPersonSpeaking("Jaime")
 		maxlines = 2
-		loadLines("What do you mean stay calm!","You heard that freak, only 4 of us can leave here!","","","","","","","",)
+		loadLines("","What do you mean stay calm!","You heard that freak, only 4 of us can leave here!","","","","","","",)
 	if charlinenr == 13:
 		setPersonSpeaking("Alex")
 		maxlines = 1
-		loadLines("","Shut the fuck up and keep calm!... Alex...","","","","","","","",)
+		loadLines("","Shut the fuck up and keep calm!...","","","","","","","",)
 	if charlinenr == 14:
 		setPersonSpeaking("Jaime")
 		maxlines = 1
-		loadLines("","Wow alright, sorry... Jaime","","","","","","","",)
+		loadLines("","Wow alright, sorry.","","","","","","","",)
 	if charlinenr == 15:
 		setPersonSpeaking("Alex")
 		maxlines = 1
-		loadLines("","I-I'm sorry... Alex","","","","","","","",)
+		loadLines("","I-I'm sorry...","","","","","","","",)
 	if charlinenr == 16:
 		setPersonSpeaking("Raisa")
 		maxlines = 1
-		loadLines("","Raisa, No dont be, I'm happy you are finnaly speaking up.","","","","","","","",)
+		loadLines("","No dont be, I'm happy you are finnaly speaking up.","","","","","","","",)
 	if charlinenr == 17:
 		setPersonSpeaking("Alex")
 		maxlines = 3
-		loadLines("","Alex, I - I swear I'm not like this...","It's this world, it has to be.","I dont know what it is but I cant seem to keep my big mouth shut","","","","","",)
+		loadLines("","I - I swear I'm not like this...","It's this world, it has to be.","I dont know what it is but I cant seem to keep my big mouth shut","","","","","",)
 	if charlinenr == 18:
 		setPersonSpeaking("Jaime")
 		maxlines = 3
-		loadLines("","Jaime, That bastard did say we would be stripped to our souls.","It seems hiding your true self is much harder here...","Which means your true self is as brass as a bell Alex! hahaha!","","","","","")
+		loadLines("","That bastard did say we would be stripped to our souls.","It seems hiding your true self is much harder here...","Which means your true self is as brass as a bell Alex! hahaha!","","","","","")
 	if charlinenr == 19:
 		setPersonSpeaking("Alex")
 		maxlines = 1
@@ -278,7 +284,51 @@ func TrappedInAnotherWorldSceneDialogue():
 		setPersonSpeaking("Alex")
 		maxlines = 3
 		loadLines("","Rea- Really...","No one ever wants to hang out with me when they get to know me","you guys sure you won't hate me?","","","","","",)
-
+	if charlinenr == 22:
+		setPersonSpeaking("Alynne")
+		maxlines = 1
+		loadLines("","Off course we're sure, we still tollerate Jaime so why not you","","","","","","","",)
+	if charlinenr == 23:
+		setPersonSpeaking("Jaime")
+		maxlines = 1
+		loadLines("","Hey what the hell!","","","","","","","",)
+	if charlinenr == 24:
+		setPersonSpeaking("Micah")
+		maxlines = 3
+		loadLines("","Enough off this!!!","Are you all forgetting what situation we are in!","We need to get out of here or we are in deep shit, sob stories can come later.","","","","","",)
+	if charlinenr == 25:
+			setPersonSpeaking("Raisa")
+			maxlines = 2
+			loadLines("","Micah is right, it seems that this world reflects our own, so I suggest we start looking around for a way out."," I just know there has to be another way out","","","","","","",)
+	if charlinenr == 26:
+		setPersonSpeaking("Raisa")
+		maxlines = 4
+		loadLines("","Let's split up.","I know its not the safest plan but it will allow us to cover the most ground the fastest","And we don't have much time left.","Also I call dips on the shed!","","","","",)
+	if charlinenr == 27:
+		setPersonSpeaking("Micah")
+		maxlines = 1
+		loadLines("","Fine, I'll investigate the tents then.","","","","","","","",)
+	if charlinenr == 28:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("","I'll be looking round the campfire!","","","","","","","",)
+	if charlinenr == 29:
+		setPersonSpeaking("Jaime")
+		maxlines = 1
+		loadLines("","I'll investigate the toilet building I guess","","","","","","","",)
+	if charlinenr == 30:
+		setPersonSpeaking("Alynne")
+		maxlines = 1
+		loadLines("","I'll investigate the main building","","","","","","","",)
+	if charlinenr == 31:
+		setPersonSpeaking("YOU")
+		maxlines = 1
+		loadLines("","Which leaves me with the dining hall and Kitchen","","","","","","","",)
+	if charlinenr == 32:
+		setPersonSpeaking("Raisa")
+		maxlines = 2
+		loadLines("","Great! Let's go then!","And remember, if anything is wrong give a shout, the campgrounds aren't too big so we'll be there in a flash","","","","","","",)
+		
 func setDialougueOn():
 	global_dialogue_on = true
 	$UI/Textbox.visible = true
@@ -369,17 +419,37 @@ func setPersonSpeaking(p_s):
 	elif personspeaking == "Letter":
 		$UI/Textbox/CharPortraits.frame = 3
 	elif personspeaking == "YOU":
-		$UI/Textbox/CharPortraits.frame = 4
+		if ShadowSprites == false:
+			$UI/Textbox/CharPortraits.frame = 4
+		if ShadowSprites == true:
+			$UI/Textbox/CharPortraits.frame = 11
 	elif personspeaking == "Micah":
-		$UI/Textbox/CharPortraits.frame = 5
+		if ShadowSprites == false:
+			$UI/Textbox/CharPortraits.frame = 5
+		if ShadowSprites == true:
+			$UI/Textbox/CharPortraits.frame = 12
 	elif personspeaking == "Alynne":
-		$UI/Textbox/CharPortraits.frame = 6
+		if ShadowSprites == false:
+			$UI/Textbox/CharPortraits.frame = 6
+		if ShadowSprites == true:
+			$UI/Textbox/CharPortraits.frame = 13
 	elif personspeaking == "Alex":
-		$UI/Textbox/CharPortraits.frame = 7
+		if ShadowSprites == false:
+			$UI/Textbox/CharPortraits.frame = 7
+		if ShadowSprites == true:
+			$UI/Textbox/CharPortraits.frame = 14
 	elif personspeaking == "Jaime":
-		$UI/Textbox/CharPortraits.frame = 8
+		if ShadowSprites == false:
+			$UI/Textbox/CharPortraits.frame = 8
+		if ShadowSprites == true:
+			$UI/Textbox/CharPortraits.frame = 15
 	elif personspeaking == "Raisa":
-		$UI/Textbox/CharPortraits.frame = 9
+		if ShadowSprites == false:
+			$UI/Textbox/CharPortraits.frame = 9
+		if ShadowSprites == true:
+			$UI/Textbox/CharPortraits.frame = 16
+	elif personspeaking == "?":
+		$UI/Textbox/CharPortraits.frame = 10
 	
 	
 	else:
