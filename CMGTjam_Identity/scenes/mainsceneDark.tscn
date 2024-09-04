@@ -1,23 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://dxth427bfrdlh"]
+[gd_scene load_steps=19 format=3 uid="uid://dhavb8cyirrur"]
 
-[ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_dpgwm"]
-[ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="3_we6tw"]
-[ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="4_pcncl"]
-[ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="6_x2pkk"]
-[ext_resource type="Texture2D" uid="uid://c4xl6yrgp18ur" path="res://sprites/othercharacters-1.png" id="8_i5563"]
-[ext_resource type="Texture2D" uid="uid://cnd5185xs87wg" path="res://sprites/othercharacters-5.png" id="9_2kqqu"]
-[ext_resource type="Texture2D" uid="uid://btwdx6ixotlu1" path="res://sprites/othercharacters-3.png" id="10_tr6ls"]
-[ext_resource type="Script" path="res://scenes/ClockAnim.gd" id="11_5tivt"]
-[ext_resource type="Texture2D" uid="uid://dlh4hefq0gpiw" path="res://sprites/othercharacters-2.png" id="11_wfhjk"]
-[ext_resource type="Texture2D" uid="uid://cm35q6gsthikl" path="res://sprites/othercharacters-4.png" id="12_86nuu"]
-[ext_resource type="Texture2D" uid="uid://dvchs0q5vb1yi" path="res://sprites/Char_Eddie.png" id="12_hppbi"]
-[ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="13_ep4nx"]
-[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
-[ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="13_m4e5h"]
-[ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="15_hrc1e"]
+[ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_tkmgt"]
+[ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="2_82l6q"]
+[ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="3_1qs6a"]
+[ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="4_wcct4"]
+[ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="10_eu2h2"]
+[ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="10_sjl2e"]
+[ext_resource type="Script" path="res://scenes/ClockAnim.gd" id="11_hht28"]
+[ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="12_nwljr"]
+[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="14_swixw"]
+[ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="15_xlju1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
-texture = ExtResource("3_we6tw")
+texture = ExtResource("2_82l6q")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -120,9 +115,9 @@ _data = {
 "RESET": SubResource("Animation_47qud")
 }
 
-[node name="Mainscene" type="Node2D"]
+[node name="Mainscene2" type="Node2D"]
 texture_filter = 1
-script = ExtResource("1_dpgwm")
+script = ExtResource("1_tkmgt")
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
@@ -139,7 +134,7 @@ color = Color(0.0980392, 0.113725, 0.184314, 1)
 
 [node name="Window" type="Sprite2D" parent="."]
 position = Vector2(120, 39)
-texture = ExtResource("4_pcncl")
+texture = ExtResource("3_1qs6a")
 hframes = 2
 vframes = 2
 
@@ -150,7 +145,7 @@ libraries = {
 
 [node name="Window2" type="Sprite2D" parent="."]
 position = Vector2(211, 39)
-texture = ExtResource("4_pcncl")
+texture = ExtResource("3_1qs6a")
 hframes = 2
 vframes = 2
 
@@ -161,7 +156,7 @@ libraries = {
 
 [node name="Window3" type="Sprite2D" parent="."]
 position = Vector2(251, 39)
-texture = ExtResource("4_pcncl")
+texture = ExtResource("3_1qs6a")
 hframes = 2
 vframes = 2
 
@@ -173,34 +168,13 @@ libraries = {
 [node name="CabinDoor" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(56, 42)
-texture = ExtResource("6_x2pkk")
-
-[node name="Othercharacters-1" type="Sprite2D" parent="."]
-position = Vector2(200, 102)
-texture = ExtResource("8_i5563")
-
-[node name="Othercharacters-5" type="Sprite2D" parent="."]
-position = Vector2(209, 128)
-texture = ExtResource("9_2kqqu")
-
-[node name="Othercharacters-3" type="Sprite2D" parent="."]
-position = Vector2(178, 84)
-texture = ExtResource("10_tr6ls")
-
-[node name="Othercharacters-2" type="Sprite2D" parent="."]
-position = Vector2(148, 85)
-texture = ExtResource("11_wfhjk")
-
-[node name="Othercharacters-4" type="Sprite2D" parent="."]
-position = Vector2(117, 129)
-texture = ExtResource("12_86nuu")
-flip_h = true
+texture = ExtResource("4_wcct4")
 
 [node name="ClockAnimSheet" type="Sprite2D" parent="."]
 position = Vector2(164, 40)
-texture = ExtResource("13_m4e5h")
+texture = ExtResource("10_eu2h2")
 hframes = 2
-script = ExtResource("11_5tivt")
+script = ExtResource("11_hht28")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ClockAnimSheet"]
 libraries = {
@@ -209,51 +183,86 @@ libraries = {
 
 [node name="Newritualcircle-1" type="Sprite2D" parent="."]
 position = Vector2(163, 125)
-texture = ExtResource("13_ep4nx")
+texture = ExtResource("12_nwljr")
 
-[node name="CharEddie" type="Sprite2D" parent="."]
-position = Vector2(123, 99)
-texture = ExtResource("12_hppbi")
-hframes = 3
-vframes = 3
-frame = 3
-
-[node name="Scenesetter" parent="." instance=ExtResource("13_gjd8a")]
+[node name="Scenesetter" parent="." instance=ExtResource("14_swixw")]
 local_is_cutscene = true
-local_cutscenenr = 1
+local_cutscenenr = 2
 
 [node name="WeenDaanShadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 position = Vector2(148, 97)
-texture = ExtResource("15_hrc1e")
+texture = ExtResource("15_xlju1")
 
 [node name="WeenDaanShadow2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 position = Vector2(178, 97)
-texture = ExtResource("15_hrc1e")
+texture = ExtResource("15_xlju1")
 
 [node name="WeenDaanShadow3" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 position = Vector2(200, 114)
-texture = ExtResource("15_hrc1e")
+texture = ExtResource("15_xlju1")
 
 [node name="WeenDaanShadow4" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 position = Vector2(210, 140)
-texture = ExtResource("15_hrc1e")
+texture = ExtResource("15_xlju1")
 
 [node name="WeenDaanShadow5" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 position = Vector2(116, 141)
-texture = ExtResource("15_hrc1e")
+texture = ExtResource("15_xlju1")
 
 [node name="WeenDaanShadow6" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 position = Vector2(124, 113)
-texture = ExtResource("15_hrc1e")
+texture = ExtResource("15_xlju1")
+
+[node name="Ghostsoulguy" type="Sprite2D" parent="."]
+position = Vector2(123, 100)
+texture = ExtResource("10_sjl2e")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="Ghostsoulguy2" type="Sprite2D" parent="."]
+position = Vector2(148, 83)
+texture = ExtResource("10_sjl2e")
+hframes = 3
+vframes = 3
+
+[node name="Ghostsoulguy3" type="Sprite2D" parent="."]
+position = Vector2(178, 84)
+texture = ExtResource("10_sjl2e")
+hframes = 3
+vframes = 3
+
+[node name="Ghostsoulguy4" type="Sprite2D" parent="."]
+position = Vector2(200, 101)
+scale = Vector2(-1, 1)
+texture = ExtResource("10_sjl2e")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="Ghostsoulguy5" type="Sprite2D" parent="."]
+position = Vector2(210, 126)
+scale = Vector2(-1, 1)
+texture = ExtResource("10_sjl2e")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="Ghostsoulguy6" type="Sprite2D" parent="."]
+position = Vector2(116, 128)
+texture = ExtResource("10_sjl2e")
+hframes = 3
+vframes = 3
+frame = 3

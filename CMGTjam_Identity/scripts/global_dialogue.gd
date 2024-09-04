@@ -206,8 +206,8 @@ func TrappedInAnotherWorldSceneDialogue():
 		loadLines("","Where are we! what do we do! Oh my god were all going to die!","","","","","","","",)
 	if charlinenr == 2:
 		setPersonSpeaking("?")
-		maxlines = 1
-		loadLines("","Calm down you wimp we'll find a way out of here!","","","","","","","",)
+		maxlines = 2
+		loadLines("","Calm down you wimp we'll find a way out of here!","Wa... who was that, wait what are you!","","","","","","",)
 	if charlinenr == 3:
 		setPersonSpeaking("?")
 		maxlines = 1
@@ -277,7 +277,7 @@ func TrappedInAnotherWorldSceneDialogue():
 		maxlines = 1
 		loadLines("","Want me to punch you in the nose pretty boy!","","","","","","","",)
 	if charlinenr == 20:
-		setPersonSpeaking("Eddie")
+		setPersonSpeaking("YOU")
 		maxlines = 2
 		loadLines("","Hahaha, I think I like you much better like this Alex!","You should have shown us this side of you way sooner!","","","","","","",)
 	if charlinenr == 21:
@@ -328,7 +328,17 @@ func TrappedInAnotherWorldSceneDialogue():
 		setPersonSpeaking("Raisa")
 		maxlines = 2
 		loadLines("","Great! Let's go then!","And remember, if anything is wrong give a shout, the campgrounds aren't too big so we'll be there in a flash","","","","","","",)
+
+
+func DiscusionInTheMainBuilding():
+	linenr = 1
+	if charlinenr == 1:
+		setPersonSpeaking("?")
+		maxlines = 1
+		ShadowSprites = true
+		loadLines("","Wait before you two go...","","","","","","","",)
 		
+	
 func setDialougueOn():
 	global_dialogue_on = true
 	$UI/Textbox.visible = true
