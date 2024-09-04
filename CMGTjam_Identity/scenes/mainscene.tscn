@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cm35q6gsthikl" path="res://sprites/othercharacters-4.png" id="12_86nuu"]
 [ext_resource type="Texture2D" uid="uid://dvchs0q5vb1yi" path="res://sprites/Char_Eddie.png" id="12_hppbi"]
 [ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="13_ep4nx"]
-[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
+[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
 [ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="13_m4e5h"]
 [ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="15_hrc1e"]
 

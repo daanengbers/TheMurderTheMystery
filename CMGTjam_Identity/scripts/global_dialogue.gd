@@ -43,6 +43,11 @@ func initialize():
 		charlinenr = 1
 		TrappedInAnotherWorldSceneDialogue()
 		nextLine()
+	if cscene == 3:
+		setDialougueOn()
+		charlinenr = 1
+		DiscusionInTheMainBuilding()
+		nextLine()
 
 func _process(delta):
 	
@@ -63,6 +68,11 @@ func _process(delta):
 				charlinenr += 1
 				linenr = 1
 				TrappedInAnotherWorldSceneDialogue()
+				nextLine()
+			if cscene == 3:
+				charlinenr += 1
+				linenr = 1
+				DiscusionInTheMainBuilding()
 				nextLine()
 			if is_cutscene == false:
 				setDialougueOff()
@@ -333,11 +343,42 @@ func TrappedInAnotherWorldSceneDialogue():
 func DiscusionInTheMainBuilding():
 	linenr = 1
 	if charlinenr == 1:
-		setPersonSpeaking("?")
-		maxlines = 1
 		ShadowSprites = true
+		setPersonSpeaking("Raisa")
+		maxlines = 1
 		loadLines("","Wait before you two go...","","","","","","","",)
-		
+	if charlinenr == 2:
+		setPersonSpeaking("YOU")
+		maxlines = 1
+		loadLines("","What is it Raisa?","","","","","","","",)
+	if charlinenr == 3:
+		setPersonSpeaking("Raisa")
+		maxlines = 3
+		loadLines("","Ehmm... Would either of you mind swapping with me?","I... I sorta forgot there are gonna be a lot of spiders in the shed....","And... I'm kinda afraid of them..","","","","","",)
+	if charlinenr == 4:
+		setPersonSpeaking("Alynne")
+		maxlines = 3
+		loadLines("","Hahahah, little old Raisa is afraid of some small spiders","Sure love I'll swap with you.","Even though I'm not such a fan of spiders too.","","","","","",)
+	if charlinenr == 5:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("","Thank you Alynne! I promise I'll make it up to you","","","","","","","",)
+	if charlinenr == 6:
+		setPersonSpeaking("Alynne")
+		maxlines = 1
+		loadLines("","I can't wait","","","","","","","",)
+	if charlinenr == 7:
+		setPersonSpeaking("YOU")
+		maxlines = 1
+		loadLines("","Well then, let's meet back here in a few. Stay safe!","","","","","","","",)
+	if charlinenr == 8:
+		setPersonSpeaking("Alynne")
+		maxlines = 1
+		loadLines("","Stay safe!","","","","","","","",)
+	if charlinenr == 9:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("","Stay safe!","","","","","","","",)
 	
 func setDialougueOn():
 	global_dialogue_on = true
