@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 260
+var SPEED = 60
 
 var rpress = false
 var lpress = false
