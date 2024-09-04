@@ -6,9 +6,9 @@ var charlinenr = 1
 var maxlines = 0
 var charsvis = 0
 var personspeaking = ""
-@export var is_cutscene = true
+@export var is_cutscene = false
 
-var cscene = 1
+var cscene = 0
 var canpress = true
 
 var loadedline1 = "line1"
@@ -27,11 +27,13 @@ var loadedline9 = "line9"
 
 func _ready():
 	$UI/Blackbox/AnimationPlayer.play("fadein")
+	initialize()
+
+func initialize():
 	if cscene == 1:
 		setDialougueOn()
 		pentagramSceneDialogue()
 		nextLine()
-		
 
 func _process(delta):
 	print(charlinenr)

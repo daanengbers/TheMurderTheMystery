@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtxb0s8obtbtu"]
+
+[ext_resource type="Script" path="res://scripts/scenesetter.gd" id="1_7pf1j"]
+
+[node name="Scenesetter" type="Node"]
+script = ExtResource("1_7pf1j")
