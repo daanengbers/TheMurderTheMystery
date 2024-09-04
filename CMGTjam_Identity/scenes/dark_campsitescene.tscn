@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/dark_campsitescene.gd" id="1_ccnyc"]
 [ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="2_2ymff"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_movxb"]
-[ext_resource type="Texture2D" uid="uid://wkqq3mmhjkab" path="res://sprites/Grounditems-2.png" id="5_deusx"]
 [ext_resource type="Texture2D" uid="uid://clv04yohgmy0d" path="res://sprites/Tiles_Field.png" id="6_wxqdr"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="7_kp8kg"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="8_g373u"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="14_sqf5v"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="15_oo0tk"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="16_2e6bl"]
+[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="18_6f4ik"]
 [ext_resource type="PackedScene" uid="uid://cpxxpkk4he5yh" path="res://scenes/persona_background.tscn" id="19_5he3c"]
 [ext_resource type="Texture2D" uid="uid://ux637xfjkb4p" path="res://sprites/sprite_Signs1.png" id="19_8cbtt"]
 [ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="19_f0rg3"]
@@ -297,17 +297,21 @@ polygon = PackedVector2Array(850, -222, 1054, -222, 1054, -114, 818, -114, 818, 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="VOID"]
 polygon = PackedVector2Array(722, 18, 910, 18, 910, 66, 926, 66, 926, 110, 818, 110, 818, 78, 722, 78)
 
-[node name="Interactable3" parent="." instance=ExtResource("3_movxb")]
-z_index = 1
-position = Vector2(451, 267)
-objectname = "Letter"
-interacttext1 = "(It's a letter...)"
-interacttext2 = "(...but the soaking rain made it unreadable)"
-int_maxlines = 2
-metadata/_edit_group_ = true
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="VOID"]
+polygon = PackedVector2Array(1203, -384, 1203, -290, 1346, -290, 1346, -253, 1203, -254, 1203, -130, 1423, -129, 1423, -396)
 
-[node name="Grounditems-1" type="Sprite2D" parent="Interactable3"]
-texture = ExtResource("5_deusx")
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="VOID"]
+polygon = PackedVector2Array(13, 578, 110, 578, 110, 720)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="VOID"]
+polygon = PackedVector2Array(430, 318, 430, 130, 402, 130, 402, 318)
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="VOID"]
+position = Vector2(64, -272)
+polygon = PackedVector2Array(430, 318, 430, 34, 402, 34, 402, 318)
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="VOID"]
+polygon = PackedVector2Array(402, 94, 430, 94, 430, -206, 158, -206, 158, -334, -1, -335, -9, -343, 7, -191, 402, -132)
 
 [node name="Interactable4" parent="." instance=ExtResource("3_movxb")]
 z_index = 1
@@ -546,5 +550,7 @@ texture = ExtResource("19_8cbtt")
 
 [node name="PersonaBackground" parent="." instance=ExtResource("19_5he3c")]
 metadata/_edit_lock_ = true
+
+[node name="Darkworldfilter" parent="." instance=ExtResource("18_6f4ik")]
 
 [connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]
