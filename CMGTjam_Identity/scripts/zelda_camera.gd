@@ -1,6 +1,9 @@
 extends Camera2D
+@export var rain = false
 
 func _ready():
+	if rain == true:
+		$Rain.emitting = true
 	pass
 
 func _process(delta):

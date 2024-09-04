@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_od65o"]
 [ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="3_nlcid"]
 [ext_resource type="Texture2D" uid="uid://bojpcdjhlvov8" path="res://sprites/Sleeping_Teacher.png" id="4_gw87v"]
-[ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="4_orpfa"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="5_hgghm"]
 [ext_resource type="Texture2D" uid="uid://wkqq3mmhjkab" path="res://sprites/Grounditems-2.png" id="5_jbtr3"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="6_a58hu"]
 [ext_resource type="Texture2D" uid="uid://fx1ybp4wwhxr" path="res://sprites/Spar_tree.png" id="7_66d7p"]
+[ext_resource type="Texture2D" uid="uid://cx7fjdgieeeae" path="res://sprites/FlashLight.png" id="7_gei12"]
 [ext_resource type="Texture2D" uid="uid://cxuymy7vfom5l" path="res://sprites/Grounditems-1.png" id="10_melc3"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="11_i4034"]
 [ext_resource type="PackedScene" uid="uid://dkbssc8wylrx3" path="res://scenes/tent.tscn" id="13_qo0j0"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="16_6g3ru"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="17_yvshn"]
 [ext_resource type="Texture2D" uid="uid://dfuba3cl7cu71" path="res://sprites/SignsMainBuilding.png" id="18_qbvah"]
+[ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="20_55qyq"]
 
 [sub_resource type="Animation" id="Animation_c43im"]
 length = 0.001
@@ -74,14 +75,8 @@ texture = ExtResource("1_wcp8f")
 [sub_resource type="TileSet" id="TileSet_oqqnb"]
 sources/0 = SubResource("TileSetAtlasSource_hak4h")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
-texture = ExtResource("4_orpfa")
-texture_region_size = Vector2i(320, 180)
-0:0/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_vlx05"]
 tile_size = Vector2i(320, 180)
-sources/0 = SubResource("TileSetAtlasSource_osf81")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46kq3"]
 texture = ExtResource("5_hgghm")
@@ -185,6 +180,7 @@ script = ExtResource("1_kp6vi")
 
 [node name="ZeldaCamera" parent="." instance=ExtResource("3_nlcid")]
 position = Vector2(9, 4)
+rain = true
 
 [node name="Control" type="Control" parent="ZeldaCamera"]
 layout_mode = 3
@@ -281,6 +277,7 @@ texture_filter = 1
 position = Vector2(127, 106)
 
 [node name="TileMap2" type="TileMap" parent="ySORT"]
+visible = false
 modulate = Color(1, 1, 1, 0.117647)
 tile_set = SubResource("TileSet_vlx05")
 format = 2
@@ -503,6 +500,10 @@ rotation = -1.57079
 scale = Vector2(1, 1.33)
 texture = ExtResource("11_i4034")
 
+[node name="FlashLight" type="Sprite2D" parent="."]
+position = Vector2(75, 96)
+texture = ExtResource("7_gei12")
+
 [node name="NextsceneArea" type="Area2D" parent="."]
 position = Vector2(704, 328)
 
@@ -512,5 +513,9 @@ shape = SubResource("RectangleShape2D_hgomv")
 [node name="SignsMainBuilding" type="Sprite2D" parent="."]
 position = Vector2(714, 23)
 texture = ExtResource("18_qbvah")
+
+[node name="Axe" type="Sprite2D" parent="."]
+position = Vector2(891, 54)
+texture = ExtResource("20_55qyq")
 
 [connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]

@@ -27,6 +27,7 @@ shape = SubResource("RectangleShape2D_qb64g")
 [node name="Rain" type="CPUParticles2D" parent="."]
 z_index = 20
 position = Vector2(200, 60)
+emitting = false
 amount = 40
 texture = ExtResource("2_0khsb")
 emission_shape = 3
