@@ -36,6 +36,11 @@ func initialize():
 		setDialougueOn()
 		pentagramSceneDialogue()
 		nextLine()
+	if cscene == 2:
+		setDialougueOn()
+		charlinenr = 1
+		TrappedInAnotherWorldSceneDialogue()
+		nextLine()
 
 func _process(delta):
 	print(charlinenr)
@@ -165,6 +170,94 @@ func pentagramSceneDialogue():
 		loadLines("","No way to undo whats done! Good luck darlings!","","","","","","","")
 	if charlinenr == 24:
 		setPersonSpeaking("???")
+		
+		
+func TrappedInAnotherWorldSceneDialogue():
+	linenr = 1
+	if charlinenr == 1:
+		setPersonSpeaking("?")
+		maxlines = 1
+		loadLines("","Where are we! what do we do! Oh my god were all going to die!","","","","","","","",)
+	if charlinenr == 2:
+		setPersonSpeaking("?")
+		maxlines = 1
+		loadLines("","Calm down you wimp we'll find a way out of here!","","","","","","","",)
+	if charlinenr == 3:
+		setPersonSpeaking("?")
+		maxlines = 1
+		loadLines("","What do you mean what are you, its us you dumbass... wait what... why do you all look like that!","","","","","","","",)
+	if charlinenr == 4:
+		setPersonSpeaking("?")
+		maxlines = 4
+		loadLines("","Wait everyone shut up for a seccond!","This is gonna get confusing very quickly.","Lets first all say our names before we continue.","And from then on when we speak we say our names first.","","","","",)
+	if charlinenr == 5:
+		setPersonSpeaking("Alynne")
+		maxlines = 1
+		loadLines("Alynne!","","","","","","","","",)
+	if charlinenr == 6:
+		setPersonSpeaking("Micah")
+		maxlines = 1
+		loadLines("Micah!","","","","","","","","",)
+	if charlinenr == 7:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("Alex!","","","","","","","","",)
+	if charlinenr == 8:
+		setPersonSpeaking("Jaime")
+		maxlines = 1
+		loadLines("Jaime!","","","","","","","","",)
+	if charlinenr == 9:
+		setPersonSpeaking("YOU")
+		maxlines = 1
+		loadLines("Eddie!","","","","","","","","",)
+	if charlinenr == 10:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("Raisa!","","","","","","","","",)
+	if charlinenr == 11:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("Raisa, Now thats all cleared up lets all stay calm and think about our situation!","","","","","","","","",)
+	if charlinenr == 12:
+		setPersonSpeaking("Jaime")
+		maxlines = 2
+		loadLines("What do you mean stay calm!","You heard that freak, only 4 of us can leave here!","","","","","","","",)
+	if charlinenr == 13:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("","Shut the fuck up and keep calm!... Alex...","","","","","","","",)
+	if charlinenr == 14:
+		setPersonSpeaking("Jaime")
+		maxlines = 1
+		loadLines("","Wow alright, sorry... Jaime","","","","","","","",)
+	if charlinenr == 15:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("","I-I'm sorry... Alex","","","","","","","",)
+	if charlinenr == 16:
+		setPersonSpeaking("Raisa")
+		maxlines = 1
+		loadLines("","Raisa, No dont be, I'm happy you are finnaly speaking up.","","","","","","","",)
+	if charlinenr == 17:
+		setPersonSpeaking("Alex")
+		maxlines = 3
+		loadLines("","Alex, I - I swear I'm not like this...","It's this world, it has to be.","I dont know what it is but I cant seem to keep my big mouth shut","","","","","",)
+	if charlinenr == 18:
+		setPersonSpeaking("Jaime")
+		maxlines = 3
+		loadLines("","Jaime, That bastard did say we would be stripped to our souls.","It seems hiding your true self is much harder here...","Which means your true self is as brass as a bell Alex! hahaha!","","","","","")
+	if charlinenr == 19:
+		setPersonSpeaking("Alex")
+		maxlines = 1
+		loadLines("","Want me to punch you in the nose pretty boy!","","","","","","","",)
+	if charlinenr == 20:
+		setPersonSpeaking("Eddie")
+		maxlines = 2
+		loadLines("","Hahaha, I think I like you much better like this Alex!","You should have shown us this side of you way sooner!","","","","","","",)
+	if charlinenr == 21:
+		setPersonSpeaking("Alex")
+		maxlines = 3
+		loadLines("","Rea- Really...","No one ever wants to hang out with me when they get to know me","you guys sure you won't hate me?","","","","","",)
 
 func setDialougueOn():
 	global_dialogue_on = true
