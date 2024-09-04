@@ -5,3 +5,4 @@ func _ready():
 	$Window2/AnimationPlayer.play("thunder")
 	$Window3/AnimationPlayer.play("thunder")
 	GlobalDialogue.fadeIn()
+	

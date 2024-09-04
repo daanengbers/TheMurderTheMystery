@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cm35q6gsthikl" path="res://sprites/othercharacters-4.png" id="12_86nuu"]
 [ext_resource type="Texture2D" uid="uid://dvchs0q5vb1yi" path="res://sprites/Char_Eddie.png" id="12_hppbi"]
 [ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="13_ep4nx"]
-[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
+[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
 [ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="13_m4e5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
@@ -175,23 +175,23 @@ position = Vector2(56, 42)
 texture = ExtResource("6_x2pkk")
 
 [node name="Othercharacters-1" type="Sprite2D" parent="."]
-position = Vector2(207, 98)
+position = Vector2(200, 102)
 texture = ExtResource("8_i5563")
 
 [node name="Othercharacters-5" type="Sprite2D" parent="."]
-position = Vector2(208, 128)
+position = Vector2(209, 128)
 texture = ExtResource("9_2kqqu")
 
 [node name="Othercharacters-3" type="Sprite2D" parent="."]
-position = Vector2(176, 81)
+position = Vector2(178, 84)
 texture = ExtResource("10_tr6ls")
 
 [node name="Othercharacters-2" type="Sprite2D" parent="."]
-position = Vector2(145, 81)
+position = Vector2(148, 85)
 texture = ExtResource("11_wfhjk")
 
 [node name="Othercharacters-4" type="Sprite2D" parent="."]
-position = Vector2(116, 131)
+position = Vector2(117, 129)
 texture = ExtResource("12_86nuu")
 flip_h = true
 
@@ -207,11 +207,11 @@ libraries = {
 }
 
 [node name="Newritualcircle-1" type="Sprite2D" parent="."]
-position = Vector2(163, 116)
+position = Vector2(163, 125)
 texture = ExtResource("13_ep4nx")
 
 [node name="CharEddie" type="Sprite2D" parent="."]
-position = Vector2(116, 97)
+position = Vector2(123, 99)
 texture = ExtResource("12_hppbi")
 hframes = 3
 vframes = 3

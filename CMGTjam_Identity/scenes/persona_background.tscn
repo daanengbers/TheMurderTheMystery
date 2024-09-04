@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpxxpkk4he5yh"]
+
+[ext_resource type="Texture2D" uid="uid://bis86pa1vj7al" path="res://sprites/Weirdcloud-1.png" id="1_6xvv3"]
+
+[sub_resource type="Gradient" id="Gradient_wjfxg"]
+offsets = PackedFloat32Array(0, 0.415584, 0.532468, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.887521, 0.212759, 0, 1, 0.747594, 0.263345, 0.140218, 1, 1, 0.572549, 0.313726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gshos"]
+gradient = SubResource("Gradient_wjfxg")
+
+[sub_resource type="Curve" id="Curve_36clf"]
+_data = [Vector2(0, 0), 0.0, 10.6693, 0, 0, Vector2(0.207865, 1), 0.0, 0.0, 0, 0, Vector2(0.348315, 0.747253), 0.0, 0.0, 0, 0, Vector2(0.483146, 1), 0.0, 0.0, 0, 0, Vector2(0.61236, 0.802198), 0.0, 0.0, 0, 0, Vector2(0.792135, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -9.22137, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="Gradient" id="Gradient_tumk4"]
+offsets = PackedFloat32Array(0, 0.273333, 0.76, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_dijri"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
+
+[node name="PersonaBackground" type="Node2D"]
+
+[node name="BGUI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="GradientBG" type="Sprite2D" parent="BGUI"]
+position = Vector2(160, 90)
+rotation = -1.5708
+scale = Vector2(2.82, 5)
+texture = SubResource("GradientTexture2D_gshos")
+metadata/_edit_lock_ = true
+
+[node name="Weirdclouds" type="CPUParticles2D" parent="BGUI"]
+texture_filter = 1
+position = Vector2(160, 90)
+amount = 18
+lifetime = 8.0
+texture = ExtResource("1_6xvv3")
+emission_shape = 3
+emission_rect_extents = Vector2(160, 90)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 24.0
+angular_velocity_min = -1.0
+angular_velocity_max = 1.0
+scale_amount_min = 0.7
+scale_amount_max = 1.4
+scale_amount_curve = SubResource("Curve_36clf")
+color_ramp = SubResource("Gradient_tumk4")
+color_initial_ramp = SubResource("Gradient_dijri")
