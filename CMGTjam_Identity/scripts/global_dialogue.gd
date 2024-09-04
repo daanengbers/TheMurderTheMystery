@@ -3,7 +3,7 @@ extends Node2D
 var global_dialogue_on = false
 var linenr = 1
 var charlinenr = 1
-var maxlines = 1
+var maxlines = 0
 var charsvis = 0
 var personspeaking = ""
 @export var is_cutscene = true
@@ -11,42 +11,68 @@ var personspeaking = ""
 var cscene = 1
 var canpress = true
 
-var loadedline1 = ""
-var loadedline2 = "2"
-var loadedline3 = "3"
-var loadedline4 = "4"
-var loadedline5 = "5"
-var loadedline6 = ""
-var loadedline7 = ""
-var loadedline8 = ""
-var loadedline9 = ""
+var loadedline1 = "line1"
+var loadedline2 = "line2"
+var loadedline3 = "line3"
+var loadedline4 = "line4"
+var loadedline5 = "line5"
+var loadedline6 = "line6"
+var loadedline7 = "line7"
+var loadedline8 = "line8"
+var loadedline9 = "line9"
 
 @export var nextscene = PackedScene
 
-#var text_in_box = ""
+
 
 func _ready():
 	$UI/Blackbox/AnimationPlayer.play("fadein")
 	if cscene == 1:
-	#if get_tree().current_scene.name == "mainscene":
 		setDialougueOn()
 		pentagramSceneDialogue()
 		nextLine()
+		
 
 func _process(delta):
-	
+	print(charlinenr)
 	
 	if charsvis < 200 && global_dialogue_on == true:
 		charsvis += 0.5
 	$UI/Textbox/Text.visible_characters = charsvis
-	$UI/Textbox/Linenr.set_text(str(maxlines))
+	$UI/Textbox/Linenr.set_text("MAX LINES = " + str(maxlines) + " ,LINENR = " + str(linenr) + " ,CHARLNR = " + str(charlinenr) + " ,CHARSPEAKING = " + str(personspeaking))
 	if Input.is_action_just_pressed("interact") && global_dialogue_on == true && canpress == true:
 		canpress = false
 		charsvis = 0
-		nextLine()
+		if linenr > maxlines:
+			if cscene == 1:
+				charlinenr += 1
+				linenr = 1
+				pentagramSceneDialogue()
+				nextLine()
+			if is_cutscene == false:
+				setDialougueOff()
+		else:
+			nextLine()
+			
+		
 		$Timers/PressTimer.start()
 	
 	
+
+func pentagramSceneDialogue():
+	linenr = 1
+	if charlinenr == 1:
+		setPersonSpeaking("YOU")
+		maxlines = 1
+		loadLines("","Who's idea was this again?","","","","","","","",)
+	if charlinenr == 2:
+		setPersonSpeaking("Raisa")
+		maxlines = 3
+		loadLines("","What's wrong Eddie, you scared?","Come on! we can't pass up this possibility!","A group of teens blabla","f","f","f","f","f",)
+	if charlinenr == 3:
+		setPersonSpeaking("Alynne")
+		maxlines = 2
+		loadLines("","That's not funny!...","...you knock on wood right this instant before something really happens!","","","","","","",)
 
 func setDialougueOn():
 	global_dialogue_on = true
@@ -57,7 +83,7 @@ func setDialougueOff():
 		$Timers/DisableDialogueTimer.start()
 		$UI/Textbox.visible = false
 	else:
-		charlinenr += 1
+		#charlinenr += 1
 		if cscene == 1:
 			linenr = 1
 			pentagramSceneDialogue()
@@ -66,17 +92,7 @@ func setDialougueOff():
 	$UI/Textbox/Text.visible_characters = 0
 	$UI/Textbox/Text.modulate = Color(1,1,1)
 
-func setPersonSpeaking(p_s):
-	personspeaking = p_s
-	$UI/Textbox/Name.set_text(str(personspeaking))
-	if personspeaking == "Your cellphone":
-		$UI/Textbox/CharPortraits.frame = 2
-	elif personspeaking == "Sleeping Teacher":
-		$UI/Textbox/CharPortraits.frame = 3
-	elif personspeaking == "Letter":
-		$UI/Textbox/CharPortraits.frame = 4
-	else:
-		$UI/Textbox/CharPortraits.frame = 0
+
 
 func loadLines(ll1,ll2,ll3,ll4,ll5,ll6,ll7,ll8,ll9):
 	loadedline1 = ll1
@@ -112,14 +128,14 @@ func nextLine():
 	if linenr == 9:
 		$UI/Textbox/Text.set_text(str(loadedline9))
 	
-	if linenr > maxlines:
-		if is_cutscene == false:
-			setDialougueOff()
-		else:
-			if cscene == 1:
-				charlinenr += 1
-				linenr = 1
-				pentagramSceneDialogue()
+	#if linenr > maxlines:
+	#	if is_cutscene == false:
+	#		setDialougueOff()
+	#	else:
+	#		if cscene == 1:
+	#			charlinenr += 1
+	#			linenr = 1
+	#			pentagramSceneDialogue()
 				
 
 func fadeIn():
@@ -135,23 +151,8 @@ func _on_disable_dialogue_timer_timeout():
 func _on_nextscene_1_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/mainscene.tscn")
 
-func pentagramSceneDialogue():
-	linenr = 1
-	if charlinenr == 1:
-		setPersonSpeaking("YOU")
-		maxlines = 1
-		loadLines("","Who's idea was this again?","","","","","","","",)
-		
-	if charlinenr == 2:
-		setPersonSpeaking("Raisa")
-		maxlines = 3
-		loadLines("","What's wrong Eddie, you scared?","Come on! we can't pass up this possibility!","A group of teens blabla","f","f","f","f","f",)
-		
-	if charlinenr == 3:
-		setPersonSpeaking("Alynne")
-		maxlines = 2
-		loadLines("","That's not funny!...","...you knock on wood right this instant before something really happens!","","","","","","",)
-		
+
+	
 	
 	
 	
@@ -159,7 +160,26 @@ func pentagramSceneDialogue():
 	
 	
 
-
+func setPersonSpeaking(p_s):
+	personspeaking = p_s
+	$UI/Textbox/Name.set_text(str(personspeaking))
+	if personspeaking == "Your cellphone":
+		$UI/Textbox/CharPortraits.frame = 1
+	elif personspeaking == "Sleeping Teacher":
+		$UI/Textbox/CharPortraits.frame = 2
+	elif personspeaking == "Letter":
+		$UI/Textbox/CharPortraits.frame = 3
+	elif personspeaking == "YOU":
+		$UI/Textbox/CharPortraits.frame = 4
+	elif personspeaking == "Micah":
+		$UI/Textbox/CharPortraits.frame = 5
+	elif personspeaking == "Alynne":
+		$UI/Textbox/CharPortraits.frame = 6
+	
+	
+	
+	else:
+		$UI/Textbox/CharPortraits.frame = 0
 
 
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://1mh1fq0b0a6p"]
 
 [ext_resource type="Script" path="res://scripts/global_dialogue.gd" id="1_uu81o"]
+[ext_resource type="Texture2D" uid="uid://binuhb123scov" path="res://sprites/Characters_portraits.png" id="2_5wr5e"]
 [ext_resource type="FontFile" uid="uid://bdnd4wbvgahig" path="res://fonts/EXEPixelPerfect.ttf" id="2_k4m76"]
 [ext_resource type="Texture2D" uid="uid://f3xw43c1r3b3" path="res://sprites/Textbox-1.png" id="3_08q61"]
-[ext_resource type="Texture2D" uid="uid://bkb46gim3qjx1" path="res://sprites/Characters_portraits.png" id="3_py8mo"]
 
 [sub_resource type="Animation" id="Animation_xugig"]
 length = 0.001
@@ -79,14 +79,14 @@ one_shot = true
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Textbox" type="Node2D" parent="UI"]
-visible = false
 texture_filter = 1
 
 [node name="CharPortraits" type="Sprite2D" parent="UI/Textbox"]
 texture_filter = 1
 position = Vector2(286, 124)
-texture = ExtResource("3_py8mo")
-hframes = 5
+texture = ExtResource("2_5wr5e")
+hframes = 3
+vframes = 6
 
 [node name="ColorRect" type="ColorRect" parent="UI/Textbox"]
 visible = false
@@ -133,7 +133,7 @@ texture_filter = 1
 offset_left = 4.0
 offset_top = 2.0
 offset_right = 316.0
-offset_bottom = 15.0
+offset_bottom = 140.0
 theme_override_fonts/font = ExtResource("2_k4m76")
 text = "linenr ="
 autowrap_mode = 2
@@ -148,6 +148,10 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_7w33c")
 }
+
+[node name="CharactersPortraits" type="Sprite2D" parent="."]
+position = Vector2(443, 124)
+texture = ExtResource("2_5wr5e")
 
 [connection signal="timeout" from="Timers/DisableDialogueTimer" to="." method="_on_disable_dialogue_timer_timeout"]
 [connection signal="timeout" from="Timers/Nextscene1Timer" to="." method="_on_nextscene_1_timer_timeout"]
