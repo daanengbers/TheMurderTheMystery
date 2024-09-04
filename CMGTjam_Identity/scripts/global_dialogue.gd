@@ -31,6 +31,7 @@ func _ready():
 	#if get_tree().current_scene.name == "mainscene":
 		setDialougueOn()
 		pentagramSceneDialogue()
+		nextLine()
 
 func _process(delta):
 	
@@ -140,15 +141,17 @@ func pentagramSceneDialogue():
 		setPersonSpeaking("YOU")
 		maxlines = 1
 		loadLines("","Who's idea was this again?","","","","","","","",)
+		
 	if charlinenr == 2:
 		setPersonSpeaking("Raisa")
 		maxlines = 3
 		loadLines("","What's wrong Eddie, you scared?","Come on! we can't pass up this possibility!","A group of teens blabla","f","f","f","f","f",)
+		
 	if charlinenr == 3:
 		setPersonSpeaking("Alynne")
 		maxlines = 2
 		loadLines("","That's not funny!...","...you knock on wood right this instant before something really happens!","","","","","","",)
-	
+		
 	
 	
 	
