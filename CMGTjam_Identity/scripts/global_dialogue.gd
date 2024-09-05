@@ -586,6 +586,8 @@ func _on_nextscene_1_timer_timeout():
 	#initialize()
 	if cscene == 2:
 		get_tree().change_scene_to_file("res://scenes/dark_campsitescene.tscn")
+		is_cutscene = false
+		setDialougueOff()
 	if cscene == 1:
 		get_tree().change_scene_to_file("res://scenes/mainsceneDark.tscn")
 	if cscene == 0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d0nqoio58wjnn"]
+[gd_scene load_steps=41 format=3 uid="uid://d0nqoio58wjnn"]
 
 [ext_resource type="Script" path="res://scripts/campsitescene.gd" id="1_kp6vi"]
 [ext_resource type="Texture2D" uid="uid://clv04yohgmy0d" path="res://sprites/Tiles_Field.png" id="1_wcp8f"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://myjbcbdvxex" path="res://sprites/Dungeonparticles-2.png" id="15_mjuok"]
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="16_6g3ru"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="17_yvshn"]
-[ext_resource type="Texture2D" uid="uid://dfuba3cl7cu71" path="res://sprites/SignsMainBuilding.png" id="18_qbvah"]
 [ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="20_8nxqd"]
 [ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="20_55qyq"]
 [ext_resource type="AudioStream" uid="uid://bsfgmjej4d5y0" path="res://sounds/rain_murdermystery.wav" id="21_ssrs6"]
@@ -527,10 +526,6 @@ position = Vector2(704, 328)
 
 [node name="Box" type="CollisionShape2D" parent="NextsceneArea"]
 shape = SubResource("RectangleShape2D_hgomv")
-
-[node name="SignsMainBuilding" type="Sprite2D" parent="."]
-position = Vector2(714, 23)
-texture = ExtResource("18_qbvah")
 
 [node name="Axe" type="Sprite2D" parent="."]
 position = Vector2(891, 54)
