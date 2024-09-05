@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="7_fdx3t"]
 [ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="8_gfi04"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="9_n1jov"]
-[ext_resource type="PackedScene" path="res://scenes/persona_background.tscn" id="10_lc1xj"]
-[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="11_sr5l1"]
+[ext_resource type="PackedScene" uid="uid://cpxxpkk4he5yh" path="res://scenes/persona_background.tscn" id="10_lc1xj"]
+[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="11_sr5l1"]
 [ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="12_sjkyi"]
 [ext_resource type="Texture2D" uid="uid://crhr0hxupfd2l" path="res://sprites/MainBuilding.png" id="13_orn2q"]
 

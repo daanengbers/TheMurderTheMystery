@@ -505,7 +505,9 @@ func AfterMurderInTheMainBuilding():
 		setPersonSpeaking("YOU")
 		maxlines = 2
 		loadLines("","I swear I didn't do it, and I can prove it too!","(come on think Eddie, what can prove my innocence) ","","","","","","",)
-		
+	if charlinenr == 18:
+		fadeOut()
+		setDialougueOff()
 		
 		
 func setDialougueOn():
@@ -584,6 +586,11 @@ func _on_disable_dialogue_timer_timeout():
 
 func _on_nextscene_1_timer_timeout():
 	#initialize()
+	if cscene == 4:
+		get_tree().change_scene_to_file("res://scenes/to_be_continued.tscn")
+		is_cutscene = false
+		setDialougueOff()
+		fadeIn()
 	if cscene == 2:
 		get_tree().change_scene_to_file("res://scenes/dark_campsitescene.tscn")
 		is_cutscene = false
