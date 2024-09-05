@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="10_sjl2e"]
 [ext_resource type="Script" path="res://scenes/ClockAnim.gd" id="11_hht28"]
 [ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="12_nwljr"]
-[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="14_swixw"]
+[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="14_swixw"]
 [ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="15_xlju1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
@@ -116,7 +116,7 @@ _data = {
 "RESET": SubResource("Animation_47qud")
 }
 
-[node name="Mainscene2" type="Node2D"]
+[node name="Mainscene3" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_tkmgt")
 

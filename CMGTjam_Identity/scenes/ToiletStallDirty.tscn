@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dx41xroshmx4n" path="res://Toilet.png" id="8_y763j"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="9_5argk"]
 [ext_resource type="Texture2D" uid="uid://ctxtv22b8ls8g" path="res://sprites/BloodyFlashlight.png" id="10_qb34n"]
-[ext_resource type="PackedScene" uid="uid://cpxxpkk4he5yh" path="res://scenes/persona_background.tscn" id="12_1pbk4"]
+[ext_resource type="PackedScene" path="res://scenes/persona_background.tscn" id="12_1pbk4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
 texture = ExtResource("2_jg2bo")

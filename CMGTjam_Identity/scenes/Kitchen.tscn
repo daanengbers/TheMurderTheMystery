@@ -1,6 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://cfxc5fyqg16qk"]
+[gd_scene load_steps=31 format=3 uid="uid://cfxc5fyqg16qk"]
 
 [ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_0sw8i"]
+[ext_resource type="Script" path="res://scenes/Kitchen.gd" id="1_joaux"]
+[ext_resource type="PackedScene" path="res://scenes/persona_background.tscn" id="1_yurhg"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_6krro"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="3_ak27g"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="4_n1i8f"]
@@ -13,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bbacm7sfcxxi2" path="res://sprites/KnifeRack.png" id="9_q2i7g"]
 [ext_resource type="Texture2D" uid="uid://nkcp8huj0dwb" path="res://sprites/CuttingBoard.png" id="10_a63f1"]
 [ext_resource type="Texture2D" uid="uid://dsvkj6k7bca1j" path="res://sprites/Oven.png" id="12_vbo7w"]
+[ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="14_jkc4s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
 texture = ExtResource("3_ak27g")
@@ -139,11 +142,16 @@ _data = {
 "thunder": SubResource("Animation_3d6au")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3pi6"]
-size = Vector2(28, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aujvw"]
+size = Vector2(15.4688, 11.1111)
 
-[node name="Mainscene" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w67b0"]
+
+[node name="Mainscene2" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_joaux")
+
+[node name="PersonaBackground" parent="." instance=ExtResource("1_yurhg")]
 
 [node name="Darkworldfilter" parent="." instance=ExtResource("1_0sw8i")]
 
@@ -152,6 +160,7 @@ y_sort_enabled = true
 
 [node name="player" parent="ySORT" instance=ExtResource("2_6krro")]
 position = Vector2(129, 111)
+darkversion = true
 
 [node name="TileMap2" type="TileMap" parent="ySORT"]
 visible = false
@@ -161,13 +170,20 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65536, 0, 0, 1, 0, 0, 65538, 0, 0, -65534, 0, 0, -65536, 0, 0, 3, 0, 0, -65532, 0, 0, 65540, 0, 0, 131073, 0, 0, 131075, 0, 0, -131069, 0, 0, -131071, 0, 0, -196608, 0, 0, -196606, 0, 0, -196604, 0, 0, -262143, 0, 0, -262141, 0, 0, -65537, 0, 0, -131067, 0, 0, 65535, 0, 0)
 
 [node name="Interactable" parent="." instance=ExtResource("4_n1i8f")]
-position = Vector2(168, 193)
+position = Vector2(159, 73)
+objectname = "YOU"
+interacttext1 = "It's an oven"
+interacttext2 = "Nothing seems out of the ordinary"
 int_maxlines = 1
 
 [node name="Interactable2" parent="." instance=ExtResource("4_n1i8f")]
-position = Vector2(134, 198)
-objectname = "Tree"
-int_maxlines = 1
+position = Vector2(110, 63)
+objectname = "YOU"
+interacttext1 = "It's a knife rack, but whats this?"
+interacttext2 = "There seems to be a knife missing!"
+interacttext3 = "AAAAAAH!"
+int_maxlines = 2
+BoolToTurnOn = 1
 
 [node name="KitchenFloor" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_skufc")
@@ -188,14 +204,6 @@ position = Vector2(1, 0)
 tile_set = SubResource("TileSet_i03bi")
 format = 2
 layer_0/tile_data = PackedInt32Array(3, 262144, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 327680, 0, 327683, 327680, 0, 393219, 327680, 0, 458755, 327680, 0, 524291, 327680, 0, 589827, 327680, 0, 655363, 131072, 0, 720899, 65536, 0, 4, 262144, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 327680, 0, 327684, 327680, 0, 393220, 327680, 0, 458756, 327680, 0, 524292, 327680, 0, 589828, 327680, 0, 655364, 131072, 0, 720900, 65536, 0, 5, 262144, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 327680, 0, 327685, 327680, 0, 393221, 327680, 0, 458757, 327680, 0, 524293, 327680, 0, 589829, 327680, 0, 655365, 131072, 0, 720901, 65536, 0, 6, 262144, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 327680, 0, 327686, 327680, 0, 393222, 327680, 0, 458758, 327680, 0, 524294, 327680, 0, 589830, 327680, 0, 655366, 131072, 0, 720902, 65536, 0, 7, 262144, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 327680, 0, 327687, 327680, 0, 393223, 327680, 0, 458759, 327680, 0, 524295, 327680, 0, 589831, 327680, 0, 655367, 131072, 0, 720903, 65536, 0, 8, 262144, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 327680, 0, 327688, 327680, 0, 393224, 327680, 0, 458760, 327680, 0, 524296, 327680, 0, 589832, 327680, 0, 655368, 131072, 0, 720904, 65536, 0, 9, 262144, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 327680, 0, 327689, 327680, 0, 393225, 327680, 0, 458761, 327680, 0, 524297, 327680, 0, 589833, 327680, 0, 655369, 131072, 0, 720905, 65536, 0, 10, 262144, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 327680, 0, 327690, 327680, 0, 393226, 327680, 0, 458762, 327680, 0, 524298, 327680, 0, 589834, 327680, 0, 655370, 131072, 0, 720906, 65536, 0, 11, 262144, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 327680, 0, 327691, 327680, 0, 393227, 327680, 0, 458763, 327680, 0, 524299, 327680, 0, 589835, 327680, 0, 655371, 131072, 0, 720907, 65536, 0, 12, 262144, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 327680, 0, 327692, 327680, 0, 393228, 327680, 0, 458764, 327680, 0, 524300, 327680, 0, 589836, 327680, 0, 655372, 131072, 0, 720908, 65536, 0, 13, 262144, 0, 65549, 0, 0, 131085, 0, 0, 196621, 0, 0, 262157, 327680, 0, 327693, 327680, 0, 393229, 327680, 0, 458765, 327680, 0, 524301, 327680, 0, 589837, 327680, 0, 655373, 131072, 0, 720909, 65536, 0, 14, 65536, 0, 65550, 65536, 0, 131086, 65536, 0, 196622, 65536, 0, 262158, 65536, 0, 327694, 65536, 0, 393230, 65536, 0, 458766, 65536, 0, 524302, 65536, 0, 589838, 65536, 0, 655374, 65536, 0, 720910, 65536, 0, 15, 65536, 0, 65551, 65536, 0, 131087, 65536, 0, 196623, 65536, 0, 262159, 65536, 0, 327695, 65536, 0, 393231, 65536, 0, 458767, 65536, 0, 524303, 65536, 0, 589839, 65536, 0, 655375, 65536, 0, 720911, 65536, 0, 16, 65536, 0, 65552, 65536, 0, 131088, 65536, 0, 196624, 65536, 0, 262160, 65536, 0, 327696, 65536, 0, 393232, 65536, 0, 458768, 65536, 0, 524304, 65536, 0, 589840, 65536, 0, 655376, 65536, 0, 720912, 65536, 0, 17, 65536, 0, 65553, 65536, 0, 131089, 65536, 0, 196625, 65536, 0, 262161, 65536, 0, 327697, 65536, 0, 393233, 65536, 0, 458769, 65536, 0, 524305, 65536, 0, 589841, 65536, 0, 655377, 65536, 0, 720913, 65536, 0, 18, 65536, 0, 65554, 65536, 0, 131090, 65536, 0, 196626, 65536, 0, 262162, 65536, 0, 327698, 65536, 0, 393234, 65536, 0, 458770, 65536, 0, 524306, 65536, 0, 589842, 65536, 0, 655378, 65536, 0, 720914, 65536, 0, 2, 65536, 0, 65538, 65536, 0, 131074, 65536, 0, 196610, 65536, 0, 262146, 65536, 0, 327682, 65536, 0, 393218, 65536, 0, 458754, 65536, 0, 524290, 65536, 0, 589826, 65536, 0, 655362, 65536, 0, 720898, 65536, 0, 786434, 262144, 0, -65533, 131072, 0, -65532, 131072, 0, -65531, 131072, 0, -65530, 131072, 0, -65529, 131072, 0, -65528, 131072, 0, -65527, 131072, 0, -65526, 131072, 0, -65525, 131072, 0, -65524, 131072, 0, -65523, 131072, 0, -65522, 131072, 0, -65521, 131072, 0, -65520, 131072, 0, -65519, 131072, 0, -65518, 131072, 0, -65534, 131072, 0)
-
-[node name="BG" type="ColorRect" parent="."]
-z_index = -5
-offset_left = -413.0
-offset_top = -255.0
-offset_right = 679.0
-offset_bottom = 280.0
-color = Color(0.0980392, 0.113725, 0.184314, 1)
 
 [node name="Window4" type="Sprite2D" parent="."]
 position = Vector2(75, 40)
@@ -253,14 +261,6 @@ libraries = {
 "": SubResource("AnimationLibrary_gqqjb")
 }
 
-[node name="NextsceneArea" type="Area2D" parent="."]
-position = Vector2(704, 328)
-
-[node name="Box" type="CollisionShape2D" parent="NextsceneArea"]
-position = Vector2(-684, -216)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_b3pi6")
-
 [node name="Shininglight2" type="Sprite2D" parent="."]
 z_index = 20
 position = Vector2(98, 160)
@@ -290,3 +290,22 @@ texture = ExtResource("10_a63f1")
 [node name="Oven" type="Sprite2D" parent="."]
 position = Vector2(160, 78)
 texture = ExtResource("12_vbo7w")
+
+[node name="LoadAnotherScene2" type="Area2D" parent="."]
+position = Vector2(230, 82)
+scale = Vector2(2.56, 2.88)
+script = ExtResource("14_jkc4s")
+SceneToLoad = "res://scenes/Dinner.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene2"]
+position = Vector2(2.26563, -1.90735e-06)
+shape = SubResource("RectangleShape2D_aujvw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(111, 70)
+scale = Vector2(6.56, 1.64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_w67b0")
+
+[connection signal="body_entered" from="LoadAnotherScene2" to="LoadAnotherScene2" method="_on_body_entered"]

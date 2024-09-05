@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://fb5wearqil10"]
+[gd_scene load_steps=24 format=3 uid="uid://fb5wearqil10"]
 
 [ext_resource type="Texture2D" uid="uid://b0br2k8h2m7u" path="res://sprites/Table.png" id="1_ct6nh"]
-[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="1_l041x"]
+[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_l041x"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_okrwi"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="2_rydra"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_ctutd"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="5_pt5vq"]
 [ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="6_gjevm"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="7_6qmqq"]
+[ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="10_p02rn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kyub"]
 size = Vector2(84, 26)
@@ -133,6 +134,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3pi6"]
 size = Vector2(28, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djytf"]
+size = Vector2(15.4688, 11.1111)
+
 [node name="Mainscene" type="Node2D"]
 texture_filter = 1
 
@@ -190,7 +194,8 @@ position = Vector2(-2, 5)
 shape = SubResource("RectangleShape2D_3kyub")
 
 [node name="player" parent="ySORT" instance=ExtResource("1_okrwi")]
-position = Vector2(264, 84)
+position = Vector2(245, 112)
+darkversion = true
 
 [node name="TileMap2" type="TileMap" parent="ySORT"]
 visible = false
@@ -299,3 +304,27 @@ position = Vector2(272, 82)
 rotation = -3.14159
 scale = Vector2(1, 1.33)
 texture = ExtResource("7_6qmqq")
+
+[node name="LoadAnotherScene2" type="Area2D" parent="."]
+position = Vector2(295, 82)
+scale = Vector2(2.56, 2.88)
+script = ExtResource("10_p02rn")
+SceneToLoad = "res://scenes/MainBuilding.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene2"]
+position = Vector2(2.26563, -1.90735e-06)
+shape = SubResource("RectangleShape2D_djytf")
+
+[node name="LoadAnotherScene3" type="Area2D" parent="."]
+position = Vector2(-1, 112)
+scale = Vector2(2.56, 2.88)
+script = ExtResource("10_p02rn")
+SceneToLoad = "res://scenes/Kitchen.tscn"
+BoolToCheck = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene3"]
+position = Vector2(2.26563, -1.90735e-06)
+shape = SubResource("RectangleShape2D_djytf")
+
+[connection signal="body_entered" from="LoadAnotherScene2" to="LoadAnotherScene2" method="_on_body_entered"]
+[connection signal="body_entered" from="LoadAnotherScene3" to="LoadAnotherScene3" method="_on_body_entered"]

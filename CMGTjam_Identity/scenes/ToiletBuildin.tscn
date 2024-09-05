@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://c1v81nl8btqeo"]
 
-[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="1_1s40y"]
+[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_1s40y"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_72t81"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="2_xxpnk"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_jmxaw"]

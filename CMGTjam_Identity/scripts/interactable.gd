@@ -13,9 +13,20 @@ extends StaticBody2D
 
 @export var int_maxlines = 5
 
+@export var BoolToTurnOn = 0
+
+var line = 0
+
 func interact():
 	GlobalDialogue.loadLines(interacttext1,interacttext2,interacttext3,interacttext4,interacttext5,interacttext6,interacttext7,interacttext8,interacttext9)
 	GlobalDialogue.setPersonSpeaking(str(objectname))
 	GlobalDialogue.setDialougueOn()
 	GlobalDialogue.maxlines = int_maxlines
 	GlobalDialogue.nextLine()
+	if BoolToTurnOn == 1:
+		GlobalBools.HasInvestigatedKitchen = true
+		
+func _process(delta):
+	if GlobalDialogue.linenr == 3 :
+		GlobalDialogue.setPersonSpeaking("?")
+	
