@@ -295,7 +295,7 @@ texture = ExtResource("12_vbo7w")
 position = Vector2(230, 82)
 scale = Vector2(2.56, 2.88)
 script = ExtResource("14_jkc4s")
-SceneToLoad = "res://scenes/Dinner.tscn"
+SceneToLoad = "res://scenes/MainBuildingAfterMurder.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene2"]
 position = Vector2(2.26563, -1.90735e-06)

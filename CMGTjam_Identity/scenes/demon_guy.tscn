@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://kfhcecap62qw"]
+[gd_scene load_steps=11 format=3 uid="uid://fl2elhiditn6"]
 
 [ext_resource type="Script" path="res://scripts/demon_guy.gd" id="1_1clx5"]
 [ext_resource type="Texture2D" uid="uid://dwmxwo1tk51b7" path="res://sprites/Otherworldlymonster-3.png" id="1_aq4cj"]
@@ -280,7 +280,7 @@ _data = {
 "summon": SubResource("Animation_mvseu")
 }
 
-[node name="DemonGuy" type="Node2D"]
+[node name="DemonGuy" type="Node2D" groups=["Demon"]]
 texture_filter = 1
 script = ExtResource("1_1clx5")
 
