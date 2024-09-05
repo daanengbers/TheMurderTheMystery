@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3cfxr30hvmj5"]
+[gd_scene load_steps=27 format=3 uid="uid://d3cfxr30hvmj5"]
 
 [ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_gb6tu"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_gjcyf"]
@@ -137,6 +137,8 @@ size = Vector2(28, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41djs"]
 size = Vector2(15.4688, 11.1111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1qna"]
 
 [node name="Mainscene3" type="Node2D"]
 texture_filter = 1
@@ -341,21 +343,66 @@ hframes = 3
 vframes = 3
 frame = 3
 
+[node name="Ghostsoulguy5" type="Sprite2D" parent="." groups=["SoulGuys"]]
+position = Vector2(90, -69)
+scale = Vector2(-1, 1)
+texture = ExtResource("12_sjkyi")
+hframes = 3
+vframes = 3
+frame = 3
+
 [node name="MainBuilding2" type="Sprite2D" parent="."]
-position = Vector2(336, -44)
+position = Vector2(296, -44)
 texture = ExtResource("13_orn2q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MainBuilding2"]
+position = Vector2(0, -7.99999)
+scale = Vector2(6.48, 2.72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainBuilding2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_x1qna")
 
 [node name="MainBuilding3" type="Sprite2D" parent="."]
-position = Vector2(336, 68)
+position = Vector2(392, 68)
 texture = ExtResource("13_orn2q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MainBuilding3"]
+position = Vector2(0, -7.99999)
+scale = Vector2(6.48, 2.72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainBuilding3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_x1qna")
 
 [node name="MainBuilding4" type="Sprite2D" parent="."]
-position = Vector2(-32, 68)
+position = Vector2(-72, 68)
 texture = ExtResource("13_orn2q")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="MainBuilding4"]
+position = Vector2(0, -7.99999)
+scale = Vector2(6.48, 2.72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainBuilding4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_x1qna")
+
 [node name="MainBuilding" type="Sprite2D" parent="."]
-position = Vector2(-31, -44)
+position = Vector2(9, -44)
 texture = ExtResource("13_orn2q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MainBuilding"]
+position = Vector2(0, -7.99999)
+scale = Vector2(6.48, 2.72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainBuilding/StaticBody2D"]
+shape = SubResource("RectangleShape2D_x1qna")
+
+[node name="Interactable6" parent="." instance=ExtResource("3_rt7fw")]
+z_index = 1
+position = Vector2(90, -62)
+objectname = "Raisa"
+interacttext1 = "Seems like a perfectly normal table to me..."
+interacttext2 = "Hey, what are you still doing here!"
+int_maxlines = 1
+metadata/_edit_group_ = true
 
 [connection signal="body_entered" from="LoadAnotherScene" to="LoadAnotherScene" method="_on_body_entered"]
 [connection signal="body_entered" from="LoadAnotherScene2" to="LoadAnotherScene2" method="_on_body_entered"]

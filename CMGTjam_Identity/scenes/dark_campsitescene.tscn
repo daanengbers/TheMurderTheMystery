@@ -369,6 +369,12 @@ layer_0/tile_data = PackedInt32Array(65536, 0, 0, 1, 0, 0, 65538, 0, 0, -65534, 
 y_sort_enabled = true
 texture_filter = 1
 
+[node name="SpriteSigns1" type="Sprite2D" parent="ySORT"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(688, 21)
+texture = ExtResource("19_8cbtt")
+
 [node name="player" parent="ySORT" instance=ExtResource("7_kp8kg")]
 position = Vector2(705, 307)
 darkversion = true
@@ -602,10 +608,6 @@ SceneToLoad = "res://scenes/mainscene.tscn"
 position = Vector2(167.188, 29.8611)
 shape = SubResource("RectangleShape2D_cwpa6")
 
-[node name="SpriteSigns1" type="Sprite2D" parent="."]
-position = Vector2(688, 21)
-texture = ExtResource("19_8cbtt")
-
 [node name="PersonaBackground" parent="." instance=ExtResource("19_5he3c")]
 metadata/_edit_lock_ = true
 
@@ -621,6 +623,25 @@ BoolToCheck = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene2"]
 position = Vector2(362.891, -74.6528)
 shape = SubResource("RectangleShape2D_qr4lq")
+
+[node name="Interactable" parent="." instance=ExtResource("3_movxb")]
+position = Vector2(118, -392)
+objectname = "YOU"
+interacttext1 = "Lets enter through the main entrance with the other 2"
+int_maxlines = 0
+
+[node name="Interactable2" parent="." instance=ExtResource("3_movxb")]
+position = Vector2(1123, -392)
+objectname = "YOU"
+interacttext1 = "Lets enter through the main entrance with the other 2"
+int_maxlines = 0
+
+[node name="Interactable3" parent="." instance=ExtResource("3_movxb")]
+position = Vector2(1433, 104)
+objectname = "YOU"
+interacttext1 = "Jaime is already investigating here"
+interacttext2 = "Lets go to the main building"
+int_maxlines = 1
 
 [connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]
 [connection signal="body_entered" from="LoadAnotherScene2" to="LoadAnotherScene2" method="_on_body_entered"]
