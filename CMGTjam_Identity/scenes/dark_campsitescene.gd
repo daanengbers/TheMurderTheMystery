@@ -5,8 +5,6 @@ func _ready():
 	
 	#GlobalDialogue.setDialougueOff()
 	
-	
-	
 	# play all the floating animations -----
 	$Axe/Anim.play("float")
 	$ySORT/Tent9/Anim.play("float")
