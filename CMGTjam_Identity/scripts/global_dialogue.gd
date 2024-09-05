@@ -283,11 +283,13 @@ func TrappedInAnotherWorldSceneDialogue():
 		loadLines("","What do you mean stay calm?!","You heard that freak, only 4 of us can leave here!","","","","","","",)
 	if charlinenr == 13:
 		$Timers/PressTimer.wait_time = 2
+		$UI/Textbox/Text.modulate = Color(1,0,0)
 		setPersonSpeaking("Alex")
 		maxlines = 1
 		loadLines("","SHUT THE FUCK UP AND KEEP CALM!!...","","","","","","","",)
 	if charlinenr == 14:
 		$Timers/PressTimer.wait_time = .25
+		$UI/Textbox/Text.modulate = Color(1,1,1)
 		setPersonSpeaking("Jaime")
 		maxlines = 1
 		loadLines("","Wow. Alright. Sorry...","","","","","","","",)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://d0nqoio58wjnn"]
+[gd_scene load_steps=39 format=3 uid="uid://d0nqoio58wjnn"]
 
 [ext_resource type="Script" path="res://scripts/campsitescene.gd" id="1_kp6vi"]
 [ext_resource type="Texture2D" uid="uid://clv04yohgmy0d" path="res://sprites/Tiles_Field.png" id="1_wcp8f"]
@@ -12,12 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://cx7fjdgieeeae" path="res://sprites/FlashLight.png" id="7_gei12"]
 [ext_resource type="Texture2D" uid="uid://cxuymy7vfom5l" path="res://sprites/Grounditems-1.png" id="10_melc3"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="11_i4034"]
-[ext_resource type="PackedScene" uid="uid://dkbssc8wylrx3" path="res://scenes/tent.tscn" id="13_qo0j0"]
+[ext_resource type="PackedScene" path="res://scenes/tent.tscn" id="13_qo0j0"]
 [ext_resource type="Texture2D" uid="uid://b2oc73os34cid" path="res://sprites/Campfire-1.png" id="14_fbobr"]
 [ext_resource type="Texture2D" uid="uid://myjbcbdvxex" path="res://sprites/Dungeonparticles-2.png" id="15_mjuok"]
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="16_6g3ru"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="17_yvshn"]
-[ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="20_8nxqd"]
 [ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="20_55qyq"]
 [ext_resource type="AudioStream" uid="uid://bsfgmjej4d5y0" path="res://sounds/rain_murdermystery.wav" id="21_ssrs6"]
 [ext_resource type="AudioStream" uid="uid://d11ais4ly2rn6" path="res://sounds/thunder2.wav" id="22_yavpe"]
@@ -190,8 +189,6 @@ size = Vector2(32, 22)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgomv"]
 size = Vector2(28, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwpa6"]
-
 [node name="Campsitescene" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_kp6vi")
@@ -232,14 +229,14 @@ libraries = {
 
 [node name="Interactable" parent="." instance=ExtResource("6_a58hu")]
 z_index = 1
-position = Vector2(302, 95)
+position = Vector2(127, 131)
 objectname = "Your cellphone"
-interacttext1 = "*1 Message from Micah*"
+interacttext1 = "*1 Message from Raisa*"
 interacttext2 = "Yo Eddie."
 interacttext3 = "Come to the cabin."
 interacttext4 = "the whole gang is here"
 interacttext5 = "we found something cool"
-interacttext6 = "you better hurry up loser"
+interacttext6 = "you better hurry up!"
 metadata/_edit_group_ = true
 
 [node name="Grounditems-1" type="Sprite2D" parent="Interactable"]
@@ -531,16 +528,6 @@ shape = SubResource("RectangleShape2D_hgomv")
 position = Vector2(891, 54)
 texture = ExtResource("20_55qyq")
 
-[node name="LoadAnotherScene" type="Area2D" parent="."]
-position = Vector2(276, 267)
-scale = Vector2(2.56, 2.88)
-script = ExtResource("20_8nxqd")
-SceneToLoad = "res://scenes/mainscene.tscn"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene"]
-position = Vector2(167.188, 29.8611)
-shape = SubResource("RectangleShape2D_cwpa6")
-
 [node name="Rain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_ssrs6")
 autoplay = true
@@ -549,4 +536,3 @@ autoplay = true
 stream = ExtResource("22_yavpe")
 
 [connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]
-[connection signal="body_entered" from="LoadAnotherScene" to="LoadAnotherScene" method="_on_body_entered"]
