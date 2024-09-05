@@ -428,67 +428,80 @@ func AfterMurderInTheMainBuilding():
 		maxlines = 3
 		loadLines("","N-no... *sob* i-its Raisa *sob*","w-we swapped, I went to look in the shed and when *sob* a-an when *sob* ","And when I came back I found her like this","","","","","",)
 	if charlinenr == 3:
+		$Timers/PressTimer.wait_time = 6
+		setPersonSpeaking("???")
+		spawnDemon1()
+		$UI/Textbox/Text.modulate = Color(1,0,0)
+		maxlines = 1
+		loadLines("","Look at that, the first soul for me to keep!","","","","","","","",)
+	if charlinenr == 4:
 		$Timers/PressTimer.wait_time = .25
 		setPersonSpeaking("???")
 		spawnDemon1()
 		$UI/Textbox/Text.modulate = Color(1,0,0)
 		maxlines = 2
-		loadLines("","Look at that, the first soul for me to keep!","Now you guys just need to find the murderer and the remaining souls can leave scot free, unless you convict the wrong one, hahahaha!","","","","","","",)
-	if charlinenr == 4:
+		loadLines("","Now you guys just need to find the murderer and the remaining souls can leave scot free.","Unless you convict the wrong one, hahahaha!","","","","","","",)
+	if charlinenr == 5:
 		$Timers/PressTimer.wait_time = .25
 		setPersonSpeaking("Alex")
 		$UI/Textbox/Text.modulate = Color(1,1,1)
 		maxlines = 1
 		loadLines("","You monster! I'll fucking kill you!!!","","","","","","","",)
-	if charlinenr == 5:
+	if charlinenr == 6:
 		setPersonSpeaking("???")
 		$UI/Textbox/Text.modulate = Color(1,0,0)
 		maxlines = 3
 		loadLines("","So hurtfull, seems to me your energie is better spend investigating.","Not that it matters to me, I will enjoy this however it might go.","Just remember, your time is running out. Hahahaha.","","","","","",)
-	if charlinenr == 6:
+	if charlinenr == 7:
 		setPersonSpeaking("Micah")
 		var demon = get_tree().get_nodes_in_group("Demon")
 		demon[0].queue_free()
 		$UI/Textbox/Text.modulate = Color(1,1,1)
 		maxlines = 1
 		loadLines("","He is right, no matter how terrible this is, we need to figure out who did this and quick.","","","","","","","",)
-	if charlinenr == 7:
+	if charlinenr == 8:
 		setPersonSpeaking("Jaime")
 		maxlines = 1
 		loadLines("","What happened to finding another way out?!","","","","","","","",)
-	if charlinenr == 8:
-		setPersonSpeaking("Micah")
-		maxlines = 4
-		loadLines("","I didn't find another way out, did you?","And besides, do you wanna return with Raisas murderer still among?","...","I for one will not rest before the monster who did this rots.","","","","",)
 	if charlinenr == 9:
+		setPersonSpeaking("Micah")
+		maxlines = 3
+		loadLines("","I didn't find another way out, did you?","And besides, do you wanna return with Raisas murderer still among?","...","","","","","",)
+	if charlinenr == 10:
+		$Timers/PressTimer.wait_time = 1
+		setPersonSpeaking("Micah")
+		$UI/Textbox/Text.modulate = Color(1,0,0)
+		maxlines = 1
+		loadLines("","I for one will not rest before the monster who did this rots.","","","","","","","",)
+	if charlinenr == 11:
+		$Timers/PressTimer.wait_time = .25
+		$UI/Textbox/Text.modulate = Color(1,1,1)
 		setPersonSpeaking("Jaime")
 		maxlines = 1
 		loadLines("","I guess...","","","","","","","",)
-	if charlinenr == 10:
+	if charlinenr == 12:
 		setPersonSpeaking("Micah")
-		$UI/Textbox/Text.modulate = Color(1,0,0)
 		maxlines = 5
 		loadLines("","Well then I suggest we get right on it, starting with this","As we can see Raisa was killed with a knife from the kitchen","...","Eddie, you were the one to investigate the kitchen right!","","","","",)
-	if charlinenr == 11:
+	if charlinenr == 13:
 		setPersonSpeaking("YOU")
-		$UI/Textbox/Text.modulate = Color(1,1,1)
 		maxlines = 1
 		loadLines("","Wait you are accusing me!","","","","","","","",)
-	if charlinenr == 12:
+	if charlinenr == 14:
 		setPersonSpeaking("Micah")
 		$UI/Textbox/Text.modulate = Color(1,0,0)
 		maxlines = 2
 		loadLines("","Well it seems obvious right.","You were the one investigating the kitchen, a kitchen knife was used as the murder weapon!","","","","","","",)
-	if charlinenr == 13:
+	if charlinenr == 15:
 		setPersonSpeaking("YOU")
 		$UI/Textbox/Text.modulate = Color(1,1,1)
 		maxlines = 2
 		loadLines("","I swear I didn't do it!","The kitchen knife was already missing when I got there, someone must have gotten it through the backdoor!","","","","","","",)
-	if charlinenr == 14:
+	if charlinenr == 16:
 		setPersonSpeaking("Jaime")
 		maxlines = 1
 		loadLines("","Seems rather convenient to me...","","","","","","","",)
-	if charlinenr == 15:
+	if charlinenr == 17:
 		setPersonSpeaking("YOU")
 		maxlines = 2
 		loadLines("","I swear I didn't do it, and I can prove it too!","(come on think Eddie, what can prove my innocence) ","","","","","","",)
