@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cj788ciuqndyy"]
+[gd_scene load_steps=27 format=3 uid="uid://cj788ciuqndyy"]
 
 [ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_bfl0u"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_ie7u2"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="11_oolbu"]
 [ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="12_2eheg"]
 [ext_resource type="Texture2D" uid="uid://crhr0hxupfd2l" path="res://sprites/MainBuilding.png" id="13_k4nna"]
+[ext_resource type="Texture2D" uid="uid://bqyy7r1xs8dle" path="res://sprites/Deadalienguy-1.png" id="14_d8jvr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
 texture = ExtResource("3_lspwg")
@@ -146,7 +147,7 @@ texture_filter = 1
 [node name="ySORT" type="Node2D" parent="."]
 
 [node name="player" parent="ySORT" instance=ExtResource("2_ie7u2")]
-position = Vector2(150, 76)
+position = Vector2(150, -103)
 darkversion = true
 
 [node name="TileMap2" type="TileMap" parent="ySORT"]
@@ -324,17 +325,32 @@ metadata/_edit_lock_ = true
 
 [node name="Scenesetter" parent="." instance=ExtResource("11_oolbu")]
 local_is_cutscene = true
-local_cutscenenr = 3
+local_cutscenenr = 4
 
 [node name="Ghostsoulguy" type="Sprite2D" parent="." groups=["SoulGuys"]]
-position = Vector2(121, 88)
+position = Vector2(110, -86)
+texture = ExtResource("12_2eheg")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="Ghostsoulguy2" type="Sprite2D" parent="." groups=["SoulGuys"]]
+position = Vector2(93, -63)
 texture = ExtResource("12_2eheg")
 hframes = 3
 vframes = 3
 frame = 3
 
 [node name="Ghostsoulguy4" type="Sprite2D" parent="." groups=["SoulGuys"]]
-position = Vector2(175, 86)
+position = Vector2(183, -91)
+scale = Vector2(-1, 1)
+texture = ExtResource("12_2eheg")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="Ghostsoulguy5" type="Sprite2D" parent="." groups=["SoulGuys"]]
+position = Vector2(203, -70)
 scale = Vector2(-1, 1)
 texture = ExtResource("12_2eheg")
 hframes = 3
@@ -356,6 +372,10 @@ texture = ExtResource("13_k4nna")
 [node name="MainBuilding" type="Sprite2D" parent="."]
 position = Vector2(-31, -44)
 texture = ExtResource("13_k4nna")
+
+[node name="Deadalienguy-1" type="Sprite2D" parent="."]
+position = Vector2(156, -85)
+texture = ExtResource("14_d8jvr")
 
 [connection signal="body_entered" from="LoadAnotherScene" to="LoadAnotherScene" method="_on_body_entered"]
 [connection signal="body_entered" from="LoadAnotherScene2" to="LoadAnotherScene2" method="_on_body_entered"]

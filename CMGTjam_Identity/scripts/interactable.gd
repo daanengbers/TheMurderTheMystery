@@ -24,6 +24,7 @@ func interact():
 	GlobalDialogue.maxlines = int_maxlines
 	GlobalDialogue.nextLine()
 	if BoolToTurnOn == 1:
+		GlobalDialogue.ShadowSprites = true
 		GlobalBools.HasInvestigatedKitchen = true
 		
 func _process(delta):
