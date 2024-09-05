@@ -34,6 +34,8 @@ func _ready():
 	initialize()
 
 func initialize():
+	if is_cutscene == false:
+		linenr = 0
 	if cscene == 1:
 		setDialougueOn()
 		pentagramSceneDialogue()
@@ -192,10 +194,11 @@ func pentagramSceneDialogue():
 		maxlines = 1
 		$UI/Textbox/Text.modulate = Color(1,0,0)
 		loadLines("","No way to undo whats done. Good luck darlings!","","","","","","","")
-	if charlinenr == 24:
-		$Timers/PressTimer.wait_time = 20
+	if charlinenr == 25:
+		$Timers/PressTimer.wait_time = 3
 		setPersonSpeaking("???")
 		maxlines = 1
+		$UI/Textbox/Text.modulate = Color(1,1,1)
 		loadLines("","WHOOOOOOSHHHH","","","","","","","")
 		fadeOut()
 
@@ -213,19 +216,20 @@ func TrappedInAnotherWorldSceneDialogue():
 		setPersonSpeaking("?")
 		maxlines = 1
 		ShadowSprites = true
-		loadLines("","Where are we! what do we do! Oh my god were all going to die!","","","","","","","",)
+		loadLines("","Where are we!? what do we do!? Oh my god we're all going to die!","","","","","","","",)
 	if charlinenr == 2:
+		$Timers/PressTimer.wait_time = .25
 		setPersonSpeaking("?")
 		maxlines = 2
-		loadLines("","Calm down you wimp we'll find a way out of here!","Wa... who was that, wait what are you!","","","","","","",)
+		loadLines("","Calm down you wimp! We'll find a way out of here!","Wa...- Who was that? Wait, what are you?!","","","","","","",)
 	if charlinenr == 3:
 		setPersonSpeaking("?")
 		maxlines = 1
-		loadLines("","What do you mean what are you, its us you dumbass... wait what... why do you all look like that!","","","","","","","",)
+		loadLines("","What do you mean what are you? It's us you dumbass... wait- what?... why do you all look like that?!","","","","","","","",)
 	if charlinenr == 4:
 		setPersonSpeaking("?")
 		maxlines = 3
-		loadLines("","Wait everyone shut up for a seccond!","This is gonna get confusing very quickly.","Lets first all say our names before we continue.","","","","","",)
+		loadLines("","Wait everyone, shut up for a second!","This is gonna get confusing very quickly.","Lets first all say our names before we continue.","","","","","",)
 	if charlinenr == 5:
 		setPersonSpeaking("Alynne")
 		maxlines = 1
@@ -253,19 +257,21 @@ func TrappedInAnotherWorldSceneDialogue():
 	if charlinenr == 11:
 		setPersonSpeaking("Raisa")
 		maxlines = 1
-		loadLines("","Now thats all cleared up lets all stay calm and think about our situation!","","","","","","","",)
+		loadLines("","Now that that's all cleared up, lets all stay calm and think about our situation.","","","","","","","",)
 	if charlinenr == 12:
 		setPersonSpeaking("Jaime")
 		maxlines = 2
-		loadLines("","What do you mean stay calm!","You heard that freak, only 4 of us can leave here!","","","","","","",)
+		loadLines("","What do you mean stay calm?!","You heard that freak, only 4 of us can leave here!","","","","","","",)
 	if charlinenr == 13:
+		$Timers/PressTimer.wait_time = 2
 		setPersonSpeaking("Alex")
 		maxlines = 1
-		loadLines("","Shut the fuck up and keep calm!...","","","","","","","",)
+		loadLines("","SHUT THE FUCK UP AND KEEP CALM!!...","","","","","","","",)
 	if charlinenr == 14:
+		$Timers/PressTimer.wait_time = .25
 		setPersonSpeaking("Jaime")
 		maxlines = 1
-		loadLines("","Wow alright, sorry.","","","","","","","",)
+		loadLines("","Wow. Alright. Sorry...","","","","","","","",)
 	if charlinenr == 15:
 		setPersonSpeaking("Alex")
 		maxlines = 1
@@ -273,11 +279,11 @@ func TrappedInAnotherWorldSceneDialogue():
 	if charlinenr == 16:
 		setPersonSpeaking("Raisa")
 		maxlines = 1
-		loadLines("","No dont be, I'm happy you are finnaly speaking up.","","","","","","","",)
+		loadLines("","No, dont be, I'm happy you are finnaly speaking up.","","","","","","","",)
 	if charlinenr == 17:
 		setPersonSpeaking("Alex")
 		maxlines = 3
-		loadLines("","I - I swear I'm not like this...","It's this world, it has to be.","I dont know what it is but I cant seem to keep my big mouth shut","","","","","",)
+		loadLines("","I - I swear I'm not like this...","It's this world, it has to be.","I dont know what it is but I cant seem to keep my big mouth shut...","","","","","",)
 	if charlinenr == 18:
 		setPersonSpeaking("Jaime")
 		maxlines = 3
@@ -285,11 +291,11 @@ func TrappedInAnotherWorldSceneDialogue():
 	if charlinenr == 19:
 		setPersonSpeaking("Alex")
 		maxlines = 1
-		loadLines("","Want me to punch you in the nose pretty boy!","","","","","","","",)
+		loadLines("","Want me to punch you in the nose funny boy?","","","","","","","",)
 	if charlinenr == 20:
 		setPersonSpeaking("YOU")
 		maxlines = 2
-		loadLines("","Hahaha, I think I like you much better like this Alex!","You should have shown us this side of you way sooner!","","","","","","",)
+		loadLines("","Haha! I think I like you much better like this Alex!","You should have shown us this side of you way sooner!","","","","","","",)
 	if charlinenr == 21:
 		setPersonSpeaking("Alex")
 		maxlines = 3
@@ -297,23 +303,23 @@ func TrappedInAnotherWorldSceneDialogue():
 	if charlinenr == 22:
 		setPersonSpeaking("Alynne")
 		maxlines = 1
-		loadLines("","Off course we're sure, we still tollerate Jaime so why not you","","","","","","","",)
+		loadLines("","Off course we're sure, we still tolerate Jaime, so why not you","","","","","","","",)
 	if charlinenr == 23:
 		setPersonSpeaking("Jaime")
 		maxlines = 1
-		loadLines("","Hey what the hell!","","","","","","","",)
+		loadLines("","Hey! What the hell?!","","","","","","","",)
 	if charlinenr == 24:
 		setPersonSpeaking("Micah")
 		maxlines = 3
 		loadLines("","Enough off this!!!","Are you all forgetting what situation we are in!","We need to get out of here or we are in deep shit, sob stories can come later.","","","","","",)
 	if charlinenr == 25:
-			setPersonSpeaking("Raisa")
-			maxlines = 2
-			loadLines("","Micah is right, it seems that this world reflects our own, so I suggest we start looking around for a way out."," I just know there has to be another way out","","","","","","",)
+		setPersonSpeaking("Raisa")
+		maxlines = 3
+		loadLines("","Micah is right.","it seems that this world reflects our own, so I suggest we start looking around for a way out.","I just know there has to be another way out.","","","","","",)
 	if charlinenr == 26:
 		setPersonSpeaking("Raisa")
 		maxlines = 4
-		loadLines("","Let's split up.","I know its not the safest plan but it will allow us to cover the most ground the fastest","And we don't have much time left.","Also I call dips on the shed!","","","","",)
+		loadLines("","Let's split up.","I know its not the safest plan, but it will allow us to cover the most ground the fastest.","And we don't have much time left.","Also, I call dips on the shed!","","","","",)
 	if charlinenr == 27:
 		setPersonSpeaking("Micah")
 		maxlines = 1
@@ -325,20 +331,25 @@ func TrappedInAnotherWorldSceneDialogue():
 	if charlinenr == 29:
 		setPersonSpeaking("Jaime")
 		maxlines = 1
-		loadLines("","I'll investigate the toilet building I guess","","","","","","","",)
+		loadLines("","I'll investigate the toilet building... I guess.","","","","","","","",)
 	if charlinenr == 30:
 		setPersonSpeaking("Alynne")
 		maxlines = 1
-		loadLines("","I'll investigate the main building","","","","","","","",)
+		loadLines("","I'll investigate the main building.","","","","","","","",)
 	if charlinenr == 31:
 		setPersonSpeaking("YOU")
 		maxlines = 1
-		loadLines("","Which leaves me with the dining hall and Kitchen","","","","","","","",)
+		loadLines("","Which leaves me with the dining hall and the Kitchen.","","","","","","","",)
 	if charlinenr == 32:
 		setPersonSpeaking("Raisa")
 		maxlines = 2
-		loadLines("","Great! Let's go then!","And remember, if anything is wrong give a shout, the campgrounds aren't too big so we'll be there in a flash","","","","","","",)
-
+		loadLines("","Great! Let's go then!","And remember, if anything is wrong give a shout, the campgrounds aren't too big so we'll be there in a flash.","","","","","","",)
+	if charlinenr == 33:
+		setPersonSpeaking("")
+		maxlines = 1
+		loadLines("","","","","","","","","",)
+		fadeOut()
+		setDialougueOff()
 
 func DiscusionInTheMainBuilding():
 	linenr = 1
@@ -385,14 +396,14 @@ func setDialougueOn():
 	$UI/Textbox.visible = true
 
 func setDialougueOff():
-	if is_cutscene == false:
-		$Timers/DisableDialogueTimer.start()
-		$UI/Textbox.visible = false
-	else:
+	#if is_cutscene == false:
+	$Timers/DisableDialogueTimer.start()
+	$UI/Textbox.visible = false
+	#else:
 		#charlinenr += 1
-		if cscene == 1:
-			linenr = 1
-			pentagramSceneDialogue()
+	#	if cscene == 1:
+	#		linenr = 1
+	#		pentagramSceneDialogue()
 	
 	linenr = 0
 	$UI/Textbox/Text.visible_characters = 0
@@ -455,10 +466,14 @@ func _on_disable_dialogue_timer_timeout():
 	global_dialogue_on = false
 
 func _on_nextscene_1_timer_timeout():
+	#initialize()
+	if cscene == 2:
+		get_tree().change_scene_to_file("res://scenes/dark_campsitescene.tscn")
+	if cscene == 1:
+		get_tree().change_scene_to_file("res://scenes/mainsceneDark.tscn")
 	if cscene == 0:
 		get_tree().change_scene_to_file("res://scenes/mainscene.tscn")
-	if cscene == 1:
-		get_tree().change_scene_to_file("res://scenes/dark_campsitescene.tscn")
+	$Timers/Nextscene1Timer.stop()
 
 func setPersonSpeaking(p_s):
 	personspeaking = p_s
@@ -501,7 +516,12 @@ func setPersonSpeaking(p_s):
 			$UI/Textbox/CharPortraits.frame = 16
 	elif personspeaking == "?":
 		$UI/Textbox/CharPortraits.frame = 10
-	
+	elif personspeaking == "???":
+		$UI/Textbox/CharPortraits.frame = 17
+	elif personspeaking == "Ritual Circle":
+		$UI/Textbox/CharPortraits.frame = 18
+	elif personspeaking == "Clock":
+		$UI/Textbox/CharPortraits.frame = 19
 	
 	else:
 		$UI/Textbox/CharPortraits.frame = 0

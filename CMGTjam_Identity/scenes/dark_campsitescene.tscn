@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cv6iigkj2xao1"]
+[gd_scene load_steps=38 format=3 uid="uid://cv6iigkj2xao1"]
 
 [ext_resource type="Script" path="res://scenes/dark_campsitescene.gd" id="1_ccnyc"]
 [ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="2_2ymff"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="15_oo0tk"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="16_2e6bl"]
 [ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="18_6f4ik"]
+[ext_resource type="Texture2D" uid="uid://bqyy7r1xs8dle" path="res://sprites/Deadalienguy-1.png" id="18_ry1x3"]
 [ext_resource type="PackedScene" uid="uid://cpxxpkk4he5yh" path="res://scenes/persona_background.tscn" id="19_5he3c"]
 [ext_resource type="Texture2D" uid="uid://ux637xfjkb4p" path="res://sprites/sprite_Signs1.png" id="19_8cbtt"]
 [ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="19_f0rg3"]
@@ -346,7 +347,8 @@ y_sort_enabled = true
 texture_filter = 1
 
 [node name="player" parent="ySORT" instance=ExtResource("7_kp8kg")]
-position = Vector2(703, 288)
+position = Vector2(705, 307)
+darkversion = true
 
 [node name="Woodtiles" type="TileMap" parent="ySORT"]
 z_index = -1
@@ -558,5 +560,9 @@ texture = ExtResource("19_8cbtt")
 metadata/_edit_lock_ = true
 
 [node name="Darkworldfilter" parent="." instance=ExtResource("18_6f4ik")]
+
+[node name="Deadalienguy-1" type="Sprite2D" parent="."]
+position = Vector2(789, -156)
+texture = ExtResource("18_ry1x3")
 
 [connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]

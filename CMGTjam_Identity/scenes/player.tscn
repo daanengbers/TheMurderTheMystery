@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dset14xwga0y6"]
+[gd_scene load_steps=14 format=3 uid="uid://dset14xwga0y6"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_5n74w"]
 [ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="3_hm71m"]
 [ext_resource type="Texture2D" uid="uid://dvchs0q5vb1yi" path="res://sprites/Char_Eddie.png" id="4_iw11s"]
+[ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="4_md8ws"]
 
 [sub_resource type="Animation" id="Animation_xxlnn"]
 length = 0.001
@@ -132,6 +133,19 @@ hframes = 3
 vframes = 3
 
 [node name="Anim" type="AnimationPlayer" parent="Char"]
+libraries = {
+"": SubResource("AnimationLibrary_rlrk0")
+}
+
+[node name="DarkChar" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -8)
+texture = ExtResource("4_md8ws")
+hframes = 3
+vframes = 3
+
+[node name="Anim" type="AnimationPlayer" parent="DarkChar"]
 libraries = {
 "": SubResource("AnimationLibrary_rlrk0")
 }

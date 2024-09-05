@@ -219,13 +219,12 @@ libraries = {
 z_index = 1
 position = Vector2(302, 95)
 objectname = "Your cellphone"
-interacttext1 = "*1 Message from Mika*"
+interacttext1 = "*1 Message from Micah*"
 interacttext2 = "Yo Eddie."
 interacttext3 = "Come to the cabin."
 interacttext4 = "the whole gang is here"
 interacttext5 = "we found something cool"
 interacttext6 = "you better hurry up loser"
-int_maxlines = 6
 metadata/_edit_group_ = true
 
 [node name="Grounditems-1" type="Sprite2D" parent="Interactable"]
@@ -259,7 +258,7 @@ position = Vector2(451, 267)
 objectname = "Letter"
 interacttext1 = "(It's a letter...)"
 interacttext2 = "(...but the soaking rain made it unreadable)"
-int_maxlines = 2
+int_maxlines = 1
 metadata/_edit_group_ = true
 
 [node name="Grounditems-1" type="Sprite2D" parent="Interactable3"]

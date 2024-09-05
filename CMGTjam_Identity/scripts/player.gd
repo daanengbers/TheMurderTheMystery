@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var darkversion = false
+
 var SPEED = 60
 
 var rpress = false
@@ -8,6 +10,10 @@ var upress = false
 var dpress = false
 var lookdir = 0
 
+func _ready():
+	if darkversion == true:
+		$DarkChar.visible = true
+		$Char.visible = false
 
 func _physics_process(delta):
 	
@@ -21,6 +27,8 @@ func _physics_process(delta):
 				velocity.x = SPEED * 0.714
 			$Char.flip_h = false
 			$Char/Anim.play("walk_s")
+			$DarkChar.flip_h = false
+			$DarkChar/Anim.play("walk_s")
 		elif Input.is_action_pressed("left") && rpress == false:
 			if upress == false && dpress == false:
 				velocity.x = -SPEED
@@ -28,6 +36,8 @@ func _physics_process(delta):
 				velocity.x = -SPEED * 0.714
 			$Char.flip_h = true
 			$Char/Anim.play("walk_s")
+			$DarkChar.flip_h = true
+			$DarkChar/Anim.play("walk_s")
 		else:
 			velocity.x = 0
 		if Input.is_action_pressed("up") && dpress == false:
@@ -37,6 +47,7 @@ func _physics_process(delta):
 				velocity.y = -SPEED * 0.714
 			if rpress == false && lpress == false:
 				$Char/Anim.play("walk_u")
+				$DarkChar/Anim.play("walk_u")
 		elif Input.is_action_pressed("down") && upress == false:
 			if rpress == false && lpress == false:
 				velocity.y = SPEED
@@ -44,6 +55,7 @@ func _physics_process(delta):
 				velocity.y = SPEED * 0.714
 			if rpress == false && lpress == false:
 				$Char/Anim.play("walk_d")
+				$DarkChar/Anim.play("walk_d")
 		else:
 			velocity.y = 0
 		

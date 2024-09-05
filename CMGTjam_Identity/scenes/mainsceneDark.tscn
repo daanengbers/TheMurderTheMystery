@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_tkmgt"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="2_82l6q"]
-[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="2_223cb"]
+[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="2_223cb"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="3_1qs6a"]
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="4_wcct4"]
 [ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="10_eu2h2"]
 [ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="10_sjl2e"]
 [ext_resource type="Script" path="res://scenes/ClockAnim.gd" id="11_hht28"]
 [ext_resource type="Texture2D" uid="uid://yfvvc6gtc2hw" path="res://sprites/Newritualcircle-1.png" id="12_nwljr"]
-[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="14_swixw"]
+[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="14_swixw"]
 [ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="15_xlju1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
