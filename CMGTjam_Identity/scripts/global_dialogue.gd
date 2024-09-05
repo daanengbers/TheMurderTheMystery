@@ -166,6 +166,7 @@ func pentagramSceneDialogue():
 		ClockAnimOn = true
 		maxlines = 1
 		loadLines("","Ding Dong!","","","","","","","")
+		$Sounds/Clock.play()
 	if charlinenr == 20:
 		$Timers/PressTimer.wait_time = .25
 		setPersonSpeaking("Jaime")
@@ -177,6 +178,7 @@ func pentagramSceneDialogue():
 		setPersonSpeaking("Ritual Circle")
 		maxlines = 1
 		loadLines("","Wooosh!","","","","","","","")
+		$Sounds/Largewoosh.play()
 		spawnDemon()
 	if charlinenr == 22:
 		$Timers/PressTimer.wait_time = .25
@@ -450,7 +452,7 @@ func nextLine():
 		$UI/Textbox/Text.set_text(str(loadedline8))
 	if linenr == 9:
 		$UI/Textbox/Text.set_text(str(loadedline9))
-	
+	$Sounds/Next.play()
 	#if linenr > maxlines:
 	#	if is_cutscene == false:
 	#		setDialougueOff()

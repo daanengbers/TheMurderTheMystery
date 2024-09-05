@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dxth427bfrdlh"]
+[gd_scene load_steps=25 format=3 uid="uid://dxth427bfrdlh"]
 
 [ext_resource type="Script" path="res://scripts/mainscene.gd" id="1_dpgwm"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="3_we6tw"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="13_gjd8a"]
 [ext_resource type="Texture2D" uid="uid://cpgdr7r74abc5" path="res://sprites/ClockAnimSheet.png" id="13_m4e5h"]
 [ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="15_hrc1e"]
+[ext_resource type="AudioStream" uid="uid://bsfgmjej4d5y0" path="res://sounds/rain_murdermystery.wav" id="16_mwau2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4f1dm"]
 texture = ExtResource("3_we6tw")
@@ -257,3 +258,10 @@ modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 position = Vector2(124, 113)
 texture = ExtResource("15_hrc1e")
+
+[node name="Ambience" type="Node" parent="."]
+
+[node name="Rain" type="AudioStreamPlayer" parent="Ambience"]
+stream = ExtResource("16_mwau2")
+volume_db = -30.0
+autoplay = true

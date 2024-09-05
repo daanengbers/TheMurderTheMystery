@@ -119,6 +119,10 @@ func tryToInteract():
 	$Interactbox/box.set_deferred("disabled", false)
 	$Timers/InteractboxTimer.start()
 
+func playfootstep():
+	$Sounds/Footstep.play()
+	$Sounds/Footstep.pitch_scale = (randi()%25 + 75) * 0.01
+	
 
 func _on_interactbox_body_entered(body):
 	if body.is_in_group("interactable"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d0nqoio58wjnn"]
+[gd_scene load_steps=42 format=3 uid="uid://d0nqoio58wjnn"]
 
 [ext_resource type="Script" path="res://scripts/campsitescene.gd" id="1_kp6vi"]
 [ext_resource type="Texture2D" uid="uid://clv04yohgmy0d" path="res://sprites/Tiles_Field.png" id="1_wcp8f"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://dfuba3cl7cu71" path="res://sprites/SignsMainBuilding.png" id="18_qbvah"]
 [ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="20_8nxqd"]
 [ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="20_55qyq"]
+[ext_resource type="AudioStream" uid="uid://bsfgmjej4d5y0" path="res://sounds/rain_murdermystery.wav" id="21_ssrs6"]
+[ext_resource type="AudioStream" uid="uid://d11ais4ly2rn6" path="res://sounds/thunder2.wav" id="22_yavpe"]
 
 [sub_resource type="Animation" id="Animation_c43im"]
 length = 0.001
@@ -52,6 +54,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 0.705882, 0), Color(1, 1, 1, 1), Color(1, 1, 0.470588, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"thundersound"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gqqjb"]
@@ -529,6 +545,13 @@ SceneToLoad = "res://scenes/mainscene.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoadAnotherScene"]
 position = Vector2(167.188, 29.8611)
 shape = SubResource("RectangleShape2D_cwpa6")
+
+[node name="Rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_ssrs6")
+autoplay = true
+
+[node name="Thunder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_yavpe")
 
 [connection signal="body_entered" from="NextsceneArea" to="." method="_on_nextscene_area_body_entered"]
 [connection signal="body_entered" from="LoadAnotherScene" to="LoadAnotherScene" method="_on_body_entered"]
