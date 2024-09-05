@@ -28,6 +28,6 @@ func interact():
 		GlobalBools.HasInvestigatedKitchen = true
 		
 func _process(delta):
-	if GlobalDialogue.linenr == 3 :
+	if GlobalDialogue.linenr == 3 && BoolToTurnOn == 1:
 		GlobalDialogue.setPersonSpeaking("?")
 	

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var darkversion = false
 
-var SPEED = 60
+var SPEED = 360
 
 var rpress = false
 var lpress = false

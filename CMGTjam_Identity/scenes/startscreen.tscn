@@ -1,3 +1,151 @@
-[gd_scene format=3 uid="uid://bp7ee0m472fba"]
+[gd_scene load_steps=6 format=3 uid="uid://bp7ee0m472fba"]
+
+[ext_resource type="Script" path="res://scripts/startscreen.gd" id="1_0jm8h"]
+[ext_resource type="FontFile" uid="uid://bdnd4wbvgahig" path="res://fonts/EXEPixelPerfect.ttf" id="1_qfvpa"]
+[ext_resource type="FontFile" uid="uid://80hhuwil424u" path="res://fonts/Retro Gaming.ttf" id="2_hx7xb"]
+[ext_resource type="PackedScene" uid="uid://cpxxpkk4he5yh" path="res://scenes/persona_background.tscn" id="3_wbiaw"]
+[ext_resource type="Texture2D" uid="uid://binuhb123scov" path="res://sprites/Characters_portraits.png" id="4_6dh41"]
 
 [node name="Startscreen" type="Node2D"]
+script = ExtResource("1_0jm8h")
+
+[node name="Pressany" type="Label" parent="."]
+texture_filter = 1
+offset_top = 110.0
+offset_right = 320.0
+offset_bottom = 123.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_qfvpa")
+text = "Press [SPACE] to start"
+horizontal_alignment = 1
+
+[node name="Pressany2" type="Label" parent="."]
+modulate = Color(0.929412, 0.592157, 0.34902, 1)
+texture_filter = 1
+offset_top = 65.0
+offset_right = 320.0
+offset_bottom = 78.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_qfvpa")
+text = "A mystery where everyone looks alike..."
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+texture_filter = 1
+offset_top = 43.0
+offset_right = 320.0
+offset_bottom = 71.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_hx7xb")
+theme_override_font_sizes/font_size = 22
+text = "IDENTICAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PersonaBackground" parent="." instance=ExtResource("3_wbiaw")]
+position = Vector2(156, 102)
+
+[node name="CharactersPortraits7" type="Sprite2D" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+texture_filter = 1
+position = Vector2(36, 157)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 4
+
+[node name="CharactersPortraits8" type="Sprite2D" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+texture_filter = 1
+position = Vector2(85, 157)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 5
+
+[node name="CharactersPortraits9" type="Sprite2D" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+texture_filter = 1
+position = Vector2(135, 157)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 6
+
+[node name="CharactersPortraits10" type="Sprite2D" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+texture_filter = 1
+position = Vector2(186, 157)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 7
+
+[node name="CharactersPortraits11" type="Sprite2D" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+texture_filter = 1
+position = Vector2(235, 157)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 8
+
+[node name="CharactersPortraits12" type="Sprite2D" parent="."]
+modulate = Color(0.352941, 0.352941, 0.352941, 1)
+texture_filter = 1
+position = Vector2(285, 157)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 9
+
+[node name="CharactersPortraits" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(34, 158)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 4
+
+[node name="CharactersPortraits2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(83, 158)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 5
+
+[node name="CharactersPortraits3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(133, 158)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 6
+
+[node name="CharactersPortraits4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(184, 158)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 7
+
+[node name="CharactersPortraits5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(233, 158)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 8
+
+[node name="CharactersPortraits6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(283, 158)
+texture = ExtResource("4_6dh41")
+hframes = 3
+vframes = 7
+frame = 9

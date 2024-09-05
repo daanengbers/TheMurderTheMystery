@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cx7fjdgieeeae" path="res://sprites/FlashLight.png" id="7_gei12"]
 [ext_resource type="Texture2D" uid="uid://cxuymy7vfom5l" path="res://sprites/Grounditems-1.png" id="10_melc3"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="11_i4034"]
-[ext_resource type="PackedScene" path="res://scenes/tent.tscn" id="13_qo0j0"]
+[ext_resource type="PackedScene" uid="uid://dkbssc8wylrx3" path="res://scenes/tent.tscn" id="13_qo0j0"]
 [ext_resource type="Texture2D" uid="uid://b2oc73os34cid" path="res://sprites/Campfire-1.png" id="14_fbobr"]
 [ext_resource type="Texture2D" uid="uid://myjbcbdvxex" path="res://sprites/Dungeonparticles-2.png" id="15_mjuok"]
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="16_6g3ru"]

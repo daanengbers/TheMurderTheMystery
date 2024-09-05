@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cv6iigkj2xao1"]
+[gd_scene load_steps=39 format=3 uid="uid://cv6iigkj2xao1"]
 
 [ext_resource type="Script" path="res://scenes/dark_campsitescene.gd" id="1_ccnyc"]
 [ext_resource type="PackedScene" uid="uid://bv6fyq1dd2d22" path="res://scenes/zelda_camera.tscn" id="2_2ymff"]
@@ -8,14 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="8_g373u"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="8_n2xuu"]
 [ext_resource type="Texture2D" uid="uid://fx1ybp4wwhxr" path="res://sprites/Spar_tree.png" id="9_dktcj"]
-[ext_resource type="PackedScene" path="res://scenes/tent.tscn" id="11_n5mi2"]
+[ext_resource type="PackedScene" uid="uid://dkbssc8wylrx3" path="res://scenes/tent.tscn" id="11_n5mi2"]
 [ext_resource type="Texture2D" uid="uid://by3hn64xta3im" path="res://sprites/Cabin_Door.png" id="14_sqf5v"]
 [ext_resource type="Texture2D" uid="uid://dcvm1ajx22jii" path="res://sprites/Cabin_window.png" id="15_oo0tk"]
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="16_2e6bl"]
 [ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="18_6f4ik"]
-[ext_resource type="PackedScene" path="res://scenes/persona_background.tscn" id="19_5he3c"]
+[ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="18_wv0b7"]
+[ext_resource type="PackedScene" uid="uid://cpxxpkk4he5yh" path="res://scenes/persona_background.tscn" id="19_5he3c"]
 [ext_resource type="Texture2D" uid="uid://ux637xfjkb4p" path="res://sprites/sprite_Signs1.png" id="19_8cbtt"]
 [ext_resource type="Texture2D" uid="uid://dg6ppmht44jaf" path="res://sprites/Axe.png" id="19_f0rg3"]
+[ext_resource type="Texture2D" uid="uid://cgfytj7niqthk" path="res://sprites/WeenDaanShadow.png" id="19_x3e30"]
 [ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="20_aukj0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hak4h"]
@@ -327,6 +329,25 @@ interacttext1 = "welcome to the unhinged world"
 int_maxlines = 0
 metadata/_edit_group_ = true
 
+[node name="Interactable5" parent="." instance=ExtResource("3_movxb")]
+z_index = 1
+position = Vector2(130, 568)
+objectname = "Micah"
+interacttext1 = "What are you nosing around?"
+interacttext2 = "We're in a hurry! Go look at your own spot!"
+interacttext3 = "The main building and kitchen are in the north."
+int_maxlines = 2
+metadata/_edit_group_ = true
+
+[node name="Interactable6" parent="." instance=ExtResource("3_movxb")]
+z_index = 1
+position = Vector2(1412, 160)
+objectname = "Jaime"
+interacttext1 = "Of course I have to look through the toilets..."
+interacttext2 = "Hey, go do something useful like looking in the kitchen! It's up North!"
+int_maxlines = 1
+metadata/_edit_group_ = true
+
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
 texture_filter = 1
@@ -424,6 +445,33 @@ libraries = {
 
 [node name="Unhingedsign" type="Node2D" parent="ySORT"]
 position = Vector2(687.755, 40.5727)
+
+[node name="Ghostsoulguy" type="Sprite2D" parent="ySORT"]
+z_index = 1
+position = Vector2(130, 563)
+texture = ExtResource("18_wv0b7")
+hframes = 3
+vframes = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ySORT/Ghostsoulguy"]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(0, 14)
+texture = ExtResource("19_x3e30")
+
+[node name="Ghostsoulguy2" type="Sprite2D" parent="ySORT"]
+z_index = 1
+position = Vector2(1412, 160)
+texture = ExtResource("18_wv0b7")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="ySORT/Ghostsoulguy2"]
+modulate = Color(1, 1, 1, 0.498039)
+z_index = -1
+position = Vector2(0, 14)
+texture = ExtResource("19_x3e30")
 
 [node name="CabinDoor4" type="Sprite2D" parent="."]
 position = Vector2(1432, 89)
