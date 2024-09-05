@@ -22,9 +22,12 @@ func _on_body_entered(body):
 			#standard load of next scene // no check
 		if BoolToCheck == 1:
 			if GlobalBools.HasInvestigatedKitchen == false:
+				GlobalDialogue.loadLines("I havent investigated the kitchen yet!","","","","","","","","")
 				GlobalDialogue.setPersonSpeaking("YOU")
+				GlobalDialogue.setDialougueOn()
 				GlobalDialogue.maxlines = 0
-				GlobalDialogue.loadLines("","I havent investigated the kitchen yet!","","","","","","","")
+				GlobalDialogue.nextLine()
+				
 			if GlobalBools.HasInvestigatedKitchen == true:
 				get_tree().change_scene_to_file(SceneToLoad) 
 				#To check if the main building has been fully investigated // change to the correct scene later
