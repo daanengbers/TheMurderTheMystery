@@ -390,6 +390,12 @@ func DiscusionInTheMainBuilding():
 		setPersonSpeaking("Raisa")
 		maxlines = 1
 		loadLines("","Stay safe!","","","","","","","",)
+	if charlinenr == 10:
+		var soulGuys = get_tree().get_nodes_in_group("SoulGuys")
+		soulGuys[0].queue_free()
+		soulGuys[1].queue_free()
+		is_cutscene = false
+		setDialougueOff()
 	
 func setDialougueOn():
 	global_dialogue_on = true
