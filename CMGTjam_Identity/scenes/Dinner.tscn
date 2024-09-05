@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://fb5wearqil10"]
+[gd_scene load_steps=22 format=3 uid="uid://fb5wearqil10"]
 
 [ext_resource type="Texture2D" uid="uid://b0br2k8h2m7u" path="res://sprites/Table.png" id="1_ct6nh"]
+[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="1_l041x"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_okrwi"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="2_rydra"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_ctutd"]
@@ -134,6 +135,8 @@ size = Vector2(28, 8)
 
 [node name="Mainscene" type="Node2D"]
 texture_filter = 1
+
+[node name="Darkworldfilter" parent="." instance=ExtResource("1_l041x")]
 
 [node name="ySORT" type="Node2D" parent="."]
 y_sort_enabled = true
