@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cfxc5fyqg16qk"]
+[gd_scene load_steps=32 format=3 uid="uid://cfxc5fyqg16qk"]
 
 [ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_0sw8i"]
 [ext_resource type="Script" path="res://scenes/Kitchen.gd" id="1_joaux"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://nkcp8huj0dwb" path="res://sprites/CuttingBoard.png" id="10_a63f1"]
 [ext_resource type="Texture2D" uid="uid://dsvkj6k7bca1j" path="res://sprites/Oven.png" id="12_vbo7w"]
 [ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="14_jkc4s"]
+[ext_resource type="AudioStream" uid="uid://dhray825b6sjo" path="res://sounds/Scream.wav" id="17_30dtw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osf81"]
 texture = ExtResource("3_ak27g")
@@ -307,5 +308,8 @@ scale = Vector2(6.56, 1.64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_w67b0")
+
+[node name="Scream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_30dtw")
 
 [connection signal="body_entered" from="LoadAnotherScene2" to="LoadAnotherScene2" method="_on_body_entered"]

@@ -30,4 +30,7 @@ func interact():
 func _process(delta):
 	if GlobalDialogue.linenr == 3 && BoolToTurnOn == 1:
 		GlobalDialogue.setPersonSpeaking("?")
+	if GlobalDialogue.linenr == 2 && BoolToTurnOn == 1:
+		$"../Scream".play()
+		
 	
