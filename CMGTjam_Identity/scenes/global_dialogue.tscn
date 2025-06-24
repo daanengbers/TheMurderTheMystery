@@ -98,6 +98,7 @@ offset_left = 2.0
 offset_top = 146.0
 offset_right = 318.0
 offset_bottom = 178.0
+mouse_filter = 2
 color = Color(0.415686, 0.45098, 0.588235, 1)
 
 [node name="Textbox-1" type="Sprite2D" parent="UI/Textbox"]
@@ -147,6 +148,7 @@ autowrap_mode = 2
 z_index = 100
 offset_right = 320.0
 offset_bottom = 180.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Blackbox"]

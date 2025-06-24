@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://cfxc5fyqg16qk"]
 
-[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_0sw8i"]
+[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="1_0sw8i"]
 [ext_resource type="Script" path="res://scenes/Kitchen.gd" id="1_joaux"]
 [ext_resource type="PackedScene" path="res://scenes/persona_background.tscn" id="1_yurhg"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_6krro"]

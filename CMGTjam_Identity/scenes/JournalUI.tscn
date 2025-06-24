@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://307n34ml6ooa"]
+
+[ext_resource type="Script" path="res://scenes/JournalUI.gd" id="1_5jvrf"]
+[ext_resource type="FontFile" uid="uid://bdnd4wbvgahig" path="res://fonts/EXEPixelPerfect.ttf" id="2_5jxoi"]
+[ext_resource type="PackedScene" uid="uid://cy328n2njborl" path="res://scenes/GlobalEvidenceSriptContainer.tscn" id="3_m4fj6"]
+[ext_resource type="Texture2D" uid="uid://b5wnsckf1btr7" path="res://JournallBG.png" id="4_uav8f"]
+
+[node name="JournalUi" type="Node2D"]
+script = ExtResource("1_5jvrf")
+
+[node name="FirstEvidence" type="Node" parent="."]
+
+[node name="FirstTitle" type="Label" parent="FirstEvidence"]
+texture_filter = 1
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 96.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_fonts/font = ExtResource("2_5jxoi")
+theme_override_font_sizes/font_size = 16
+
+[node name="FirstDescription" type="Label" parent="FirstEvidence"]
+texture_filter = 1
+offset_left = 20.0
+offset_top = 31.0
+offset_right = 125.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("2_5jxoi")
+theme_override_font_sizes/font_size = 16
+
+[node name="SeccondEvidence" type="Node" parent="."]
+
+[node name="SeccondTitle" type="Label" parent="SeccondEvidence"]
+texture_filter = 1
+offset_left = 20.0
+offset_top = 66.0
+offset_right = 113.0
+offset_bottom = 89.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_fonts/font = ExtResource("2_5jxoi")
+
+[node name="SeccondDescription" type="Label" parent="SeccondEvidence"]
+texture_filter = 1
+offset_left = 20.0
+offset_top = 79.0
+offset_right = 126.0
+offset_bottom = 102.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("2_5jxoi")
+
+[node name="ThirdEvidence" type="Node" parent="."]
+
+[node name="ThirdTitle" type="Label" parent="ThirdEvidence"]
+texture_filter = 1
+offset_left = 20.0
+offset_top = 114.0
+offset_right = 98.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_fonts/font = ExtResource("2_5jxoi")
+
+[node name="ThirdDescription" type="Label" parent="ThirdEvidence"]
+texture_filter = 1
+offset_left = 20.0
+offset_top = 127.0
+offset_right = 111.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.580392, 0.580392, 0.580392, 1)
+theme_override_constants/line_spacing = -1
+theme_override_fonts/font = ExtResource("2_5jxoi")
+
+[node name="GlobalEvidenceSriptContainer" parent="." instance=ExtResource("3_m4fj6")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_uav8f")

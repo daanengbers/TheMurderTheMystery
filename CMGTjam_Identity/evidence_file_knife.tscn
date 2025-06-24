@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd8hqktol8qpt"]
+
+[ext_resource type="PackedScene" uid="uid://da7n7n5rtemar" path="res://EvidenceFile.tscn" id="1_kykuf"]
+
+[node name="EvidenceFileKnife" instance=ExtResource("1_kykuf")]
+Title = "Knife"
+Desciription = "zx"

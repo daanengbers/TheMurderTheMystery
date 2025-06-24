@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_bi3y8"]
 [ext_resource type="Script" path="res://scenes/ToiletStallDirty.gd" id="1_f2j4j"]
-[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_ykhiv"]
+[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="1_ykhiv"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="2_jg2bo"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_71qun"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="4_ry8rw"]

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalDialogue="*res://scenes/global_dialogue.tscn"
 GlobalBools="*res://scripts/global_bools.gd"
+GlobalEvidence="*res://scripts/Global_Evidence.gd"
 
 [display]
 
