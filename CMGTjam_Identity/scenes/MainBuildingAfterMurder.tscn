@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://bht2n8axvgixr"]
 
-[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="1_bfl0u"]
+[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_bfl0u"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="2_ie7u2"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="3_lspwg"]
 [ext_resource type="Texture2D" uid="uid://d3fv2ishwug8q" path="res://sprites/Tiles_cabin.png" id="5_860vb"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d3qtf0vtll1it" path="res://sprites/Shininglight.png" id="8_6fpcx"]
 [ext_resource type="Script" path="res://scripts/ChangeTheScene.gd" id="9_37hnx"]
 [ext_resource type="PackedScene" path="res://scenes/persona_background.tscn" id="10_cdtp7"]
-[ext_resource type="PackedScene" uid="uid://dtxb0s8obtbtu" path="res://scenes/scenesetter.tscn" id="11_oolbu"]
+[ext_resource type="PackedScene" path="res://scenes/scenesetter.tscn" id="11_oolbu"]
 [ext_resource type="Texture2D" uid="uid://b5t3ftpbrbjxr" path="res://sprites/Ghostsoulguy.png" id="12_2eheg"]
 [ext_resource type="Texture2D" uid="uid://crhr0hxupfd2l" path="res://sprites/MainBuilding.png" id="13_k4nna"]
 [ext_resource type="Texture2D" uid="uid://bqyy7r1xs8dle" path="res://sprites/Deadalienguy-1.png" id="14_d8jvr"]

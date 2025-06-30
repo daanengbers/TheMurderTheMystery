@@ -2,6 +2,14 @@ extends Node
 
 ##SceneObjects##
 @onready var LineText = $LineLabel
+
+@onready var option1 = $Option1
+@onready var option2 = $Option2
+@onready var option3 = $Option3
+@onready var option4 = $Option4
+@onready var option5 = $Option5
+
+@onready var Pointer = $Hammer
 ###########################
 
 
@@ -10,6 +18,9 @@ extends Node
 @export var SeccondDailogueArray = ["",""]
 @export var ThirdDailogueArray = ["",""]
 @export var FourthDailogueArray = ["",""]
+
+@export var optionAmount = 0
+@export var options = ["",""]
 
 @export var CorrectEvidence = [0,0,0,0]
 
@@ -39,12 +50,15 @@ var currentDailogueNumber = 1
 
 #Vars for use in the evidence select system
 var currentEvidenceSelected = 1
+
+var optionLocs = [Vector2(0,83)]
 ###########################
 
 
 func _ready():
 	resetValues()
 	CheckDailogueAmount()
+	setupOptions()
 	goThroughDailogue()
 
 func _process(delta):
@@ -108,3 +122,68 @@ func checkCorrectOptions():
 	else:
 		pass
 	pass
+
+func setupOptions():
+	match optionAmount:
+		0:
+			pass
+		1:
+			option1.visible = true
+			optionLocs = [Vector2(0,83)]
+			option1.position = optionLocs[0]
+			option1.text = options[0]
+			Pointer.position = optionLocs[0] + Vector2(55,7)
+		2:
+			option1.visible = true
+			option2.visible = true
+			optionLocs = [Vector2(0,67), Vector2(0,99)]
+			option1.position = optionLocs[0]
+			option2.position = optionLocs[1]
+			option1.text = options[0]
+			option2.text = options[1]
+			Pointer.position = optionLocs[0] + Vector2(55,7)
+		3:
+			option1.visible = true
+			option2.visible = true
+			option3.visible = true
+			optionLocs = [Vector2(0,59), Vector2(0,83), Vector2(0,107)]
+			option1.position = optionLocs[0]
+			option2.position = optionLocs[1]
+			option3.position = optionLocs[2]
+			option1.text = options[0]
+			option2.text = options[1]
+			option3.text = options[2]
+			Pointer.position = optionLocs[0] + Vector2(55,7)
+		4:
+			option1.visible = true
+			option2.visible = true
+			option3.visible = true
+			option4.visible = true
+			optionLocs = [Vector2(0,35), Vector2(0,67), Vector2(0,99), Vector2(0,131)]
+			option1.position = optionLocs[0]
+			option2.position = optionLocs[1]
+			option3.position = optionLocs[2]
+			option4.position = optionLocs[3]
+			option1.text = options[0]
+			option2.text = options[1]
+			option3.text = options[2]
+			option4.text = options[3]
+			Pointer.position = optionLocs[0] + Vector2(55,7)
+		5:
+			option1.visible = true
+			option2.visible = true
+			option3.visible = true
+			option4.visible = true
+			option5.visible = true
+			optionLocs = [Vector2(0,35), Vector2(0,59), Vector2(0,83), Vector2(0,107), Vector2(0,131)]
+			option1.position = optionLocs[0]
+			option2.position = optionLocs[1]
+			option3.position = optionLocs[2]
+			option4.position = optionLocs[3]
+			option5.position = optionLocs[4]
+			option1.text = options[0]
+			option2.text = options[1]
+			option3.text = options[2]
+			option4.text = options[3]
+			option5.text = options[4]
+			Pointer.position = optionLocs[0] + Vector2(55,7)

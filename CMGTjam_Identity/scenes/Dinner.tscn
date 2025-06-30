@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://fb5wearqil10"]
 
 [ext_resource type="Texture2D" uid="uid://b0br2k8h2m7u" path="res://sprites/Table.png" id="1_ct6nh"]
-[ext_resource type="PackedScene" path="res://scenes/darkworldfilter.tscn" id="1_l041x"]
+[ext_resource type="PackedScene" uid="uid://cq8xqk1ffj7cg" path="res://scenes/darkworldfilter.tscn" id="1_l041x"]
 [ext_resource type="PackedScene" uid="uid://dset14xwga0y6" path="res://scenes/player.tscn" id="1_okrwi"]
 [ext_resource type="Texture2D" uid="uid://cgxvbp6yreqs0" path="res://sprites/320180plane.png" id="2_rydra"]
 [ext_resource type="PackedScene" uid="uid://36sy2apc30hn" path="res://scenes/interactable.tscn" id="3_ctutd"]
