@@ -8,8 +8,8 @@
 script = ExtResource("1_kd4gk")
 FirstDailogueArray = ["Hello", "Bababay", "asfafs"]
 SeccondDailogueArray = ["asfasf", "asfasf", "asfasf", "asfsfasf"]
-optionAmount = 2
-options = ["Knife", "Pipa"]
+optionAmount = 3
+options = ["Knife", "Pipa", "sdf"]
 
 [node name="LineLabel" type="Label" parent="."]
 texture_filter = 1

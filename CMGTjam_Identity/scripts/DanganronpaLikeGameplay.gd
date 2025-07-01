@@ -52,6 +52,9 @@ var currentDailogueNumber = 1
 var currentEvidenceSelected = 1
 
 var optionLocs = [Vector2(0,83)]
+
+var waitingForOptionSwitch = true
+var canSelectOptions = true
 ###########################
 
 
@@ -62,7 +65,23 @@ func _ready():
 	goThroughDailogue()
 
 func _process(delta):
-	pass
+	if canSelectOptions:
+		if Input.is_action_pressed("up") && currentEvidenceSelected > 1 && waitingForOptionSwitch:
+			waitingForOptionSwitch = false
+			currentEvidenceSelected -=1
+			Pointer.position = optionLocs[currentEvidenceSelected - 1] + Vector2(55,7)
+			await get_tree().create_timer(0.2).timeout
+			waitingForOptionSwitch = true
+		if Input.is_action_pressed("down") && currentEvidenceSelected < optionAmount && waitingForOptionSwitch:
+			waitingForOptionSwitch = false
+			currentEvidenceSelected +=1
+			Pointer.position = optionLocs[currentEvidenceSelected - 1] + Vector2(55,7)
+			await get_tree().create_timer(0.2).timeout
+			waitingForOptionSwitch = true
+		if Input.is_action_pressed("interact"):
+			canSelectOptions = false
+			checkCorrectOptions()
+	
 
 func CheckDailogueAmount():
 	##Checks if the dailogues are initialized and adds them to the dailogu array so they can be played before counting
@@ -120,8 +139,7 @@ func checkCorrectOptions():
 	if EvidenceCorrect && LineCorrect:
 		pass
 	else:
-		pass
-	pass
+		canSelectOptions = true
 
 func setupOptions():
 	match optionAmount:
